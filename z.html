@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/z.css">
+<style>
+section:not([class]) {padding-bottom: 0;}
+footer::before {width: 100vw;}
+</style>
+</head>
+<body>
+<section></section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
+<script>
+// var url = location.hash.replace('#', location.pathname.replace('markdown.html', ''))
+var url = 'z.md'
+var selector = document.querySelector('section')
+axios
+.get(url)
+.then(res => res.data)
+.then(md => marked(md))
+.then(html => selector.innerHTML = html)
+</script>
+<script src="https://cdn.rawgit.com/lrsjng/pagemap/master/dist/pagemap.min.js"></script>
+<style>
+#map {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 100;
+}
+</style>
+<script>
+var canvas = document.createElement('canvas')
+canvas.id = 'map'
+document.body.appendChild(canvas)
+pagemap(canvas, { styles: { '*': 'rgba(0,0,0,.03)' }})
+</script>
+</body>
+</html>

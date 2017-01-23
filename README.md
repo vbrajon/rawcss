@@ -1,4 +1,11 @@
 # zcss: Zero CSS
+> Goal: Minimal CSS Framework
+
+## Modules
+
+1. Core [ section, hr, img, p, h1-6, a, button, code, pre, ul, ol, table ]
+2. Utils [ css-class, tooltip, card ]
+3. Form [ fieldset, legend, select, radio, checkbox, input, textarea ]
 
 ## Next step
 
@@ -33,6 +40,9 @@
 - [ ] card
 - [ ] navigation
 - [ ] footer
+
+## From skeleton
+- [ ] Pure CSS - 370 sloc - 11KB
 
 ## Inspired By
 
