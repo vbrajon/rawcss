@@ -1,5 +1,5 @@
-# zcss: Zero CSS
-> Goal: Minimal CSS Framework
+# Raw CSS
+> Minimalist CSS Framework
 
 ## Modules
 

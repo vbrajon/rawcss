@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/z.css">
-<style>
-section:not([class]) {padding-bottom: 0;}
-footer::before {width: 100vw;}
-</style>
+<link rel="stylesheet" href="/raw.css">
+<link rel="stylesheet" href="/raw-utils.css">
 </head>
 <body>
 <section></section>
@@ -13,7 +10,7 @@ footer::before {width: 100vw;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
 <script>
 // var url = location.hash.replace('#', location.pathname.replace('markdown.html', ''))
-var url = 'z.md'
+var url = 'examples.md'
 var selector = document.querySelector('section')
 axios
 .get(url)
