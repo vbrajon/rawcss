@@ -32,3 +32,7 @@
 [txt=r] { text-align: right; }
 [txt=c] { text-align: center; }
 [txt=j] { text-align: justify; }
+[b] { border: var(--border); }
+[bg] { background: var(--background); }
+[bg1] { background: var(--background-1); }
+[bg2] { background: var(--background-2); }

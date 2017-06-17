@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/raw.css">
-<link rel="stylesheet" href="/raw-utils.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RawCSS | Minimalist modular CSS</title>
+<link rel="stylesheet" href="raw.css">
+<link rel="stylesheet" href="raw-flex.css">
+<link rel="stylesheet" href="raw-form.css">
+<link rel="stylesheet" href="raw-utils.css">
 </head>
 <body>
 <section></section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
 <script>
-// var url = location.hash.replace('#', location.pathname.replace('markdown.html', ''))
-var url = 'examples.md'
-var selector = document.querySelector('section')
+var url = location.search.replace('?', '/')
+if(!url) url = '/ex1.md'
+if(!/.md$/.test(url)) url += '.md'
 axios
 .get(url)
 .then(res => res.data)
 .then(md => marked(md))
-.then(html => selector.innerHTML = html)
+.then(html => document.querySelector('section').innerHTML = html)
 </script>
 <script src="https://cdn.rawgit.com/lrsjng/pagemap/master/dist/pagemap.min.js"></script>
 <style>
@@ -27,6 +32,11 @@ axios
   width: 150px;
   height: 100%;
   z-index: 100;
+}
+@media (max-width: 1000px) {
+  #map {
+    visibility: hidden;
+  }
 }
 </style>
 <script>

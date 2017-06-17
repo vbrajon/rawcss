@@ -7,14 +7,13 @@
   --text: rgba(0, 0, 0, .87);
   --divider: rgba(0, 0, 0, .12);
   --highlight: rgba(255, 221, 0, .5);
-  --primary: #679;
-  --primary-1: #5a6987;
-  --disable: rgba(0, 0, 0, .26);
-  --disable-1: rgba(0, 0, 0, .12);
+  --highlight: rgba(255, 221, 0, .5);
+  --primary: rgba(102, 119, 153, 1);
+  --primary-1: rgba(90, 105, 135, 1);
+  --border: 1px solid var(--divider);
   --background: #fff;
   --background-1: #fafafa;
   --background-2: #f5f5f5;
-  --border: 1px solid var(--divider);
 }
 ::selection {
   background-color: var(--primary);
@@ -56,47 +55,11 @@ img {
   max-width: 100%;
   height: auto;
 }
-p {
+p, h1, h2, h3, h4, h5, h6 {
   margin: 0 0 2rem;
 }
 p:last-child {
   margin: 0;
-}
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 2rem;
-  font-weight: 200;
-}
-h1 {
-  letter-spacing: -1px;
-  font-size: 4rem;
-  line-height: 1.1;
-}
-h2 {
-  letter-spacing: -.05rem;
-  font-size: 3rem;
-  line-height: 1.1;
-}
-h3 {
-  letter-spacing: -.05rem;
-  font-size: 2.5rem;
-  line-height: 1.3;
-}
-h4 {
-  letter-spacing: -.05rem;
-  font-size: 2rem;
-  line-height: 1.3;
-}
-h5 {
-  text-transform: uppercase;
-  letter-spacing: 0;
-  font-size: 1.4rem;
-  line-height: 1.5;
-}
-h6 {
-  letter-spacing: 0;
-  font-variant: small-caps;
-  font-size: 1.4rem;
-  line-height: 1.5;
 }
 ol, ul {
   margin: 0 0 2rem;
@@ -151,7 +114,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-a:not([btn]):before {
+a:before {
   position: absolute;
   z-index: -1;
   display: inline-block;
@@ -162,8 +125,11 @@ a:not([btn]):before {
   transform: scale3d(1, .1, 1);
   transform-origin: bottom;
 }
-a:not([btn]):hover:before {
+a:hover:before {
   transform: none;
+}
+a[btn]:before {
+  content: none;
 }
 [tt] {
   position: relative;
@@ -202,7 +168,7 @@ a[tt=""]:after {
 [tag] {
   display: inline-block;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--disable-1);
+  border-bottom: var(--border);
   border-radius: 1.5rem;
   background: var(--background-2);
   color: var(--primary);
