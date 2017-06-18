@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="raw-utils.css">
 </head>
 <body>
-<section></section>
+<main></main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
 <script>
@@ -21,7 +21,7 @@ axios
 .get(url)
 .then(res => res.data)
 .then(md => marked(md))
-.then(html => document.querySelector('section').innerHTML = html)
+.then(html => document.querySelector('main').innerHTML = '<section>' + html.replace(/<hr>/g, '</section><section>') + '</section>')
 </script>
 <script src="https://cdn.rawgit.com/lrsjng/pagemap/master/dist/pagemap.min.js"></script>
 <style>

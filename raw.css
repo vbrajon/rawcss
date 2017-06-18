@@ -4,16 +4,14 @@
   --size-laptop: 120rem;
   --size-desktop: 180rem;
   --transition: all .3s cubic-bezier(.4, .0, .2, 1);
-  --text: rgba(0, 0, 0, .87);
+  --text: #273446;
   --divider: rgba(0, 0, 0, .12);
+  --high: #fd4;
   --highlight: rgba(255, 221, 0, .5);
-  --highlight: rgba(255, 221, 0, .5);
-  --primary: rgba(102, 119, 153, 1);
-  --primary-1: rgba(90, 105, 135, 1);
+  --primary: #23bcf8;
   --border: 1px solid var(--divider);
   --background: #fff;
-  --background-1: #fafafa;
-  --background-2: #f5f5f5;
+  --background-2: #f5f9fc;
 }
 ::selection {
   background-color: var(--primary);
@@ -69,10 +67,10 @@ ol ul, ul ol {
   margin-bottom: 0;
 }
 ul {
-  list-style: disc;
+  list-style: square;
 }
 ul ul {
-  list-style: circle;
+  list-style: disc;
 }
 ol {
   list-style: decimal;
