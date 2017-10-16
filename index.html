@@ -1,49 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RawCSS | Minimalist modular CSS</title>
-<link rel="stylesheet" href="raw.css">
-<link rel="stylesheet" href="raw-flex.css">
-<link rel="stylesheet" href="raw-form.css">
-<link rel="stylesheet" href="raw-utils.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RawCSS | Minimalist CSS</title>
+  <link rel="stylesheet" href="/raw.css">
 </head>
 <body>
-<main></main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
-<script>
-var url = location.search.replace('?', '/')
-if(!url) url = '/ex1.md'
-if(!/.md$/.test(url)) url += '.md'
-axios
-.get(url)
-.then(res => res.data)
-.then(md => marked(md))
-.then(html => document.querySelector('main').innerHTML = '<section>' + html.replace(/<hr>/g, '</section><section>') + '</section>')
-</script>
-<script src="https://cdn.rawgit.com/lrsjng/pagemap/master/dist/pagemap.min.js"></script>
-<style>
-#map {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 150px;
-  height: 100%;
-  z-index: 100;
-}
-@media (max-width: 1000px) {
-  #map {
-    visibility: hidden;
-  }
-}
-</style>
-<script>
-var canvas = document.createElement('canvas')
-canvas.id = 'map'
-document.body.appendChild(canvas)
-pagemap(canvas, { styles: { '*': 'rgba(0,0,0,.03)' }})
-</script>
+  <main></main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
+  <script>
+    var url = location.search.replace('?', '/ex')
+    if (!url) url = '/README.md'
+    if (!/.md$/.test(url)) url += '.md'
+    axios
+      .get(url)
+      .then(res => res.data)
+      .then(md => marked(md))
+      .then(html => document.querySelector('main').innerHTML = '<section>' + html.replace(/<hr>/g, '</section><section>') + '</section>')
+  </script>
 </body>
 </html>
