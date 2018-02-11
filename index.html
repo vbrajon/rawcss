@@ -3,22 +3,61 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RawCSS | Minimalist CSS</title>
+  <title>RawCSS: Pure CSS Utility</title>
   <link rel="stylesheet" href="/raw.css">
 </head>
-<body>
-  <main></main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
+<body container>
+
+  <nav>
+    <h1>RawCSS</h1>
+
+    <ul>
+      <li>Import</li>
+      <li>Customize</li>
+      <li>Build</li>
+    </ul>
+  </nav>
+
+  <section column>
+    <h2>Import</h2>
+    <pre><code lang="html">&lt;link rel="stylesheet" href="https://rawcss.com/raw.css"&gt;</code></pre>
+  </section>
+
+  <section column>
+    <h2>Customize</h2>
+    <fieldset column>
+      <h3>Colors</h3>
+      <label>Text<input type="color" name="text" value="#273446" onchange="update_css(event)" /></label>
+      <label>Primary<input type="color" name="primary" value="#23bcf8"  onchange="update_css(event)" /></label>
+      <label>Highlight<input type="color" name="high" value="#fd4"  onchange="update_css(event)" /></label>
+      <label>Background<input type="color" name="background" value="#fff"  onchange="update_css(event)" /></label>
+      <label>Background 1<input type="color" name="background-1" value="#f1f4f9"  onchange="update_css(event)" /></label>
+      <label>Background 2<input type="color" name="background-2" value="#3d5a74"  onchange="update_css(event)" /></label>
+      <label>Background 2<input type="color" name="background-2" value="#3d5a74"  onchange="update_css(event)" /></label>
+    </fieldset>
+    <fieldset column>
+      <h3>Typography</h3>
+    </filedset>
+    <fieldset column>
+      <h3>Animation</h3>
+    </filedset>
+    <fieldset column>
+      <h3>Layout</h3>
+    </filedset>
+    <fieldset column>
+      <h3>Assets</h3>
+    </filedset>
+  </section>
+
+  <section column>
+    <h2>Build</h2>
+    <pre><code lang="css">:root {}</code></pre>
+  </section>
+
   <script>
-    var url = location.search.replace('?', '/ex')
-    if (!url) url = '/README.md'
-    if (!/.md$/.test(url)) url += '.md'
-    axios
-      .get(url)
-      .then(res => res.data)
-      .then(md => marked(md))
-      .then(html => document.querySelector('main').innerHTML = '<section>' + html.replace(/<hr>/g, '</section><section>') + '</section>')
+  function update_css(ev) {
+    document.documentElement.style.setProperty('--' + ev.target.name, ev.target.value);
+  }
   </script>
 </body>
 </html>
