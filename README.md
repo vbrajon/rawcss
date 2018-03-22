@@ -6,8 +6,9 @@
 - or in css `@import url(https://rawcss.com/raw.css)`
 
 ### Concept
-- Use of css variable to define only once colors, border, shadow, transitions.
-- Use of html attributes to define flexbox constrains (simpler API row(s), center, right, between).
+- CSS variables for simple use of color / shadow / transitions.
+- CSS variable and flexbox shortcuts (via html attributes) for prototyping.
+- Grid & Block flexible, nestable, automatic layout.
 
 ### Inspired By
 

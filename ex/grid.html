@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RawCSS: Grid</title>
+  <link rel="stylesheet" href="/raw.css">
+  <style>
+    html, body, main { min-width: 100vw;min-height: 100vh;margin: 0;padding: 0; }
+
+    [block] { position: relative;overflow: hidden;background: rgba(0, 0, 0, .05); }
+    [block]::before { z-index: 10;position: absolute;top: -1.2em;right: -3.1em;width: 68px;content: "\00a0";font-size: .8em;font-weight: 700;text-align: center;letter-spacing: .1em;color: #fff;transition: var(--transition);transform: rotate(45deg);transform-origin: 0 0; }
+    [block][sm]::before { content: "SM";background: #40bf80; }
+    [block][md]::before { content: "MD";background: #33b2cc; }
+    [block][lg]::before { content: "LG";background: #bc79ec; }
+    [block][xl]::before { content: "XL";background: #f0427c; }
+
+    [sm] { min-width: 150px; }
+    [lg] { min-width: calc(50% - 16px); }
+    @media (max-width: 600px) { [lg] { min-width: calc(100% - 16px); } }
+  </style>
+  <script type="text/markdown">
+    grid takes full available space
+    grid can take more and be scrollable
+    grid can be nested
+    block manages is own spacing
+    block is never shrinked
+  </script>
+</head>
+<body>
+  <main grid-box>
+    <div grid grid-line>
+      <div block sm>1a</div>
+      <div block sm>1b</div>
+      <div block sm>1c</div>
+      <div block sm>1d</div>
+      <div block sm>1e</div>
+      <div block sm>1f</div>
+    </div>
+    <div grid>
+      <div block lg>2a</div>
+      <div block style="background: initial;box-shadow: initial;overflow: initial;">
+        <div grid-box>
+          <div grid>
+            <div block style="background: initial;box-shadow: initial;overflow: initial;">
+              <div grid-box>
+                <div grid>
+                  <div block sm>2b1a</div>
+                  <div block sm>2b1b</div>
+                  <div block sm>2b1c</div>
+                  <div block sm>2b1d</div>
+                </div>
+              </div>
+            </div>
+            <div block sm>2b2</div>
+            <div block sm>2b3</div>
+            <div block sm>2b4</div>
+          </div>
+        </div>
+      </div>
+      <div block lg>2c</div>
+      <div block lg>2d - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </div>
+  </main>
+</body>
+</html>
