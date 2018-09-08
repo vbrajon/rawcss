@@ -8,58 +8,61 @@
   <style>
     html, body, main { min-width: 100vw;min-height: 100vh;margin: 0;padding: 0; }
 
-    [block] { position: relative;overflow: hidden;background: rgba(0, 0, 0, .05); }
-    [block]::before { z-index: 10;position: absolute;top: -1.2em;right: -3.1em;width: 68px;content: "\00a0";font-size: .8em;font-weight: 700;text-align: center;letter-spacing: .1em;color: #fff;transition: var(--transition);transform: rotate(45deg);transform-origin: 0 0; }
-    [block][sm]::before { content: "SM";background: #40bf80; }
-    [block][md]::before { content: "MD";background: #33b2cc; }
-    [block][lg]::before { content: "LG";background: #bc79ec; }
-    [block][xl]::before { content: "XL";background: #f0427c; }
+    .block { background: white;border-radius: var(--border-radius);box-shadow: var(--box-shadow);transition: var(--transition); }
+    .block { position: relative;overflow: hidden;background: rgba(0, 0, 0, .05); }
+    .block::before { z-index: 10;position: absolute;top: -1.2em;right: -3.1em;width: 68px;content: "\00a0";font-size: .8em;font-weight: 700;text-align: center;letter-spacing: .1em;color: #fff;transition: var(--transition);transform: rotate(45deg);transform-origin: 0 0; }
+    .block.sm::before { content: "SM";background: #40bf80; }
+    .block.md::before { content: "MD";background: #33b2cc; }
+    .block.lg::before { content: "LG";background: #bc79ec; }
+    .block.xl::before { content: "XL";background: #f0427c; }
 
-    [sm] { min-width: 150px; }
-    [lg] { min-width: calc(50% - 16px); }
-    @media (max-width: 600px) { [lg] { min-width: calc(100% - 16px); } }
+    .sm { min-width: 250px;min-height: 50px; }
+    .md { min-width: 300px;min-height: 75px; }
+    .lg { min-width: calc(50% - 16px);min-height: 300px; }
+    @media (max-width: 600px) { .lg { min-width: calc(100% - 16px); } }
   </style>
   <script type="text/markdown">
-    grid takes full available space
-    grid can take more and be scrollable
-    grid can be nested
-    block manages is own spacing
-    block is never shrinked
+    grids takes all available space or more and scroll
+    when nesting column/rows, the automatic height is smaller than blocks
+      > padding: calc(var(--spacing) * 2.5) 0;
   </script>
 </head>
 <body>
-  <main grid-box>
-    <div grid grid-line>
-      <div block sm>1a</div>
-      <div block sm>1b</div>
-      <div block sm>1c</div>
-      <div block sm>1d</div>
-      <div block sm>1e</div>
-      <div block sm>1f</div>
-    </div>
-    <div grid>
-      <div block lg>2a</div>
-      <div block style="background: initial;box-shadow: initial;overflow: initial;">
-        <div grid-box>
-          <div grid>
-            <div block style="background: initial;box-shadow: initial;overflow: initial;">
-              <div grid-box>
-                <div grid>
-                  <div block sm>2b1a</div>
-                  <div block sm>2b1b</div>
-                  <div block sm>2b1c</div>
-                  <div block sm>2b1d</div>
-                </div>
+  <main class="grid">
+    <h1 style="text-align: center;">Title Here</h1>
+    <div class="row max">
+      <div class="column">
+        <div class="block md">1a</div>
+        <div class="block lg">1b</div>
+      </div>
+      <div class="column" style="min-width: 60%;">
+        <div class="block sm">1c</div>
+        <div class="block sm">1d</div>
+        <div class="row max">
+          <div class="block sm">1e1</div>
+          <div class="block sm">1e2</div>
+        </div>
+        <!-- <div class="row max">
+          <div class="block sm">1e1</div>
+          <div class="column">
+            <div class="block sm">1e2a</div>
+            <div class="block sm">1e2b</div>
+            <div class="row max">
+              <div class="block sm">1e2c1</div>
+              <div class="column">
+                <div class="block sm">1e2c2a</div>
+                <div class="block sm">1e2c2b</div>
               </div>
             </div>
-            <div block sm>2b2</div>
-            <div block sm>2b3</div>
-            <div block sm>2b4</div>
           </div>
-        </div>
+        </div> -->
+        <div class="block sm">1f</div>
+        <div class="block sm">1g</div>
       </div>
-      <div block lg>2c</div>
-      <div block lg>2d - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </div>
+    <div class="row">
+      <div class="block sm">2a</div>
+      <div class="block sm">2b</div>
     </div>
   </main>
 </body>

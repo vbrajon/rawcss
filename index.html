@@ -3,63 +3,84 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RawCSS: Pure CSS Utility</title>
+  <title>RawCSS</title>
   <link rel="stylesheet" href="/raw.css">
   <style>
-    body { margin: 4% 6%; }
+    body > h1 { margin: 60px;text-align: center; }
+    section { margin: 20px auto;width: 600px;max-width: calc(100% - 20px); }
+    label, button { display: flex;align-items: center;margin: 4px; }
+    label :last-child { margin-left: auto; }
+    input[type="color"] { cursor: pointer;padding: 0;border: none;width: 30px;height: 30px; }
   </style>
 </head>
 <body>
 
-  <nav>
-    <h1>RawCSS</h1>
+  <h1>RawCSS</h1>
 
-    <ul>
-      <li>Import</li>
-      <li>Customize</li>
-      <li>Build</li>
-    </ul>
-  </nav>
-
-  <section column>
-    <h2>Import <a href="https://rawcss.com/raw.css">RawCSS</a></h2>
+  <section class="column">
+    <h2>Import <a tt href="https://rawcss.com/raw.css">RawCSS</a></h2>
     <pre><code lang="html">&lt;link rel="stylesheet" href="https://rawcss.com/raw.css"&gt;</code></pre>
   </section>
 
-  <section column>
+  <section class="column">
     <h2>Customize</h2>
-    <fieldset column>
-      <h3>Colors</h3>
-      <label>Text<input type="color" name="text" value="#273446" onchange="update_css(event)" /></label>
-      <label>Primary<input type="color" name="primary" value="#23bcf8"  onchange="update_css(event)" /></label>
-      <label>Highlight<input type="color" name="high" value="#fd4"  onchange="update_css(event)" /></label>
-      <label>Background<input type="color" name="background" value="#fff"  onchange="update_css(event)" /></label>
-      <label>Background 1<input type="color" name="background-1" value="#f1f4f9"  onchange="update_css(event)" /></label>
-      <label>Background 2<input type="color" name="background-2" value="#3d5a74"  onchange="update_css(event)" /></label>
-      <label>Background 2<input type="color" name="background-2" value="#3d5a74"  onchange="update_css(event)" /></label>
-    </fieldset>
-    <fieldset column>
-      <h3>Typography</h3>
-    </filedset>
-    <fieldset column>
-      <h3>Animation</h3>
-    </filedset>
-    <fieldset column>
-      <h3>Layout</h3>
-    </filedset>
-    <fieldset column>
-      <h3>Assets</h3>
-    </filedset>
+    <label>Text<input type="color" value="#273446" onchange="update_css(event)" /></label>
+    <label>Primary<input type="color" value="#00aaff" onchange="update_css(event)" /></label>
+    <label>Secondary<input type="color" value="#524ed0" onchange="update_css(event)" /></label>
+    <label>Inactive<input type="color" value="#6e758c" onchange="update_css(event)" /></label>
+    <label>Positive<input type="color" value="#40bf80" onchange="update_css(event)" /></label>
+    <label>Negative<input type="color" value="#f0427c" onchange="update_css(event)" /></label>
+    <label>Highlight<input type="color" value="#ffdd44" onchange="update_css(event)" /></label>
+    <label>Border<input type="text" value="1px solid rgba(0, 0, 0, .12)" oninput="update_css(event)" /></label>
+    <label>Border-Radius<input type="text" value="4px" oninput="update_css(event)" /></label>
+    <label>Box-Shadow<input type="text" value="0 3px 10.5px 0 rgba(74, 105, 160, 0.16)" oninput="update_css(event)" /></label>
+    <label>Transition<input type="text" value="all .3s cubic-bezier(.4, .0, .2, 1)" oninput="update_css(event)" /></label>
+    <label>Spacing<input type="text" value="8px" oninput="update_css(event)" /></label>
+    <div class="row">
+      <button class="primary">Dark Theme</button>
+      <button>White Theme</button>
+    </div>
   </section>
 
-  <section column>
-    <h2>Build</h2>
-    <pre><code lang="css">:root {}</code></pre>
+  <section class="column">
+    <h2>Documentation</h2>
+    <a href="/ex/game.html" target="_blank">Flexbox</a>
+    <a href="/ex/grid.html" target="_blank">Grid</a>
+    <div class="column"><h3>Principles</h3></div>
+    <div class="column"><h3>Description</h3></div>
+
+    <div class="column">
+      <h3>Typography</h3>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <div style="font-weight: 100;">100</div>
+      <div style="font-weight: 200;">200</div>
+      <div style="font-weight: 300;">300</div>
+      <div style="font-weight: 400;">400</div>
+      <div style="font-weight: 500;">500</div>
+      <div style="font-weight: 600;">600</div>
+      <div style="font-weight: 700;">700</div>
+      <div style="font-weight: 800;">800</div>
+      <div style="font-weight: 900;">900</div>
+    </div>
+    <div class="column"><h3>Animation</h3></div>
+    <div class="column"><h3>Layout</h3></div>
+    <div class="column"><h3>Assets</h3></div>
+    <div class="column"><h3>Form</h3></div>
   </section>
 
   <script>
+  const cssvar = {}
   function update_css(ev) {
-    document.documentElement.style.setProperty('--' + ev.target.name, ev.target.value);
+    document.documentElement.style.setProperty('--' + ev.target.parentNode.innerText.toLowerCase(), ev.target.value);
+    cssvar[ev.target.parentNode.innerText.toLowerCase()] = ev.target.value
+    const style = `<style>:root { ${Object.entries(cssvar).map(d => `--${d[0]}: ${d[1]};`).join('') } }</style`
+    const code = document.querySelector('code')
+    code.innerText = code.innerText.split('\n')[0] + '\n' + style
   }
   </script>
 </body>
