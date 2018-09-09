@@ -10,6 +10,10 @@
 - Flexbox Shortcuts for quick layout prototyping.
 - Flexbox Grid for advanced layout handling row/column spacing.
 
+### IE11 and > 4 years old browsers
+- CSS Variable are not supported on IE, download the compatible version here: https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css
+- Postcss configuration here https://runkit.com/vbrajon/autoprefixer-api
+
 ### Inspired By
 
 - Website: [framer](https://framer.com/)
