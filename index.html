@@ -17,6 +17,7 @@
     h2:before, h2:after { content: "";position: relative;display: inline-block;border-top: var(--border);vertical-align: middle;width: 100%; }
     h2:before { right: 0.5em;margin-left: -100%; }
     h2:after { left: 0.5em;margin-right: -100%; }
+    p code { padding: 2px 4px;border: var(--border);box-shadow: none; }
     .menu { z-index: 1;position: fixed;top: 0;left: 0;display: flex;background: white; }
     .menu h1 { display: flex;justify-content: center;min-width: 100%;font-family: Blockway;font-size: 50px;font-weight: normal; }
     .menu * { color: var(--text); }
@@ -33,7 +34,7 @@
     }
 
     @media (min-width: 900px) {
-      body { padding-left: 300px;font-size: 20px; }
+      body { padding-left: 300px;font-size: 18px; }
       .menu { bottom: 0;flex-direction: column;width: 300px;overflow: auto;border-right: var(--border); }
       .menu h1 { font-size: 100px;height: 200px;line-height: .7; }
       .menu * { height: 70px;padding: 0 30px;display: flex;align-items: center;border-bottom: var(--border); }
@@ -60,8 +61,27 @@
     <div id="principles" class="column">
       <h2>Principles</h2>
 
-      <h3><a target="_blank" href="https://rawcss.com/raw.css">view-source:</a></h3>
-      <code lang="html">&lt;link rel="stylesheet" href="https://rawcss.com/raw.css"&gt;</code>
+      <h3>Introduction</h3>
+
+      <p style="white-space: pre-line;"><a target="_blank" href="/raw.css">RawCSS</a> is a CSS Starter Kit that resets unwanted styles and sets defaults parameters for Colors, Transitions, Border, Shadows, Links, Buttons, Fonts and Form Elements.
+        RawCSS also provides shortcut for quick prototyping, Grid Layout with automatic spacing and a Styleguide to be the first building block of a project.
+
+        It is designed to encourage the use of CSS only, to stay minimalist, and to be easy to learn.
+        By default it uses CSS Variables and no prefixes, therefore it is compatible only with modern browsers but can go down to IE9 with Autoprefixer & Postcss filters.
+        Download the <a href="/raw.css" download="raw.css">main version</a> or the <a href="https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css" download="raw-ie.css">IE version</a> (see <a href="https://runkit.com/vbrajon/autoprefixer-api">IE processing script</a>).
+      </p>
+
+      <h3>Concepts</h3>
+
+      <p style="white-space: pre-line;">RawCSS introduces the following concepts:
+        - CSS Variables matching css properties | <code>--border: 1px solid rgba(0,0,0,.12);</code>
+        - Flexbox shorcuts with simpler positioning system | <code>.column.between.right</code>
+        - Grid/Block for layout with automatic spacing.
+          Grids wraps contained row and column and ensure that they will stay within the container boundaries. Blocks contains margin and padding.
+        - A small CSS tooltip utility is also available | <code>&lt;div tt="Tooltip here"&gt;Hover me&lt;/div&gt;</code>
+      </p>
+
+      <!-- <code lang="html">&lt;link rel="stylesheet" href="https://rawcss.com/raw.css"&gt;</code>
 
       <h3>Customize</h3>
       <label>Text<input type="color" value="#273446" onchange="update_css(event)" /></label>
@@ -71,7 +91,7 @@
       <label>Box-Shadow<input type="text" value="0 3px 10.5px 0 rgba(68,102,136,.24)" oninput="update_css(event)" /></label>
       <label>Transition<input type="text" value="all .3s cubic-bezier(.4,.0,.2,1)" oninput="update_css(event)" /></label>
       <label>Spacing<input type="text" value="8px" oninput="update_css(event)" /></label>
-      <!-- <div class="row">
+      <div class="row">
         <button class="primary">Dark Theme</button>
         <button>White Theme</button>
       </div> -->

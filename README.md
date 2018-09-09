@@ -1,20 +1,11 @@
-# Raw CSS
-> CSS Utility to kickstart a project. Import, customize variables, build flexbox layouts.
+# Raw CSS - [rawcss.com](https://rawcss.com)
+> CSS Starter kit. Import, customise variables, build flexbox layouts.
 
-### Usage
-- Browser `<link rel="stylesheet" href="https://rawcss.com/raw.css">`
-- or in css `@import url(https://rawcss.com/raw.css)`
+## Usage
+- Quick Usage `<link rel="stylesheet" href="https://rawcss.com/raw.css">`
+- Preferably download the <a href="https://rawcss.com/raw.css" download>main version</a> or the <a href="https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css" download>IE version</a> and link to it.
 
-### Concept
-- CSS variables for simple use of color / border / shadow / transitions.
-- Flexbox Shortcuts for quick layout prototyping.
-- Flexbox Grid for advanced layout handling row/column spacing.
-
-### IE11 and > 4 years old browsers
-- CSS Variable are not supported on IE, download the compatible version here: https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css
-- Postcss configuration here https://runkit.com/vbrajon/autoprefixer-api
-
-### Inspired By
+## Inspired By
 
 - Website: [framer](https://framer.com/)
 - Styleguide: [marvelapp](https://marvelapp.com/styleguide/design/layout)
