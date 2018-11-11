@@ -7,13 +7,13 @@
 - Quick usage: `<link rel="stylesheet" href="https://rawcss.com/raw.css">`
 - Quick download: <a href="https://rawcss.com/raw.css" download>here</a> / [view source](https://rawcss.com/raw.css) / [IE](https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css)
 
-## Introduction
+## Concepts
 
 RawCSS is a CSS Starter Kit with 3 core concepts:
 
 1. Flexbox shortcuts:
   - type: `.row`, `.column`, `.rows`, `.columns`
-  - spacing: `.center`, `.around`, `.between`
+  - spacing: `.center`, `.around`, `.between`, `.evenly`
   - direction: `.top`, `.bottom`, `.left`, `.right`
 2. CSS variables
   - matching CSS properties: `--border`, `--border-radius`, `--box-shadow`, `--transition`
@@ -22,7 +22,7 @@ RawCSS is a CSS Starter Kit with 3 core concepts:
 
 It is designed to encourage the use of **CSS only**, to stay **minimalist**, and to be **easy to learn**.
 
-# Guidelines
+## Guidelines
 
 RawCSS comes with some guidelines to ease layout creation, project management, code syntax.
 
@@ -34,11 +34,28 @@ RawCSS comes with some guidelines to ease layout creation, project management, c
 - PRODUCT: start to write a text styleguide. Extend RawCSS Foundations & add a Components section.
 
 # Styleguide
-## Brand = Logo / Icons / Assets
+## Brand
+<h1 class="blockway">Raw<br>CSS</h1>
 
 ## Color
---text: #234
---primary: #05f
+<div class="color">
+  <div>
+    <div style="background: #000;"><div>#000</div></div>
+    <div style="background: #aaa;"><div>#aaa</div></div>
+  </div>
+  <div>
+    <div style="background: #222;"><div>#222</div></div>
+    <div style="background: #234;"><div>#234</div></div>
+  </div>
+  <div>
+    <div style="background: #05f;"><div>#05f</div></div>
+    <div style="background: #09f;"><div>#09f</div></div>
+  </div>
+  <div>
+    <div style="background: #ccc;"><div>#ccc</div></div>
+    <div style="background: #fff;"><div>#fff</div></div>
+  </div>
+</div>
 
 ## Typography
 <div class="row">
@@ -73,78 +90,33 @@ RawCSS comes with some guidelines to ease layout creation, project management, c
   </div>
 </div>
 
-## Token
-a|b
--|-
-`<a>` | <a>Preview</a>
-`<b>` `<strong>` | <b>Preview</b>
-`<i>` `<em>` | <i>Preview</i>
-`<u>` `<ins>` | <u>Preview</u>
-`<s>` `<del>` | <s>Preview</s>
-`<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>
-`<kbd>` | <kbd>Preview</kbd>
-`<code>` | <code>Preview</code>
-`<blockquote>` | <blockquote>Preview</blockquote>
-
-
-## Form
-a|b
--|-
-`<label>` | <label>Preview</label>
-`<input>` | <input value="Preview" />
-`<select>` | <select><option>Preview</option></select>
-`<textarea>` | <textarea>Preview</textarea>
-`<button>` | <button>Preview</button>
-
-```markdown
-# Foundations
-## Brand = Logo / Icons / Assets
-## Color
---text: #234
---primary: #05f
-
-## Typography
-font: Montserrat
-weight: light (300) / regular (400) / bold (600)
-size: 18px > 12 / 15 / 18 / 21 / 27 / 36
-&mobile: 14px > 9 / 11.5 / 14 / 16.5 / 21 / 28
-line-height: 1.5
-
-## Box
-border
-border-radius
-box-shadow
-spacing: 8px > 0 / 4 / 8 / 16 / 24 / 32 / 40
-
-## Breakpoint
-| size  | name    |
-| ----- | ------- |
-| <600  | mobile  |
-| <900  | tablet  |
-| <1200 | laptop  |
-| then  | desktop |
-
-## Animation
+<div class="row between">
+<div>
 
 ## Token
-<h1-6>
-<a>
+|                   |                                  |
+| ----------------- | -------------------------------- |
+| `<a>`             | <a>Preview</a>                   |
+| `<b>` `<strong>`  | <b>Preview</b>                   |
+| `<i>` `<em>`      | <i>Preview</i>                   |
+| `<u>` `<ins>`     | <u>Preview</u>                   |
+| `<s>` `<del>`     | <s>Preview</s>                   |
+| `<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>    |
+| `<kbd>`           | <kbd>Preview</kbd>               |
+| `<code>`          | <code>Preview</code>             |
+| `<blockquote>`    | <blockquote>Preview</blockquote> |
 
-<b> <strong>
-<i> <em>
-<u> <ins>
-<s> <del>
-<sup> & <sub>
-
-<kbd>
-<code>
-<blockquote>
+</div>
+<div>
 
 ## Form
-<label>
-<input> text / number / checkbox / radio / select / date / file / textarea / code
-        ^> password / email / tel / range / search / color
-<button>
+|              |                                           |
+| ------------ | ----------------------------------------- |
+| `<label>`    | <label>Preview</label>                    |
+| `<input>`    | <input value="Preview" />                 |
+| `<select>`   | <select><option>Preview</option></select> |
+| `<textarea>` | <textarea>Preview</textarea>              |
+| `<button>`   | <button>Preview</button>                  |
 
-# Components
-```
+</div>
+</div>

@@ -10,14 +10,20 @@
   </head>
   <body>
     <div id="menu">
-      <h1>
-        Raw
-        <br />
-        CSS
-      </h1>
+      <h1 class="blockway">Raw<br />CSS</h1>
       <a href="#principles">Principles</a>
-      <a href="#guidelines">Guidelines</a>
+      <div>
+        <a href="#concepts">Concepts</a>
+        <a href="#guidelines">Guidelines</a>
+      </div>
       <a href="#styleguide">Styleguide</a>
+      <div>
+        <a href="#brand">Brand</a>
+        <a href="#color">Color</a>
+        <a href="#typography">Typography</a>
+        <a href="#token">Token</a>
+        <a href="#form">Form</a>
+      </div>
     </div>
 
     <div id="content">
@@ -26,49 +32,36 @@
       <ul>
         <li>
           Quick usage:
-          <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://rawcss.com/raw.css&quot;&gt;</code>
+          <code
+            >&lt;link rel=&quot;stylesheet&quot;
+            href=&quot;https://rawcss.com/raw.css&quot;&gt;</code
+          >
         </li>
         <li>
-          Quick download:
-          <a href="https://rawcss.com/raw.css" download>here</a>
-          /
-          <a href="https://rawcss.com/raw.css">view source</a>
-          /
-          <a href="https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css">IE</a>
+          Quick download: <a href="https://rawcss.com/raw.css" download>here</a> /
+          <a href="https://rawcss.com/raw.css">view source</a> /
+          <a
+            href="https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css"
+            >IE</a
+          >
         </li>
       </ul>
-      <h2 id="introduction">Introduction</h2>
+      <h2 id="concepts">Concepts</h2>
       <p>RawCSS is a CSS Starter Kit with 3 core concepts:</p>
       <ol>
         <li>
           Flexbox shortcuts:
           <ul>
             <li>
-              type:
-              <code>.row</code>
-              ,
-              <code>.column</code>
-              ,
-              <code>.rows</code>
-              ,
+              type: <code>.row</code>, <code>.column</code>, <code>.rows</code>,
               <code>.columns</code>
             </li>
             <li>
-              spacing:
-              <code>.center</code>
-              ,
-              <code>.around</code>
-              ,
+              spacing: <code>.center</code>, <code>.around</code>,
               <code>.between</code>
             </li>
             <li>
-              direction:
-              <code>.top</code>
-              ,
-              <code>.bottom</code>
-              ,
-              <code>.left</code>
-              ,
+              direction: <code>.top</code>, <code>.bottom</code>, <code>.left</code>,
               <code>.right</code>
             </li>
           </ul>
@@ -77,21 +70,12 @@
           CSS variables
           <ul>
             <li>
-              matching CSS properties:
-              <code>--border</code>
-              ,
-              <code>--border-radius</code>
-              ,
-              <code>--box-shadow</code>
-              ,
+              matching CSS properties: <code>--border</code>,
+              <code>--border-radius</code>, <code>--box-shadow</code>,
               <code>--transition</code>
             </li>
             <li>
-              additional:
-              <code>--text</code>
-              ,
-              <code>--primary</code>
-              ,
+              additional: <code>--text</code>, <code>--primary</code>,
               <code>--spacing</code>
             </li>
           </ul>
@@ -99,50 +83,63 @@
         <li>Styleguide &amp; Reset</li>
       </ol>
       <p>
-        It is designed to encourage the use of
-        <strong>CSS only</strong>
-        , to stay
-        <strong>minimalist</strong>
-        , and to be
-        <strong>easy to learn</strong>
-        .
+        It is designed to encourage the use of <strong>CSS only</strong>, to stay
+        <strong>minimalist</strong>, and to be <strong>easy to learn</strong>.
       </p>
-      <h1 id="guidelines">Guidelines</h1>
-      <p>RawCSS comes with some guidelines to ease layout creation, project management, code syntax.</p>
+      <h2 id="guidelines">Guidelines</h2>
+      <p>
+        RawCSS comes with some guidelines to ease layout creation, project management,
+        code syntax.
+      </p>
       <ul>
         <li>
-          HTML: prefer use of
-          <code>div</code>
-          ,
-          <code>h1-6</code>
-          ,
-          <code>a</code>
-          ,
-          <code>button</code>
-          ,
-          <code>label</code>
-          &amp;
-          <code>input</code>
-          over any other tags.
+          HTML: prefer use of <code>div</code>, <code>h1-6</code>, <code>a</code>,
+          <code>button</code>, <code>label</code> &amp; <code>input</code> over any
+          other tags.
         </li>
+        <li>HTML: avoid nested <code>div</code>, simplify markup, refactor.</li>
         <li>
-          HTML: avoid nested
-          <code>div</code>
-          , simplify markup, refactor.
+          CSS: Breakpoints are at 600 / 900 / 1200 px to differentiate phone / tablet
+          / laptop / desktop.
         </li>
-        <li>CSS: Breakpoints are at 600 / 900 / 1200 px to differentiate phone / tablet / laptop / desktop.</li>
         <li>
           CSS: Sort properties with
-          <a href="https://github.com/vbrajon/rawcss/blob/master/.csscomb.json">csscomb</a>
-          .
+          <a href="https://github.com/vbrajon/rawcss/blob/master/.csscomb.json"
+            >csscomb</a
+          >.
         </li>
         <li>CSS: Organise styles per components.</li>
-        <li>PRODUCT: start to write a text styleguide. Extend RawCSS Foundations &amp; add a Components section.</li>
+        <li>
+          PRODUCT: start to write a text styleguide. Extend RawCSS Foundations &amp;
+          add a Components section.
+        </li>
       </ul>
       <h1 id="styleguide">Styleguide</h1>
-      <h2 id="brand-logo-icons-assets">Brand = Logo / Icons / Assets</h2>
+      <h2 id="brand">Brand</h2>
+      <h1 class="blockway">
+        Raw
+        <br />
+        CSS
+      </h1>
       <h2 id="color">Color</h2>
-      <p>--text: #234 --primary: #05f</p>
+      <div class="color">
+        <div>
+          <div style="background: #000;"><div>#000</div></div>
+          <div style="background: #aaa;"><div>#aaa</div></div>
+        </div>
+        <div>
+          <div style="background: #222;"><div>#222</div></div>
+          <div style="background: #234;"><div>#234</div></div>
+        </div>
+        <div>
+          <div style="background: #05f;"><div>#05f</div></div>
+          <div style="background: #09f;"><div>#09f</div></div>
+        </div>
+        <div>
+          <div style="background: #ccc;"><div>#ccc</div></div>
+          <div style="background: #fff;"><div>#fff</div></div>
+        </div>
+      </div>
       <h2 id="typography">Typography</h2>
       <div class="row">
         <div class="block">
@@ -172,164 +169,106 @@
           </div>
           <div class="block">
             <div>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
             </div>
           </div>
         </div>
       </div>
 
-      <h2 id="token">Token</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>a</th>
-            <th>b</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>&lt;a&gt;</code></td>
-            <td><a>Preview</a></td>
-          </tr>
-          <tr>
-            <td>
-              <code>&lt;b&gt;</code>
-              <code>&lt;strong&gt;</code>
-            </td>
-            <td><b>Preview</b></td>
-          </tr>
-          <tr>
-            <td>
-              <code>&lt;i&gt;</code>
-              <code>&lt;em&gt;</code>
-            </td>
-            <td><i>Preview</i></td>
-          </tr>
-          <tr>
-            <td>
-              <code>&lt;u&gt;</code>
-              <code>&lt;ins&gt;</code>
-            </td>
-            <td><u>Preview</u></td>
-          </tr>
-          <tr>
-            <td>
-              <code>&lt;s&gt;</code>
-              <code>&lt;del&gt;</code>
-            </td>
-            <td><s>Preview</s></td>
-          </tr>
-          <tr>
-            <td>
-              <code>&lt;sup&gt;</code>
-              &amp;
-              <code>&lt;sub&gt;</code>
-            </td>
-            <td>
-              <sup>Pre</sup>
-              <sub>view</sub>
-            </td>
-          </tr>
-          <tr>
-            <td><code>&lt;kbd&gt;</code></td>
-            <td><kbd>Preview</kbd></td>
-          </tr>
-          <tr>
-            <td><code>&lt;code&gt;</code></td>
-            <td><code>Preview</code></td>
-          </tr>
-          <tr>
-            <td><code>&lt;blockquote&gt;</code></td>
-            <td><blockquote>Preview</blockquote></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="form">Form</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>a</th>
-            <th>b</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>&lt;label&gt;</code></td>
-            <td><label>Preview</label></td>
-          </tr>
-          <tr>
-            <td><code>&lt;input&gt;</code></td>
-            <td><input value="Preview" /></td>
-          </tr>
-          <tr>
-            <td><code>&lt;select&gt;</code></td>
-            <td>
-              <select>
-                <option>Preview</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><code>&lt;textarea&gt;</code></td>
-            <td><textarea>Preview</textarea></td>
-          </tr>
-          <tr>
-            <td><code>&lt;button&gt;</code></td>
-            <td><button>Preview</button></td>
-          </tr>
-        </tbody>
-      </table>
-      <pre><code class="language-markdown"># Foundations
-  ## Brand = Logo / Icons / Assets
-  ## Color
-  --text: #234
-  --primary: #05f
-
-  ## Typography
-  font: Montserrat
-  weight: light (300) / regular (400) / bold (600)
-  size: 18px &gt; 12 / 15 / 18 / 21 / 27 / 36
-  &amp;mobile: 14px &gt; 9 / 11.5 / 14 / 16.5 / 21 / 28
-  line-height: 1.5
-
-  ## Box
-  border
-  border-radius
-  box-shadow
-  spacing: 8px &gt; 0 / 4 / 8 / 16 / 24 / 32 / 40
-
-  ## Breakpoint
-  | size  | name    |
-  | ----- | ------- |
-  | &lt;600  | mobile  |
-  | &lt;900  | tablet  |
-  | &lt;1200 | laptop  |
-  | then  | desktop |
-
-  ## Animation
-
-  ## Token
-  &lt;h1-6&gt;
-  &lt;a&gt;
-
-  &lt;b&gt; &lt;strong&gt;
-  &lt;i&gt; &lt;em&gt;
-  &lt;u&gt; &lt;ins&gt;
-  &lt;s&gt; &lt;del&gt;
-  &lt;sup&gt; &amp; &lt;sub&gt;
-
-  &lt;kbd&gt;
-  &lt;code&gt;
-  &lt;blockquote&gt;
-
-  ## Form
-  &lt;label&gt;
-  &lt;input&gt; text / number / checkbox / radio / select / date / file / textarea / code
-          ^&gt; password / email / tel / range / search / color
-  &lt;button&gt;
-
-  # Components</code></pre>
+      <div class="row between">
+        <div>
+          <h2 id="token">Token</h2>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;a&gt;</code></td>
+                <td><a>Preview</a></td>
+              </tr>
+              <tr>
+                <td><code>&lt;b&gt;</code> <code>&lt;strong&gt;</code></td>
+                <td><b>Preview</b></td>
+              </tr>
+              <tr>
+                <td><code>&lt;i&gt;</code> <code>&lt;em&gt;</code></td>
+                <td><i>Preview</i></td>
+              </tr>
+              <tr>
+                <td><code>&lt;u&gt;</code> <code>&lt;ins&gt;</code></td>
+                <td><u>Preview</u></td>
+              </tr>
+              <tr>
+                <td><code>&lt;s&gt;</code> <code>&lt;del&gt;</code></td>
+                <td><s>Preview</s></td>
+              </tr>
+              <tr>
+                <td><code>&lt;sup&gt;</code> &amp; <code>&lt;sub&gt;</code></td>
+                <td><sup>Pre</sup><sub>view</sub></td>
+              </tr>
+              <tr>
+                <td><code>&lt;kbd&gt;</code></td>
+                <td><kbd>Preview</kbd></td>
+              </tr>
+              <tr>
+                <td><code>&lt;code&gt;</code></td>
+                <td><code>Preview</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;blockquote&gt;</code></td>
+                <td><blockquote>Preview</blockquote></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2 id="form">Form</h2>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;label&gt;</code></td>
+                <td><label>Preview</label></td>
+              </tr>
+              <tr>
+                <td><code>&lt;input&gt;</code></td>
+                <td><input value="Preview" /></td>
+              </tr>
+              <tr>
+                <td><code>&lt;select&gt;</code></td>
+                <td>
+                  <select
+                    ><option>Preview</option></select
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><code>&lt;textarea&gt;</code></td>
+                <td><textarea>Preview</textarea></td>
+              </tr>
+              <tr>
+                <td><code>&lt;button&gt;</code></td>
+                <td><button>Preview</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </body>
 </html>

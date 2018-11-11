@@ -27,6 +27,7 @@
 .row.center, .column.center, .rows.center, .columns.center { align-content: center;align-items: center;justify-content: center; }
 .row.around, .column.around, .rows.around, .columns.around { align-content: space-around;justify-content: space-around; }
 .row.between, .column.between, .rows.between, .columns.between { align-content: space-between;justify-content: space-between; }
+.row.evenly, .column.evenly, .rows.evenly, .columns.evenly { align-content: space-evenly;justify-content: space-evenly; }
 .row.top, .rows.top, .column.left, .columns.left { align-items: flex-start; }
 .row.bottom, .rows.bottom, .column.right, .columns.right { align-items: flex-end; }
 .row.right, .rows.right, .column.bottom, .columns.bottom { justify-content: flex-end; }
@@ -44,7 +45,7 @@
 html, body { height: 100%;min-height: 100vh;margin: 0;color: var(--text);font-family: sans-serif;font-size: 14px;font-weight: 400;line-height: 1.5;-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale; }
 img { max-width: 100%;max-height: 100%;width: auto;height: auto; }
 
-a, button { display: inline-block; }
+a, button, code { display: inline-block; }
 a, button, select { cursor: pointer; }
 a { color: var(--primary);text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -54,8 +55,8 @@ button:hover, input:hover, select:hover, textarea:hover { border-color: var(--te
 button:focus, input:focus, select:focus, textarea:focus { border-color: var(--primary); }
 
 h1, h2, h3, h4, h5, h6, p, ol, ul, blockquote { margin: 0; }
-code, blockquote { display: inline-block;padding: 16px;background: #fbfbfb;border-left: 4px solid var(--primary);border-radius: var(--border-radius);box-shadow: var(--box-shadow);vertical-align: middle; }
-code { overflow: auto;font-family: monospace;font-size: 80%;padding: 2px 4px;border: var(--border);box-shadow: none; }
+code { font-family: monospace;font-size: 80%;padding: 1px 4px;border: var(--border);border-radius: 2px; }
+blockquote { padding: 8px 16px;background: #fbfbfb;border-left: 4px solid var(--primary);border-radius: var(--border-radius);box-shadow: var(--box-shadow); }
 
 ol, ul { margin: 16px 0;padding-left: 24px; }
 ul { list-style: square; }
