@@ -51,7 +51,7 @@ RawCSS comes with some guidelines to ease layout creation, project management, c
     <div style="background: #05f;"><div>#05f</div></div>
     <div style="background: #09f;"><div>#09f</div></div>
   </div>
-  <div>
+  <div class="light">
     <div style="background: #ccc;"><div>#ccc</div></div>
     <div style="background: #fff;"><div>#fff</div></div>
   </div>
@@ -59,21 +59,21 @@ RawCSS comes with some guidelines to ease layout creation, project management, c
 
 ## Typography
 <div class="row">
-  <div class="block">
+  <div class="block" style="font-size: 200%;">
     <div style="font-weight: 900;">900</div>
     <div style="font-weight: 800;">800</div>
     <div style="font-weight: 700;">700</div>
-    <div style="font-weight: 600;">600</div>
+    <div style="font-weight: 600;border-bottom: 1px solid var(--primary);">600</div>
     <div style="font-weight: 500;">500</div>
-    <div style="font-weight: 400;">400</div>
+    <div style="font-weight: 400;border-bottom: 1px solid var(--primary);">400</div>
     <div style="font-weight: 300;">300</div>
     <div style="font-weight: 200;">200</div>
     <div style="font-weight: 100;">100</div>
   </div>
   <div class="block">
-    <h1 style="margin: 0;padding: 0;">H1</h1>
-    <h2 style="margin: 0;padding: 0;">H2</h2>
-    <h3 style="margin: 0;padding: 0;">H3</h3>
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
     <h4>H4</h4>
     <h5>H5</h5>
     <h6>H6</h6>
@@ -102,9 +102,21 @@ RawCSS comes with some guidelines to ease layout creation, project management, c
 | `<u>` `<ins>`     | <u>Preview</u>                   |
 | `<s>` `<del>`     | <s>Preview</s>                   |
 | `<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>    |
-| `<kbd>`           | <kbd>Preview</kbd>               |
+| `<kbd>`           | <kbd>⌘</kbd> + <kbd>C</kbd>      |
 | `<code>`          | <code>Preview</code>             |
 | `<blockquote>`    | <blockquote>Preview</blockquote> |
+
+</div>
+<div>
+
+## Icons
+|              |                                           |
+| ------------ | ----------------------------------------- |
+| `<icon>`     | <label>Preview</label>                    |
+| `<input>`    | <input value="Preview" />                 |
+| `<select>`   | <select><option>Preview</option></select> |
+| `<textarea>` | <textarea>Preview</textarea>              |
+| `<button>`   | <button>Preview</button>                  |
 
 </div>
 <div>
