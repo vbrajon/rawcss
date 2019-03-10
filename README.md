@@ -1,134 +1,59 @@
-# Raw CSS - [rawcss.com](https://rawcss.com)
-> CSS Starter kit. Import, customise variables, build flexbox layouts.
+# RawCSS
 
-# Principles
-## TLDR
+A minimalist starter library.  
+A styleguide described in code.  
+<a href="https://rawcss.com/raw.css" download><svg viewBox="0 0 26 26"><path d="M 13 0 C 20.18 0 26 5.82 26 13 C 26 20.18 20.18 26 13 26 C 5.82 26 0 20.18 0 13 C 0 5.82 5.82 0 13 0 Z" fill="#05f"></path><path d="M 12 7 C 12 6.448 12.448 6 13 6 L 13 6 C 13.552 6 14 6.448 14 7 L 14 17 C 14 17.552 13.552 18 13 18 L 13 18 C 12.448 18 12 17.552 12 17 Z" fill="white"></path><path d="M 9 15 L 13 19 L 17 15" fill="transparent" stroke-width="2" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>Download</a>
 
-- Quick usage: `<link rel="stylesheet" href="https://rawcss.com/raw.css">`
-- Quick download: <a href="https://rawcss.com/raw.css" download>here</a> / [view source](https://rawcss.com/raw.css) / [IE](https://runkit.io/vbrajon/autoprefixer-api/1.0.0/https://rawcss.com/raw.css)
+---
 
-## Concepts
+### Flexbox Shortcuts
 
-RawCSS is a CSS Starter Kit with 3 core concepts:
+|           |                                                   |
+| --------- | ------------------------------------------------- |
+| Direction | `.row` // `.column`                               |
+| Position  | `.top` // `.bottom` // `.left` // `.right`        |
+| Spacing   | `.center` // `.around` // `.between` // `.evenly` |
 
-1. Flexbox shortcuts:
-  - type: `.row`, `.column`, `.rows`, `.columns`
-  - spacing: `.center`, `.around`, `.between`, `.evenly`
-  - direction: `.top`, `.bottom`, `.left`, `.right`
-2. CSS variables
-  - matching CSS properties: `--border`, `--border-radius`, `--box-shadow`, `--transition`
-  - additional: `--text`, `--primary`, `--spacing`
-3. Styleguide & Reset
+### CSS Variables
 
-It is designed to encourage the use of **CSS only**, to stay **minimalist**, and to be **easy to learn**.
+|                   |                                       |
+| ----------------- | ------------------------------------- |
+| `--text`          | #222                                  |
+| `--primary`       | #05f                                  |
+| `--inactive`      | #bbc                                  |
+| `--stripe`        | rgb(0, 0, 0, 0.02)                    |
+| `--background`    | #f5f5f5                               |
+| `--border`        | 1px solid var(--inactive)             |
+| `--border-radius` | 4px                                   |
+| `--box-shadow`    | 0px 2px 4px var(--stripe)             |
+| `--transition`    | all 0.3s cubic-bezier(0.4, 0, 0.2, 1) |
+| `--spacing`       | 8px                                   |
 
-## Guidelines
+### Tokens
 
-RawCSS comes with some guidelines to ease layout creation, project management, code syntax.
+|                   |                                           |
+| ----------------- | ----------------------------------------- |
+| `<a>`             | <a>Preview</a>                            |
+| `<b>` `<strong>`  | <b>Preview</b>                            |
+| `<i>` `<em>`      | <i>Preview</i>                            |
+| `<u>` `<ins>`     | <u>Preview</u>                            |
+| `<s>` `<del>`     | <s>Preview</s>                            |
+| `<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>             |
+| `<kbd>`           | <kbd>⌘ + C</kbd> <kbd>⌘</kbd><kbd>C</kbd> |
+| `<code>`          | <code>Preview</code>                      |
+| `<blockquote>`    | <blockquote>Preview</blockquote>          |
 
-- HTML: prefer use of `div`, `h1-6`, `a`, `button`, `label` & `input` over any other tags.
-- HTML: avoid nested `div`, simplify markup, refactor.
-- CSS: Breakpoints are at 600 / 900 / 1200 px to differentiate phone / tablet / laptop / desktop.
-- CSS: Sort properties with [csscomb](https://github.com/vbrajon/rawcss/blob/master/.csscomb.json).
-- CSS: Organise styles per components.
-- PRODUCT: start to write a text styleguide. Extend RawCSS Foundations & add a Components section.
+### Form
 
-# Styleguide
-## Brand
-<h1 class="blockway">Raw<br>CSS</h1>
-
-## Color
-<div class="color">
-  <div>
-    <div style="background: #000;"><div>#000</div></div>
-    <div style="background: #aaa;"><div>#aaa</div></div>
-  </div>
-  <div>
-    <div style="background: #222;"><div>#222</div></div>
-    <div style="background: #234;"><div>#234</div></div>
-  </div>
-  <div>
-    <div style="background: #05f;"><div>#05f</div></div>
-    <div style="background: #09f;"><div>#09f</div></div>
-  </div>
-  <div class="light">
-    <div style="background: #ccc;"><div>#ccc</div></div>
-    <div style="background: #fff;"><div>#fff</div></div>
-  </div>
-</div>
-
-## Typography
-<div class="row">
-  <div class="block" style="font-size: 200%;">
-    <div style="font-weight: 900;">900</div>
-    <div style="font-weight: 800;">800</div>
-    <div style="font-weight: 700;">700</div>
-    <div style="font-weight: 600;border-bottom: 1px solid var(--primary);">600</div>
-    <div style="font-weight: 500;">500</div>
-    <div style="font-weight: 400;border-bottom: 1px solid var(--primary);">400</div>
-    <div style="font-weight: 300;">300</div>
-    <div style="font-weight: 200;">200</div>
-    <div style="font-weight: 100;">100</div>
-  </div>
-  <div class="block">
-    <h1>H1</h1>
-    <h2>H2</h2>
-    <h3>H3</h3>
-    <h4>H4</h4>
-    <h5>H5</h5>
-    <h6>H6</h6>
-  </div>
-  <div class="column">
-    <div class="block">
-      <div>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
-      <div>a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
-      <div>0 1 2 3 4 5 6 7 8 9</div>
-    </div>
-    <div class="block">
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-    </div>
-  </div>
-</div>
-
-<div class="row between">
-<div>
-
-## Token
-|                   |                                  |
-| ----------------- | -------------------------------- |
-| `<a>`             | <a>Preview</a>                   |
-| `<b>` `<strong>`  | <b>Preview</b>                   |
-| `<i>` `<em>`      | <i>Preview</i>                   |
-| `<u>` `<ins>`     | <u>Preview</u>                   |
-| `<s>` `<del>`     | <s>Preview</s>                   |
-| `<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>    |
-| `<kbd>`           | <kbd>⌘</kbd> + <kbd>C</kbd>      |
-| `<code>`          | <code>Preview</code>             |
-| `<blockquote>`    | <blockquote>Preview</blockquote> |
-
-</div>
-<div>
-
-## Icons
-|              |                                           |
-| ------------ | ----------------------------------------- |
-| `<icon>`     | <label>Preview</label>                    |
-| `<input>`    | <input value="Preview" />                 |
-| `<select>`   | <select><option>Preview</option></select> |
-| `<textarea>` | <textarea>Preview</textarea>              |
-| `<button>`   | <button>Preview</button>                  |
-
-</div>
-<div>
-
-## Form
-|              |                                           |
-| ------------ | ----------------------------------------- |
-| `<label>`    | <label>Preview</label>                    |
-| `<input>`    | <input value="Preview" />                 |
-| `<select>`   | <select><option>Preview</option></select> |
-| `<textarea>` | <textarea>Preview</textarea>              |
-| `<button>`   | <button>Preview</button>                  |
-
-</div>
-</div>
+|                           |                                           |
+| ------------------------- | ----------------------------------------- |
+| `<label>`                 | <label>Preview</label>                    |
+| `<input>`                 | <input value="Preview" />                 |
+| `<input type="radio">`    | <input type="radio" />                    |
+| `<input type="checkbox">` | <input type="checkbox" />                 |
+| `<input>`                 | <input value="Preview" />                 |
+| `<select>`                | <select><option>Preview</option></select> |
+| `<textarea>`              | <textarea>Preview</textarea>              |
+| `<a class="button">`      | <a class="button">Preview</a>             |
+| `<button class="ghost">`  | <button class="ghost">Preview</button>    |
+| `<button class="icon">`   | <button class="icon"><svg viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg></button> |
