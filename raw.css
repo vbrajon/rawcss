@@ -12,7 +12,7 @@
   --spacing: 8px;
 }
 .row, .column { display: flex;flex-wrap: wrap; }
-.nowrap { flex-wrap: no-wrap; }
+.nowrap { flex-wrap: nowrap; }
 .row { flex-direction: row; }
 .column { flex-direction: column; }
 .row.reverse { flex-direction: row-reverse; }
@@ -30,8 +30,8 @@
 
 ::selection { color: white;background: var(--primary); }
 * { font: inherit;outline: inherit;box-sizing: border-box;caret-color: var(--primary);-webkit-tap-highlight-color: transparent;-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale; }
-body { min-height: 100vh;margin: 0;color: var(--text);font: 400 14px/1.5 sans-serif; }
-h1, h2, h3, h4, h5, h6, strong, b { font-weight: 800;letter-spacing: -.025em;margin: 0; }
+body { min-height: 100vh;margin: 0;font: 400 14px/1.5 sans-serif;color: var(--text); }
+h1, h2, h3, h4, h5, h6, strong, b { margin: 0;font-weight: 800;letter-spacing: -.025em; }
 em, i { color: var(--primary); }
 h1 { font-size: 4em; }
 h2 { font-size: 3em; }
@@ -39,41 +39,42 @@ h3 { font-size: 2em; }
 ol, ul { margin: 12px 0;padding-left: 24px; }
 ul { list-style: square; }
 ul ul { list-style: none; }
-ul ul li:before { content: "\25A1";font-size: 85%;margin: 0 8px 0 -24px; }
-ul ul ul li:before { content: '-';font-size: inherit; }
-kbd { position: relative;top: -2px;margin: 0 4px;padding: 4px 8px;font-size: 12px;font-weight: 700;text-transform: uppercase;border-radius: var(--border-radius);box-shadow: 0px 1px 2px 1px var(--inactive); }
-pre { color: white;background: var(--text);padding: 1em;overflow: auto;border-radius: var(--border-radius); }
+ul ul li:before { margin: 0 8px 0 -24px;font-size: 85%;content: "\25A1"; }
+ul ul ul li:before { font-size: inherit;content: "-"; }
+kbd { position: relative;top: -2px;margin: 0 4px;padding: 4px 8px;font-size: 12px;font-weight: 700;text-transform: uppercase;border-radius: var(--border-radius);box-shadow: 0 1px 2px 1px var(--inactive); }
+pre { overflow: auto;padding: 1em;color: white;background: var(--text);border-radius: var(--border-radius); }
 code { font: 400 85% monospace; }
 :not(pre) > code { padding: 3px 6px;color: #07a;background: var(--background);border-radius: 3px; }
 blockquote { padding: 4px 0 4px 12px;border-left: 4px solid var(--inactive); }
 blockquote, blockquote > * { margin: 0; }
 hr { margin: 24px 0;border: none;border-top: var(--border); }
+iframe { border: none; }
 img { max-width: 100%;max-height: 100%;width: auto;height: auto; }
 svg { width: 1em;height: 1em; }
-table { width: 100%;box-shadow: 0 0 0 1px #eee;border-radius: 4px;border-collapse: collapse;border-spacing: 0; }
-td, th { padding: 12px 24px;text-align: left; }
-th { font-weight: 600;font-size: 85%; }
+table { width: 100%;border-collapse: collapse;border-radius: 4px;border-spacing: 0;box-shadow: 0 0 0 1px #eee; }
+td, th { padding: 12px;text-align: left; }
+th { font-size: 85%;font-weight: 600; }
 tr { box-shadow: 0 1px 0 #eee; }
 th:empty { padding: 0; }
 tr:nth-child(even) { background: var(--stripe); }
 
 a, button, .link, .button { cursor: pointer;display: inline-flex;align-items: center;justify-content: center; }
-a, .link { color: var(--primary);text-decoration: none; }
-a:hover, , .link:hover { text-decoration: underline; }
+a, .link { text-decoration: none;color: var(--primary); }
+a:hover, .link:hover { text-decoration: underline; }
 button, input, select, textarea, .button { width: 230px;margin: 0;padding: 6px 12px;border: var(--border);border-radius: var(--border-radius);transition: var(--transition); }
 input:hover, select:hover, textarea:hover { border-color: var(--primary); }
-input:focus, select:focus, textarea:focus, button:hover, .button:hover { border-color: var(--primary);box-shadow: 0px 1px 2px 1px var(--inactive); }
-button, .button { user-select: none;width: unset;background: var(--primary);color: white;border: none;transition: var(--transition); }
-button:active, .button:active { background: var(--primary-dark);color: white; }
-button.ghost, .button.ghost { background: none;color: var(--primary);border: 1px solid var(--primary); }
-button.ghost:active, .button.ghost:active { border-color: var(--primary-dark);color: var(--primary-dark); }
-button.icon, .button.icon { width: 2em;height: 2em;padding: 0;border-radius: 50%;background: white; }
-button.icon:hover, .button.icon:hover, .dark { background: var(--text);color: white;fill: white; }
-button.icon.dark:hover, .button.icon.dark:hover { background: white;color: var(--text);fill: var(--text); }
+input:focus, select:focus, textarea:focus, button:hover, .button:hover { border-color: var(--primary);box-shadow: 0 1px 2px 1px var(--inactive); }
+button, .button { width: unset;color: white;background: var(--primary);border: none;transition: var(--transition);user-select: none; }
+button:active, .button:active { color: white;background: var(--primary-dark); }
+button.ghost, .button.ghost { color: var(--primary);background: none;border: 1px solid var(--primary); }
+button.ghost:active, .button.ghost:active { color: var(--primary-dark);border-color: var(--primary-dark); }
+button.icon, .button.icon { width: 2em;height: 2em;padding: 0;background: white;border-radius: 50%; }
+button.icon:hover, .button.icon:hover, .dark { color: white;background: var(--text);fill: white; }
+button.icon.dark:hover, .button.icon.dark:hover { color: var(--text);background: white;fill: var(--text); }
 input[type=checkbox], input[type=radio] { cursor: pointer;width: unset;box-shadow: none; }
 select { -webkit-appearance: none; }
 
 [tt] { position: relative;overflow: visible; }
-[tt]:after { z-index: 1;position: absolute;top: 0;left: 50%;pointer-events: none;padding: 0 8px;opacity: 0;color: white;background: black;border-radius: 3px;font-size: 80%;text-transform: none;letter-spacing: 0;line-height: 2.5;white-space: nowrap;transition: var(--transition);content: attr(tt);transform: translate(-50%, -95%); }
+[tt]:after { z-index: 1;position: absolute;top: 0;left: 50%;pointer-events: none;opacity: 0;padding: 0 8px;font-size: 80%;text-transform: none;letter-spacing: 0;line-height: 2.5;white-space: nowrap;color: white;background: black;border-radius: 3px;transition: var(--transition);content: attr(tt);transform: translate(-50%, -95%); }
 [tt]:hover:after { opacity: .9;transform: translate(-50%, calc(-100% - 5px)); }
 a[tt=""]:after { content: attr(href); }
