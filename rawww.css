@@ -1,7 +1,7 @@
 @import "https://rawcss.com/raw.css";
 @import "https://fonts.googleapis.com/css?family=Montserrat:400,800";
 body { min-height: fit-content;width: 800px;margin: 40px auto;padding: 20px;font: 400 18px/1.4 Montserrat; }
-code { font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; }
+code { font-family: Consolas, monospace; }
 h1, h2, h3 { margin: 40px 0 20px; }
 h1:first-of-type { text-align: center;background: linear-gradient(to right,#03f,#0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
 p:first-of-type { font-size: 1.4em;text-align: center; }
