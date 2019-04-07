@@ -1,15 +1,15 @@
 :root {
   --text: #222;
   --primary: #05f;
-  --primary-dark: #008AE6;
-  --inactive: #bbc;
-  --stripe: rgb(0, 0, 0, .02);
-  --background: #f5f5f5;
+  --secondary: #0bf;
+  --inactive: hsl(0, 0%, 85%);
+  --stripe: hsl(0, 0%, 0%, .02);
   --border: 1px solid var(--inactive);
   --border-radius: 4px;
-  --box-shadow: 0px 2px 4px var(--stripe);
+  --box-shadow: 0px 2px 4px var(--inactive);
   --transition: all .3s cubic-bezier(.4,0,.2,1);
   --spacing: 8px;
+  --down: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23666"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>');
 }
 .row, .column { display: flex;flex-wrap: wrap; }
 .nowrap { flex-wrap: nowrap; }
@@ -43,8 +43,8 @@ ul ul li:before { margin: 0 8px 0 -24px;font-size: 85%;content: "\25A1"; }
 ul ul ul li:before { font-size: inherit;content: "-"; }
 kbd { position: relative;top: -2px;margin: 0 4px;padding: 4px 8px;font-size: 12px;font-weight: 700;text-transform: uppercase;border-radius: var(--border-radius);box-shadow: 0 1px 2px 1px var(--inactive); }
 pre { overflow: auto;padding: 1em;color: white;background: var(--text);border-radius: var(--border-radius); }
-code { font: 400 85% monospace; }
-:not(pre) > code { display: inline-flex;align-items: center;justify-content: center;padding: 3px 6px;color: #07a;background: var(--background);border-radius: 3px; }
+code { font-family: monospace; }
+:not(pre) > code { display: inline-flex;align-items: center;justify-content: center;padding: 3px 6px;color: #39f;background: var(--stripe);border-radius: 3px;font-size: 85%; }
 blockquote { padding: 4px 0 4px 12px;border-left: 4px solid var(--inactive); }
 blockquote, blockquote > * { margin: 0; }
 hr { margin: 24px 0;border: none;border-top: var(--border); }
@@ -64,15 +64,16 @@ a:hover, .link:hover { text-decoration: underline; }
 button, input, select, textarea, .button { width: 230px;margin: 0;padding: 6px 12px;border: var(--border);border-radius: var(--border-radius);transition: var(--transition); }
 input:hover, select:hover, textarea:hover { border-color: var(--primary); }
 input:focus, select:focus, textarea:focus, button:hover, .button:hover { border-color: var(--primary);box-shadow: 0 1px 2px 1px var(--inactive); }
-button, .button { width: unset;color: white;background: var(--primary);border: none;transition: var(--transition);text-decoration: none;user-select: none; }
-button:active, .button:active { color: white;background: var(--primary-dark); }
+button, .button { width: unset;color: white;background: var(--primary);border: none;text-decoration: none!important;user-select: none; }
+button[disabled], .button[disabled] { pointer-events: none;color: var(--text);background: var(--inactive);opacity: .6; }
+button:active, .button:active { color: white;background: var(--secondary); }
 button.ghost, .button.ghost { color: var(--primary);background: none;border: 1px solid var(--primary); }
-button.ghost:active, .button.ghost:active { color: var(--primary-dark);border-color: var(--primary-dark); }
+button.ghost:active, .button.ghost:active { color: var(--secondary);border-color: var(--secondary); }
 button.icon, .button.icon { width: 2em;height: 2em;padding: 0;background: white;border-radius: 50%; }
 button.icon:hover, .button.icon:hover, .dark { color: white;background: var(--text);fill: white; }
 button.icon.dark:hover, .button.icon.dark:hover { color: var(--text);background: white;fill: var(--text); }
 input[type=checkbox], input[type=radio] { cursor: pointer;width: unset;box-shadow: none; }
-select { -webkit-appearance: none; }
+select { -webkit-appearance: none;background: no-repeat right 4px center var(--down); }
 
 [tt] { position: relative;overflow: visible; }
 [tt]:after { z-index: 1;position: absolute;top: 0;left: 50%;pointer-events: none;opacity: 0;padding: 0 8px;font-size: 80%;text-transform: none;letter-spacing: 0;line-height: 2.5;white-space: nowrap;color: white;background: black;border-radius: 3px;transition: var(--transition);content: attr(tt);transform: translate(-50%, -95%); }

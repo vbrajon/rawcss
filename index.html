@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>RawCSS</title>
     <link rel="icon" href="/r.png" />
     <link rel="stylesheet" href="/rawww.css" />
@@ -86,35 +86,19 @@
         </tr>
         <tr>
           <td><code>--inactive</code></td>
-          <td>#bbc</td>
-        </tr>
-        <tr>
-          <td><code>--stripe</code></td>
-          <td>rgb(0, 0, 0, 0.02)</td>
-        </tr>
-        <tr>
-          <td><code>--background</code></td>
-          <td>#f5f5f5</td>
+          <td>hsl(0, 0%, 85%)</td>
         </tr>
         <tr>
           <td><code>--border</code></td>
           <td>1px solid var(--inactive)</td>
         </tr>
         <tr>
-          <td><code>--border-radius</code></td>
-          <td>4px</td>
-        </tr>
-        <tr>
           <td><code>--box-shadow</code></td>
-          <td>0px 2px 4px var(--stripe)</td>
+          <td>0px 2px 4px var(--inactive)</td>
         </tr>
         <tr>
           <td><code>--transition</code></td>
           <td>all 0.3s cubic-bezier(0.4, 0, 0.2, 1)</td>
-        </tr>
-        <tr>
-          <td><code>--spacing</code></td>
-          <td>8px</td>
         </tr>
       </tbody>
     </table>
@@ -162,7 +146,6 @@
         <tr>
           <td>
             <code>&lt;sup&gt;</code>
-            &amp;
             <code>&lt;sub&gt;</code>
           </td>
           <td>
@@ -232,6 +215,10 @@
         <tr>
           <td><code>&lt;a class=&quot;button&quot;&gt;</code></td>
           <td><a class="button">Preview</a></td>
+        </tr>
+        <tr>
+          <td><code>&lt;button disabled&gt;</code></td>
+          <td><button disabled>Preview</button></td>
         </tr>
         <tr>
           <td><code>&lt;button class=&quot;ghost&quot;&gt;</code></td>

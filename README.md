@@ -20,14 +20,10 @@ A styleguide described in code.
 | ----------------- | ------------------------------------- |
 | `--text`          | #222                                  |
 | `--primary`       | #05f                                  |
-| `--inactive`      | #bbc                                  |
-| `--stripe`        | rgb(0, 0, 0, 0.02)                    |
-| `--background`    | #f5f5f5                               |
+| `--inactive`      | hsl(0, 0%, 85%)                       |
 | `--border`        | 1px solid var(--inactive)             |
-| `--border-radius` | 4px                                   |
-| `--box-shadow`    | 0px 2px 4px var(--stripe)             |
+| `--box-shadow`    | 0px 2px 4px var(--inactive)           |
 | `--transition`    | all 0.3s cubic-bezier(0.4, 0, 0.2, 1) |
-| `--spacing`       | 8px                                   |
 
 ### Tokens
 
@@ -38,7 +34,7 @@ A styleguide described in code.
 | `<i>` `<em>`      | <i>Preview</i>                            |
 | `<u>` `<ins>`     | <u>Preview</u>                            |
 | `<s>` `<del>`     | <s>Preview</s>                            |
-| `<sup>` & `<sub>` | <sup>Pre</sup><sub>view</sub>             |
+| `<sup>` `<sub>`   | <sup>Pre</sup><sub>view</sub>             |
 | `<kbd>`           | <kbd>⌘ + C</kbd> <kbd>⌘</kbd><kbd>C</kbd> |
 | `<code>`          | <code>Preview</code>                      |
 | `<blockquote>`    | <blockquote>Preview</blockquote>          |
@@ -55,5 +51,6 @@ A styleguide described in code.
 | `<select>`                | <select><option>Preview</option></select> |
 | `<textarea>`              | <textarea>Preview</textarea>              |
 | `<a class="button">`      | <a class="button">Preview</a>             |
+| `<button disabled>`       | <button disabled>Preview</button>         |
 | `<button class="ghost">`  | <button class="ghost">Preview</button>    |
 | `<button class="icon">`   | <button class="icon"><svg viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg></button> |
