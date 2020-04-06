@@ -1,8 +1,0 @@
-@import "https://rawcss.com/raw.css";
-@import "https://fonts.googleapis.com/css?family=Montserrat:400,800";
-body { min-height: fit-content;width: 800px;margin: auto;padding: 40px;font: 400 20px/1.4 Montserrat;letter-spacing: -.02em}
-code { font-family: Menlo, monospace; }
-h1, h2, h3 { margin: 40px 0 20px; }
-h1:first-of-type { text-align: center;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
-p:first-of-type { font-size: 1.4em;text-align: center; }
-svg { margin: .4em; }
