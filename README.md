@@ -1,3 +1,0 @@
-# RawCSS
-
-Minimal Starter Library

@@ -2,20 +2,21 @@
 <html>
   <head>
     <title>RawCSS</title>
-    <base target="_blank">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
-    <link rel="stylesheet" href="/raw.css">
-    <style>body { max-width: 850px;padding: 20px;margin: 40px auto; }</style>
+    <link rel="stylesheet" href="raw.css">
+    <style>
+      body { max-width: 850px;padding: 20px;margin: 40px auto; }
+      a[id][href^="#"] { margin: 20px 0; }
+      h1 a[id][href^="#"] { font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
+      h2 a[id][href^="#"] { --primary: #556;text-decoration: underline; }
+    </style>
   </head>
   <body>
-    <script>
-      window.link = document.querySelector('[href="/raw.css"]')
-      window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
-      key('s', e => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x'))
-    </script>
-    <h1 id="rawcss">RawCSS</h1>
+    <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
+    <blockquote>💎 Design Starter</blockquote>
+    <h2><a id="layout" href="#layout">Layout</a></h2>
     <table>
       <thead>
         <tr>
@@ -49,9 +50,58 @@
             <code>evenly</code>
           </td>
         </tr>
+        <tr>
+          <td>Utilities</td>
+          <td>
+            <code>reverse</code>
+            <code>nowrap</code>
+            <code>inline</code>
+            <code>thin</code>
+            <code>thick</code>
+            <code>stretch</code>
+          </td>
+        </tr>
       </tbody>
     </table>
-    <hr>
+    <h2><a id="forms" href="#forms">Forms</a></h2>
+    <label>
+      <span>Select</span>
+      <select>
+        <option></option>
+        <option selected>Select box</option>
+        <option>Using native &lt;select&gt;</option>
+        <optgroup label="Features">
+          <option>Option groups</option>
+          <option>Super long text does not overflowing on the icon even if we try harder!</option>
+        </optgroup>
+      </select>
+    </label>
+    <label>
+      <span>Checkbox/Radio</span>
+      <div class="row">
+        <input type="checkbox">
+        <input type="checkbox" indeterminate>
+        <input type="checkbox" checked>
+        <input type="checkbox" disabled>
+        <input type="radio">
+        <input type="radio" checked>
+        <input type="radio" disabled>
+      </div>
+    </label>
+    <label><span>Date</span><input type="date"></label>
+    <label><span>Time</span><input type="time"></label>
+    <label><span>Month</span><input type="month"></label>
+    <label><span>Week</span><input type="week"></label>
+    <label><span>Datetime</span><input type="datetime-local"></label>
+    <label><span>File</span><input type="file" multiple></label>
+    <label><span>Color</span><input type="color"></label>
+    <label><span>Search</span><input type="search"></label>
+    <label><span>Email</span><input type="email"></label>
+    <label><span>Password</span><input type="password"></label>
+    <label><span>Tel</span><input type="tel"></label>
+    <label><span>Url</span><input type="url"></label>
+    <label><span>Textarea</span><textarea></textarea></label>
+    <label><span>Disabled</span><input disabled></label>
     <button>Button</button>
     <button disabled>Disabled</button>
     <button class="ghost">Ghost</button>
@@ -59,46 +109,19 @@
     <button class="ghost"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22"/><path d="M17.5 15H9"/></svg></button>
     <details>
       <summary>Popup</summary>
-      <style>details > .column > div { padding: 20px;border-radius: 0; }</style>
       <div class="column">
-        <div style="flex: 0;background: rgba(12, 12, 13, 0.1);">HEAD</div>
-        <div>CONTENT</div>
+        <div class="thick">
+          This is a CSS Popup, click outside to close it.
+        </div>
+        <div class="row right">
+          <button class="ghost">Fake</button>
+          <button>Buttons</button>
+        </div>
       </div>
     </details>
-    <hr>
-    <input type="checkbox">
-    <input type="checkbox" indeterminate>
-    <input type="checkbox" checked>
-    <input type="checkbox" disabled>
-    <input type="radio">
-    <input type="radio" checked>
-    <input type="radio" disabled>
-    <input type="file" multiple>
-    <input type="color">
-    <hr>
-    <select>
-      <option></option>
-      <option selected>Select box</option>
-      <option>Using native &lt;select&gt;</option>
-      <optgroup label="Features">
-        <option>Option groups</option>
-        <option>Super long text does not overflowing on the icon even if we try harder!</option>
-      </optgroup>
-    </select>
-    <input type="number" disabled>
-    <input type="date">
-    <input type="time">
-    <input type="month">
-    <input type="week">
-    <input type="datetime-local">
-    <input type="search">
-    <input type="email">
-    <input type="password">
-    <input type="tel">
-    <input type="url">
-    <hr>
+    <h2><a id="elements" href="#elements">Elements</a></h2>
     <a href="#">a</a>
-    <a href="https://rawcss.com" target="_blank">a</a>
+    <a href="https://github.com/vbrajon" target="_blank">a</a>
     <abbr title="Abbreviation">abbr</abbr>
     <b>b</b>
     <code>code</code>
@@ -117,10 +140,10 @@
     <u>u</u>
     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M11 16l4-4-4-4" fill="none"/></svg>
     <span style="text-decoration: underline overline">Align</span>
-    <hr>
     <h1>h1</h1>
     <h2>h2</h2>
     <h3>h3</h3>
+    <h4>h4</h4>
     <p>p</p>
     <pre>pre</pre>
     <blockquote>blockquote</blockquote>
@@ -137,5 +160,10 @@
         </ul>
       </li>
     </ol>
+    <script>
+      window.link = document.querySelector('[href="raw.css"]')
+      window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
+      key('s', e => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x'))
+    </script>
   </body>
 </html>
