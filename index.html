@@ -7,8 +7,8 @@
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
     <link rel="stylesheet" href="raw.css">
     <style>
-      body { max-width: 850px;padding: 20px;margin: 40px auto; }
-      h1 a[id][href^="#"] { font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
+      body { max-width: 850px;padding: 8% 20px;margin: 0 auto; }
+      h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
       h2 a[id][href^="#"] { --primary: #556;margin: 20px 0; }
     </style>
   </head>
@@ -146,6 +146,7 @@
     <u>u</u>
     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M11 16l4-4-4-4" fill="none"/></svg>
     <span style="text-decoration: underline overline">Align</span>
+    <span title="The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec.">Hover me!</span>
     <h1>h1</h1>
     <h2>h2</h2>
     <h3>h3</h3>
@@ -166,7 +167,13 @@
         </ul>
       </li>
     </ol>
+    <hr>
+    <img src="raw-before-after.png">
+    <audio controls src="https://assets.zeit.co/video/upload/vc_auto/v1542426673/front/design/examples/live-support.mp4"></audio>
+    <video controls src="https://assets.zeit.co/video/upload/vc_auto/v1542426673/front/design/examples/live-support.mp4"></video>
+    <iframe id="grid" src="grid"></iframe>
     <script>
+      console.log('🚀 Hi there! Use the "s" key to toggle the style on and off. Appart from this, no JS here.')
       window.link = document.querySelector('[href="raw.css"]')
       window.swap = () => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x')
       window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
