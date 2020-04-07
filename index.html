@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RawCSS</title>
+    <title>RAW | 💎 Design Starter</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
@@ -54,16 +54,18 @@
         <tr>
           <td>Utilities</td>
           <td>
-            <code>reverse</code>
-            <code>nowrap</code>
-            <code>inline</code>
+            <code>stretch</code>
+            <code>space</code>
             <code>thin</code>
             <code>thick</code>
-            <code>stretch</code>
+            <small><code>reverse</code></small>
+            <small><code>nowrap</code></small>
+            <small><code>inline</code></small>
           </td>
         </tr>
       </tbody>
     </table>
+    <a class="space" href="./grid">Nested exemple</a>
     <h2><a id="forms" href="#forms">Forms</a></h2>
     <label>
       <span>Select</span>
@@ -103,23 +105,25 @@
     <label><span>Url</span><input type="url"></label>
     <label><span>Textarea</span><textarea></textarea></label>
     <label><span>Disabled</span><input disabled></label>
-    <button>Button</button>
-    <button disabled>Disabled</button>
-    <button class="ghost">Ghost</button>
-    <button class="primary">Primary</button>
-    <button class="ghost"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22"/><path d="M17.5 15H9"/></svg></button>
-    <details>
-      <summary>Popup</summary>
-      <div class="column">
-        <div class="thick">
-          This is a CSS Popup, click outside to close it.
+    <div class="row space">
+      <button>Button</button>
+      <button class="primary">Primary</button>
+      <button class="ghost">Ghost</button>
+      <button class="ghost"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22"/><path d="M17.5 15H9"/></svg></button>
+      <button disabled>Disabled</button>
+      <details>
+        <summary>Popup</summary>
+        <div class="column">
+          <div class="thick">
+            This is a CSS Popup, click outside to close it.
+          </div>
+          <div class="row right">
+            <button class="ghost">Fake</button>
+            <button>Buttons</button>
+          </div>
         </div>
-        <div class="row right">
-          <button class="ghost">Fake</button>
-          <button>Buttons</button>
-        </div>
-      </div>
-    </details>
+      </details>
+    </div>
     <h2><a id="elements" href="#elements">Elements</a></h2>
     <a id="a" href="#a">a</a>
     <a href="">a</a>
