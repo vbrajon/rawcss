@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="raw.css">
     <style>
       body { max-width: 850px;padding: 20px;margin: 40px auto; }
-      a[id][href^="#"] { margin: 20px 0; }
       h1 a[id][href^="#"] { font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
-      h2 a[id][href^="#"] { --primary: #556;text-decoration: underline; }
+      h2 a[id][href^="#"] { --primary: #556;margin: 20px 0; }
     </style>
   </head>
   <body>
-    <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
-    <blockquote>💎 Design Starter</blockquote>
+    <div class="row center between">
+      <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
+      <code>💎 Design Starter</code>
+    </div>
     <h2><a id="layout" href="#layout">Layout</a></h2>
     <table>
       <thead>
@@ -120,7 +121,8 @@
       </div>
     </details>
     <h2><a id="elements" href="#elements">Elements</a></h2>
-    <a href="#">a</a>
+    <a id="a" href="#a">a</a>
+    <a href="">a</a>
     <a href="https://github.com/vbrajon" target="_blank">a</a>
     <abbr title="Abbreviation">abbr</abbr>
     <b>b</b>
@@ -162,8 +164,9 @@
     </ol>
     <script>
       window.link = document.querySelector('[href="raw.css"]')
+      window.swap = () => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x')
       window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
-      key('s', e => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x'))
+      key('s', swap)
     </script>
   </body>
 </html>

@@ -51,10 +51,9 @@ blockquote { padding: 8px 0 8px 12px;border-left: 4px solid var(--inactive);bord
 ol, ul { padding-left: 24px; }
 
 a, button, details, details > summary, input, select, textarea { display: inline-flex;align-items: center;justify-content: center;vertical-align: middle; }
-a { cursor: pointer;color: #0a84ff;text-decoration: none; }
-a:visited { color: var(--primary); }
-a:hover { color: #0c0c0d;text-decoration: underline; }
-a[href*="//"]::after { display: inline-block;width: 0.8em;height: 0.8em;margin-left: 2px;line-height: 0;content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>'); }
+a { color: var(--primary);cursor: pointer;text-decoration: none; }
+a:hover, a:focus { color: var(--text);box-shadow: 0 -2px var(--text) inset;border-radius: 0; }
+a[href*="//"]::after { display: inline-block;width: 0.8em;height: 0.8em;margin-left: 2px;line-height: 0;content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%2305f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>'); }
 a[id][href^="#"]::before { display: none;width: 0.8em;height: 0.8em;margin: 0 .2em 0 -1em;line-height: 0;content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>'); }
 a[id][href^="#"]:hover::before { display: inline-block; }
 details[open] > summary::before { z-index: 10;position: fixed;top: 0;right: 0;bottom: 0;left: 0;cursor: default;display: block;background: rgba(12, 12, 13, 0.6);content: " "; }
