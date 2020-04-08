@@ -9,7 +9,7 @@
     <style>
       body { max-width: 850px;padding: 8% 20px;margin: 0 auto; }
       h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
-      h2 a[id][href^="#"] { --primary: rgba(12, 12, 13, 0.7);margin: 20px 0; }
+      h2 a[id][href^="#"] { color: inherit;display: inline-flex;margin: 60px 0 8px; }
       .dark h2 a[id][href^="#"] { --primary: rgba(255, 255, 255, 0.7); }
     </style>
   </head>
@@ -66,7 +66,7 @@
         </tr>
       </tbody>
     </table>
-    <a class="space" href="./grid">Nested exemple</a>
+    <a class="inline space" href="./grid">Nested exemple</a>
     <h2><a id="forms" href="#forms">Forms</a></h2>
     <label>
       <span>Select</span>
@@ -81,7 +81,7 @@
       </select>
     </label>
     <label>
-      <span>Checkbox/Radio</span>
+      <span>Checkbox / Radio</span>
       <div class="row">
         <input type="checkbox">
         <input type="checkbox" indeterminate>
@@ -98,14 +98,15 @@
     <label><span>Week</span><input type="week"></label>
     <label><span>Datetime</span><input type="datetime-local"></label>
     <label><span>File</span><input type="file" multiple></label>
-    <label><span>Color</span><input type="color"></label>
     <label><span>Search</span><input type="search"></label>
+    <label><span>Disabled</span><input disabled></label>
     <label><span>Email</span><input type="email"></label>
     <label><span>Password</span><input type="password"></label>
     <label><span>Tel</span><input type="tel"></label>
     <label><span>Url</span><input type="url"></label>
     <label><span>Textarea</span><textarea></textarea></label>
-    <label><span>Disabled</span><input disabled></label>
+    <label title="Audio tag is for color comparison purposes."><span>Color / Audio</span><div class="row center space"><input type="color" value="#ffdd55"><audio controls></audio></div></label>
+    <label><span>Color</span></label>
     <div class="row space">
       <button>Button</button>
       <button class="primary">Primary</button>
@@ -118,7 +119,7 @@
           <div class="thick">
             This is a CSS Popup, click outside to close it.
           </div>
-          <div class="row right">
+          <div class="row space right">
             <button class="ghost">Fake</button>
             <button>Buttons</button>
           </div>
@@ -168,11 +169,6 @@
         </ul>
       </li>
     </ol>
-    <hr>
-    <img src="raw-before-after.png">
-    <audio controls src="https://assets.zeit.co/video/upload/vc_auto/v1542426673/front/design/examples/live-support.mp4"></audio>
-    <video controls src="https://assets.zeit.co/video/upload/vc_auto/v1542426673/front/design/examples/live-support.mp4"></video>
-    <iframe id="grid" src="grid"></iframe>
     <script>
       console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
       window.link = document.querySelector('[href="raw.css"]')

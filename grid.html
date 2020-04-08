@@ -2,16 +2,14 @@
 <html>
   <head>
     <title>RAW | Grid</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC" />
-    <link rel="stylesheet" href="raw.css" />
-  </head>
-  <body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="raw.css">
     <style>
       /* Use of custom attributes here to improve readability on the grid classes */
       [block] { display: flex;justify-content: center;align-items: center;font-size: 20px;font-weight: 800;background: white;border-radius: var(--border-radius);box-shadow: var(--box-shadow);transition: var(--transition); }
-      [block] { position: relative;overflow: hidden;background: var(--g08); }
+      [block] { position: relative;overflow: hidden;background: var(--gray05); }
       [block]:before { z-index: 10;position: absolute;top: -1.2em;right: -3.1em;width: 68px;content: "\00a0";font-size: 12px;font-weight: 700;text-align: center;letter-spacing: .1em;color: #fff;transition: var(--transition);transform: rotate(45deg);transform-origin: 0 0; }
       [block][sm]:before { content: "SM";background: #40bf80; }
       [block][md]:before { content: "MD";background: #33b2cc; }
@@ -22,9 +20,11 @@
       [lg] { min-width: calc(50% - 16px);min-height: 200px; }
       @media (max-width: 600px) { [lg] { min-width: calc(100% - 16px); } }
       /* Increase spacing size */
-      main { --spacing: 16px;min-height: calc(100vh - calc(var(--spacing))); }
-      .space, .space > * { margin: calc(var(--spacing) / 2); }
+      main { min-height: calc(100vh - 16px); }
+      .space, .space > * { margin: 8px; }
     </style>
+  </head>
+  <body>
     <main class="column space stretch">
       <h1 class="row thin"><a href="." style="margin-right: 50px">< BACK</a>RAW Grid</h1>
       <div class="row space stretch">
