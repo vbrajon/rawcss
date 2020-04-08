@@ -11,6 +11,8 @@
       h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
       h2 a[id][href^="#"] { color: inherit;display: inline-flex;margin: 60px 0 8px; }
       .dark h2 a[id][href^="#"] { --primary: rgba(255, 255, 255, 0.7); }
+      .exemple { min-width: 122px;margin: 20px 0;padding: 20px;background: var(--gray05);resize: horizontal;overflow: auto; }
+      .block { min-width: 50px;min-height: 20px;background: rgb(127, 127, 127, .3);box-shadow: inset 0 0 0 1px rgb(127, 127, 127, .6);border-radius: 0; }
     </style>
   </head>
   <body>
@@ -66,6 +68,31 @@
         </tr>
       </tbody>
     </table>
+    <div class="exemple">
+      <div class="column space">
+        <div class="row center" title="Row + Center">
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+        </div>
+        <div class="row stretch space" title="Row + Stretch + Space">
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+          <div class="block"></div>
+        </div>
+        <div class="row stretch space" title="Row with 2 Items and 1 Column of 3 Items without spacing">
+          <div class="block"></div>
+          <div class="block bottom" title="Item aligned bottom"></div>
+          <div class="column">
+            <div class="block right" title="Item aligned right"></div>
+            <div class="block center" title="Item aligned center"></div>
+            <div class="block left" title="Item aligned left"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <a class="inline space" href="./grid">Nested exemple</a>
     <h2><a id="forms" href="#forms">Forms</a></h2>
     <label>

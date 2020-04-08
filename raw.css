@@ -8,6 +8,7 @@
 .row.bottom, .column.right { align-items: flex-end; }
 .row.right, .column.bottom { justify-content: flex-end; }
 .row.left, .column.top { justify-content: flex-start; }
+.row .center, .column .center { place-self: center; }
 .row .top, .column .left { align-self: flex-start; }
 .row .bottom, .column .right { align-self: flex-end; }
 .row.reverse { flex-direction: row-reverse; }
