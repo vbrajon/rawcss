@@ -9,7 +9,8 @@
     <style>
       body { max-width: 850px;padding: 8% 20px;margin: 0 auto; }
       h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
-      h2 a[id][href^="#"] { --primary: #556;margin: 20px 0; }
+      h2 a[id][href^="#"] { --primary: rgba(12, 12, 13, 0.7);margin: 20px 0; }
+      .dark h2 a[id][href^="#"] { --primary: rgba(255, 255, 255, 0.7); }
     </style>
   </head>
   <body>
@@ -173,11 +174,13 @@
     <video controls src="https://assets.zeit.co/video/upload/vc_auto/v1542426673/front/design/examples/live-support.mp4"></video>
     <iframe id="grid" src="grid"></iframe>
     <script>
-      console.log('🚀 Hi there! Use the "s" key to toggle the style on and off. Appart from this, no JS here.')
+      console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
       window.link = document.querySelector('[href="raw.css"]')
       window.swap = () => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x')
+      window.dark = () => document.documentElement.classList.toggle('dark')
       window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
       key('s', swap)
+      key('d', dark)
     </script>
   </body>
 </html>
