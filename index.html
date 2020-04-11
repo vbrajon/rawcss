@@ -70,33 +70,38 @@
             <small><code>inline</code></small>
           </td>
         </tr>
+        <tr>
+          <td>Exemple</td>
+          <td>
+            <div class="exemple">
+              <div class="column space">
+                <div class="row center" title="Row + Center">
+                  <div class="block"></div>
+                  <div class="block"></div>
+                  <div class="block"></div>
+                  <div class="block"></div>
+                </div>
+                <div class="row stretch space" title="Row + Stretch + Space">
+                  <div class="block"></div>
+                  <div class="block"></div>
+                  <div class="block"></div>
+                  <div class="block"></div>
+                </div>
+                <div class="row stretch space" title="Row with 2 Items and 1 Column of 3 Items without spacing">
+                  <div class="block"></div>
+                  <div class="block bottom" title="Item aligned bottom"></div>
+                  <div class="column">
+                    <div class="block right" title="Item aligned right"></div>
+                    <div class="block center" title="Item aligned center"></div>
+                    <div class="block left" title="Item aligned left"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
-    <div class="exemple">
-      <div class="column space">
-        <div class="row center" title="Row + Center">
-          <div class="block"></div>
-          <div class="block"></div>
-          <div class="block"></div>
-          <div class="block"></div>
-        </div>
-        <div class="row stretch space" title="Row + Stretch + Space">
-          <div class="block"></div>
-          <div class="block"></div>
-          <div class="block"></div>
-          <div class="block"></div>
-        </div>
-        <div class="row stretch space" title="Row with 2 Items and 1 Column of 3 Items without spacing">
-          <div class="block"></div>
-          <div class="block bottom" title="Item aligned bottom"></div>
-          <div class="column">
-            <div class="block right" title="Item aligned right"></div>
-            <div class="block center" title="Item aligned center"></div>
-            <div class="block left" title="Item aligned left"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <a class="inline space" href="./grid">Nested exemple</a>
     <h2><a id="forms" href="#forms">Forms</a></h2>
     <label>
@@ -128,15 +133,16 @@
     <label><span>Month</span><input type="month"></label>
     <label><span>Week</span><input type="week"></label>
     <label><span>Datetime</span><input type="datetime-local"></label>
-    <label><span>File</span><input type="file" multiple></label>
+    <!-- <label><span>Disabled</span><input disabled></label> -->
     <label><span>Search</span><input type="search"></label>
-    <label><span>Disabled</span><input disabled></label>
     <label><span>Email</span><input type="email"></label>
     <label><span>Password</span><input type="password"></label>
     <label><span>Tel</span><input type="tel"></label>
     <label><span>Url</span><input type="url"></label>
-    <label><span>Textarea</span><textarea></textarea></label>
+    <label><span>File</span><input type="file" multiple></label>
+    <label><span>Range</span><input type="range"></label>
     <label title="Audio tag is for color comparison purposes."><span>Color / Audio</span><div class="row center space"><input type="color" value="#ffdd55"><audio controls></audio></div></label>
+    <label><span>Textarea</span><textarea></textarea></label>
     <div class="row space">
       <button>Button</button>
       <button class="primary">Primary</button>
