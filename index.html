@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RAW | 💎 Design Starter</title>
+    <title>RAW CSS | 💎 Design Starter</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A design system starter for evergreen browsers">
@@ -24,6 +24,20 @@
       <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
       <code>💎 Design Starter</code>
     </div>
+    <p style="margin-top: 40px;font-size: 20px;"><strong>rawcss</strong> is a pure CSS design starter that brings structure when starting a design system.</p>
+    <p style="margin: 8px 0;font-size: 20px;">The structure is the following:</p>
+    <ul>
+      <li><a href="#layout">Layout</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#elements">Elements</a></li>
+      <li><a href="#variables">Variables</a></li>
+    </ul>
+    <p style="margin: 8px 0;font-size: 20px;">And should be extended by adding:</p>
+    <ul>
+      <li><a href="#addons" disabled>Addons</a></li>
+      <li><a href="#components" disabled>Components</a></li>
+      <li><a href="#pages" disabled>Pages</a></li>
+    </ul>
     <h2><a id="layout" href="#layout">Layout</a></h2>
     <table>
       <thead>
@@ -67,6 +81,7 @@
             <code>thick</code>
             <small><code>reverse</code></small>
             <small><code>nowrap</code></small>
+            <small><code>noshrink</code></small>
             <small><code>inline</code></small>
           </td>
         </tr>
@@ -205,6 +220,48 @@
         </ul>
       </li>
     </ol>
+    <h2><a id="variables" href="#variables">Variables</a></h2>
+    <style>
+      .color { width: 16px;height: 16px;margin: 2px;border-radius: 2px; }
+      .icon { width: 24px;height: 24px;margin: 4px; }
+      .shadow { width: 16px;height: 16px; }
+    </style>
+    <div class="row space">
+      <div class="row" style="width: 122px;padding: 22px 10px;background: var(--gray05);">
+        <div class="color" style="background: var(--gray02)" title="--gray02"></div>
+        <div class="color" style="background: var(--gray05)" title="--gray05"></div>
+        <div class="color" style="background: var(--gray1)" title="--gray1"></div>
+        <div class="color" style="background: var(--gray2)" title="--gray2"></div>
+        <div class="color" style="background: var(--gray3)" title="--gray3"></div>
+        <div class="color" style="background: var(--blue1)" title="--blue1"></div>
+        <div class="color" style="background: var(--blue2)" title="--blue2"></div>
+        <div class="color" style="background: var(--blue3)" title="--blue3"></div>
+        <div class="color" style="background: var(--text)" title="--text"></div>
+        <div class="color" style="background: var(--background)" title="--background"></div>
+      </div>
+      <div class="row dark" style="width: 122px;padding: 22px 10px;background: var(--gray05);">
+        <div class="color" style="background: var(--gray02)" title="--gray02"></div>
+        <div class="color" style="background: var(--gray05)" title="--gray05"></div>
+        <div class="color" style="background: var(--gray1)" title="--gray1"></div>
+        <div class="color" style="background: var(--gray2)" title="--gray2"></div>
+        <div class="color" style="background: var(--gray3)" title="--gray3"></div>
+        <div class="color" style="background: var(--blue1)" title="--blue1"></div>
+        <div class="color" style="background: var(--blue2)" title="--blue2"></div>
+        <div class="color" style="background: var(--blue3)" title="--blue3"></div>
+        <div class="color" style="background: var(--text)" title="--text"></div>
+        <div class="color" style="background: var(--background)" title="--background"></div>
+      </div>
+      <div class="row" style="width: 150px;padding: 10px;background: var(--gray05);">
+        <div class="icon" style="background: var(--calendar)" title="--calendar"></div>
+        <div class="icon" style="background: var(--chevron-down)" title="--chevron"></div>
+        <div class="icon" style="background: var(--external-link)" title="--external"></div>
+        <div class="icon" style="background: var(--link)" title="--link"></div>
+        <div class="icon" style="background: var(--lock)" title="--lock"></div>
+        <div class="icon" style="background: var(--mail)" title="--mail"></div>
+        <div class="icon" style="background: var(--phone)" title="--phone"></div>
+        <div class="icon" style="background: var(--search)" title="--search"></div>
+      </div>
+    </div>
     <script>
       console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
       window.link = document.querySelector('[href="raw.css"]')

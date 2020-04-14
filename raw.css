@@ -20,6 +20,7 @@
 .thin { flex: 0; }
 .inline { display: inline-flex; }
 .nowrap { flex-wrap: nowrap; }
+.noshrink { flex-shrink: 0; }
 
 ::selection { color: var(--background);background: var(--blue1); }
 :root, .dark .dark { --background: rgb(255, 256, 257);--blue1: #06e;--blue2: #03a;--blue3: #027;--gray02: rgb(250, 251, 252);--gray05: rgb(242, 243, 244);--gray1: rgb(230, 231, 232);--gray2: rgb(204, 205, 206);--gray3: rgb(179, 180, 181);--text: rgb(34, 35, 36); }
