@@ -11,12 +11,10 @@
       body { max-width: 850px;padding: 8% 20px;margin: 0 auto; }
       h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
       h2 a[id][href^="#"] { color: var(--text);display: inline-flex;margin: 60px 0 8px; }
-      .exemple { min-width: 122px;margin: 20px 0;padding: 20px;background: var(--gray05);resize: horizontal;overflow: auto; }
-      .block { min-width: 50px;min-height: 20px;background: rgb(0, 0, 0, .05);box-shadow: inset 0 0 0 1px rgb(0, 1, 2, .1);border-radius: 0; }
-      .dark .block { background: rgb(253, 254, 255, .05);box-shadow: inset 0 0 0 1px rgb(255, 255, 255, .3); }
       /* TODO: decide if this goes into raw.css */
       a { padding: 12px 4px; }
       ins, del, mark { padding: 4px; }
+      button[aria-label] { width: 40px;padding: 0; }
     </style>
   </head>
   <body>
@@ -34,15 +32,15 @@
     </ul>
     <p style="margin: 8px 0;font-size: 20px;">And should be extended by adding:</p>
     <ul>
-      <li><a href="#addons" disabled>Addons</a></li>
+      <li><a href="#addons" disabled>Addons for Assets, Icons, Colors</a></li>
       <li><a href="#components" disabled>Components</a></li>
       <li><a href="#pages" disabled>Pages</a></li>
     </ul>
     <div class="row center space">
       <span>Inspired by:</span>
-      <a title="Firefox Photon" href="https://design.firefox.com/photon" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: no-repeat center url(https://protocol.mozilla.org/assets/protocol/protocol/img/logos/mozilla/white.svg);"></a>
-      <a title="Github Primer" href="https://primer.style/css/" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: no-repeat center / 80px url(https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png);"></a>
-      <a title="Zeit Design" href="https://zeit.co/design" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: no-repeat center / 280px url(https://assets.zeit.co/image/upload/q_auto/front/assets/design/black-full-logo.png);"></a>
+      <a title="Firefox Photon" href="https://design.firefox.com/photon" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center url(https://protocol.mozilla.org/assets/protocol/protocol/img/logos/mozilla/white.svg);"></a>
+      <a title="Github Primer" href="https://primer.style/css/" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center / 80px url(https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png);"></a>
+      <a title="Zeit Design" href="https://zeit.co/design" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center / 280px url(https://assets.zeit.co/image/upload/q_auto/front/assets/design/black-full-logo.png);"></a>
     </div>
     <div class="row center space">
       <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -96,39 +94,41 @@
             <small><code>inline</code></small>
           </td>
         </tr>
-        <tr>
-          <td>Exemple</td>
-          <td>
-            <div class="exemple">
-              <div class="column space">
-                <div class="row center" title="Row + Center">
-                  <div class="block"></div>
-                  <div class="block"></div>
-                  <div class="block"></div>
-                  <div class="block"></div>
-                </div>
-                <div class="row stretch space" title="Row + Stretch + Space">
-                  <div class="block"></div>
-                  <div class="block"></div>
-                  <div class="block"></div>
-                  <div class="block"></div>
-                </div>
-                <div class="row stretch space" title="Row with 2 Items and 1 Column of 3 Items without spacing">
-                  <div class="block"></div>
-                  <div class="block bottom" title="Item aligned bottom"></div>
-                  <div class="column">
-                    <div class="block right" title="Item aligned right"></div>
-                    <div class="block center" title="Item aligned center"></div>
-                    <div class="block left" title="Item aligned left"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
       </tbody>
     </table>
-    <a class="inline space" href="./grid">Nested exemple</a>
+    <style>
+      .block { margin: 20px auto;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);width: calc(50% - 40px); }
+      .block > div { min-width: 300px;min-height: 250px;background: black;border-radius: 4px 4px 0 0; }
+      .block > div :not(.row):not(.column) { display: flex;place-items: center;place-content: center;min-width: 60px;min-height: 60px;color: white;background: #06e;outline: 1px dotted black;border-radius: 0; }
+      .block pre { padding: 20px; }
+      .block .row.space { margin: 0;padding: 8px; }
+    </style>
+    <script>
+      window.$ = (s, start = document) => start.querySelector(s)
+      window.$$ = (s, start = document) => Array.from(start.querySelectorAll(s))
+      window.ex = (el, n) => ($('.block > div').outerHTML = $('.block > pre').innerText = [`<div class="row center space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row evenly">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row stretch">\n  <div>1</div>\n  <div>2</div>\n  <div class="column">\n    <div class="left">1</div>\n    <div class="center">2</div>\n    <div class="right">3</div>\n  </div>\n</div>`, `<div class="row stretch space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n  <div>4</div>\n  <div>5</div>\n  <div>6</div>\n  <div>7</div>\n  <div>8</div>\n  <div>9</div>\n  <div>10</div>\n  <div>11</div>\n  <div>12</div>\n</div>`, `<div class="row">\n  <div style="margin-bottom: auto;">1</div>\n  <div style="margin: auto;">2</div>\n  <div style="margin-top: auto;">3</div>\n</div>`][n], $('[active]').removeAttribute('active'), el.setAttribute('active', ''))
+    </script>
+    <div class="row center">
+      <div class="column space">
+        <label><span>Exemples</span></label>
+        <button onclick="ex(this, 0)" active>Center</button>
+        <button onclick="ex(this, 1)">Evenly</button>
+        <button onclick="ex(this, 2)">Nested</button>
+        <button onclick="ex(this, 3)">Grid</button>
+        <button onclick="ex(this, 4)">Margin</button>
+      </div>
+      <div class="block">
+        <div class="row center space">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div><pre><code>&lt;div class="row center space"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </div>
     <h2><a id="forms" href="#forms">Forms</a></h2>
     <label>
       <span>Checkbox / Radio</span>
@@ -158,9 +158,9 @@
     <label><span>Time</span><input type="time"></label>
     <label><span>Month</span><input type="month"></label>
     <label><span>Week</span><input type="week"></label>
-    <label><span>Datetime</span><input type="datetime-local"></label>
-    <!-- <label><span>Disabled</span><input disabled></label> -->
+    <!-- <label><span>Datetime</span><input type="datetime-local"></label> -->
     <label><span>Search</span><input type="search"></label>
+    <label><span>Disabled</span><input disabled></label>
     <label><span>Email</span><input type="email"></label>
     <label><span>Password</span><input type="password"></label>
     <label><span>Tel</span><input type="tel"></label>
@@ -191,7 +191,7 @@
     <h2><a id="elements" href="#elements">Elements</a></h2>
     <a id="a" href="#a">a id</a>
     <a href="">a href</a>
-    <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
+    <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer" external>a external</a>
     <abbr title="Abbreviation">abbr</abbr>
     <b>b</b>
     <code>code</code>
@@ -265,8 +265,8 @@
       </div>
       <div class="row" style="width: 150px;padding: 10px;background: var(--gray05);">
         <div class="icon" style="background: var(--calendar)" title="--calendar"></div>
-        <div class="icon" style="background: var(--chevron-down)" title="--chevron"></div>
-        <div class="icon" style="background: var(--external-link)" title="--external"></div>
+        <div class="icon" style="background: var(--chevron-down)" title="--chevron-down"></div>
+        <div class="icon" style="background: var(--external-link)" title="--external-link"></div>
         <div class="icon" style="background: var(--link)" title="--link"></div>
         <div class="icon" style="background: var(--lock)" title="--lock"></div>
         <div class="icon" style="background: var(--mail)" title="--mail"></div>
