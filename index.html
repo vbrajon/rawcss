@@ -97,10 +97,10 @@
       </tbody>
     </table>
     <style>
-      .block { margin: 20px auto;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);width: calc(50% - 40px); }
+      .block { margin: 20px;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);width: calc(50% - 40px); }
       .block > div { min-width: 300px;min-height: 250px;background: black;border-radius: 4px 4px 0 0; }
       .block > div :not(.row):not(.column) { display: flex;place-items: center;place-content: center;min-width: 60px;min-height: 60px;color: white;background: #06e;outline: 1px dotted black;border-radius: 0; }
-      .block pre { padding: 20px; }
+      .block pre { padding: 20px;max-height: 160px;overflow: auto; }
       .block .row.space { margin: 0;padding: 8px; }
     </style>
     <script>
@@ -175,8 +175,8 @@
       <button class="ghost">Ghost</button>
       <button class="ghost" aria-label="feather-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22"/><path d="M17.5 15H9"/></svg></button>
       <button disabled>Disabled</button>
-      <details>
-        <summary>Popup</summary>
+      <details class="popup">
+        <summary class="button">Popup</summary>
         <div class="column">
           <div class="thick">
             This is a CSS Popup, click outside to close it.
@@ -218,19 +218,25 @@
     <p>p</p>
     <pre>pre</pre>
     <blockquote>blockquote</blockquote>
-    <ol>
-      <li>ol / li</li>
+    <ul>
+      <li>ul + li</li>
+      <li>ul + li</li>
       <li>
         nested
-        <ul>
-          <li>
-            ul / li
-            <ol>
-              <li>ol / li</li>
-            </ol>
-        </ul>
+        <ol>
+          <li>ol + li</li>
+          <li>ol + li</li>
+        </ol>
       </li>
-    </ol>
+    </ul>
+    <details>
+      <summary>details</summary>
+      <div>
+        <div>div 1</div>
+        <div>div 2</div>
+        <div>div 3</div>
+      </div>
+    </details>
     <h2><a id="variables" href="#variables">Variables</a></h2>
     <style>
       .color { width: 16px;height: 16px;margin: 2px;border-radius: 2px; }
