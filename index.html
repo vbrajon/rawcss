@@ -8,21 +8,20 @@
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
     <link rel="stylesheet" href="raw.css">
     <style>
-      body { max-width: 850px;padding: 8% 20px;margin: 0 auto; }
+      body { max-width: 880px;padding: 8% 20px;margin: 0 auto; }
       h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
       h2 a[id][href^="#"] { color: var(--text);display: inline-flex;margin: 60px 0 8px; }
       /* TODO: decide if this goes into raw.css */
+      label { display: inline-flex;flex-direction: column;margin: 8px; }
       a { padding: 12px 4px; }
-      ins, del, mark { padding: 4px; }
       button[aria-label] { width: 40px;padding: 0; }
+      [type="date"], [type="time"], [type="month"], [type="week"], [type="datetime-local"] { padding: 0 40px 0 16px;background-position: right 10px center; }
     </style>
   </head>
   <body>
-    <div class="row center between">
-      <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
-      <code>💎 Design Starter</code>
-    </div>
+    <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
     <p style="margin-top: 40px;font-size: 20px;"><strong>rawcss</strong> is a pure CSS design starter that brings structure when starting a design system.</p>
+    <p style="font-size: 20px;">It includes a <a href="#dark" onclick="dark()">dark theme</a> and a <a href="#nocss" onclick="swap()">without theme</a></p>
     <p style="margin: 8px 0;font-size: 20px;">The structure is the following:</p>
     <ul>
       <li><a href="#layout">Layout</a></li>
@@ -130,7 +129,7 @@
       </div>
     </div>
     <h2><a id="forms" href="#forms">Forms</a></h2>
-    <label>
+    <label for="none">
       <span>Checkbox / Radio</span>
       <div class="row">
         <input type="checkbox">
@@ -140,6 +139,7 @@
         <input type="radio">
         <input type="radio" checked>
         <input type="radio" disabled>
+        <script>$$('[indeterminate]').forEach(el => el.indeterminate = true)</script>
       </div>
     </label>
     <label>
@@ -155,12 +155,12 @@
       </select>
     </label>
     <label><span>Date</span><input type="date"></label>
-    <label><span>Time</span><input type="time"></label>
+    <label><span>Time <small>.noicon</small></span><input type="time" class="noicon"></label>
     <label><span>Month</span><input type="month"></label>
     <label><span>Week</span><input type="week"></label>
     <!-- <label><span>Datetime</span><input type="datetime-local"></label> -->
     <label><span>Search</span><input type="search"></label>
-    <label><span>Disabled</span><input disabled></label>
+    <label><span>Text <small>disabled</small></span><input disabled></label>
     <label><span>Email</span><input type="email"></label>
     <label><span>Password</span><input type="password"></label>
     <label><span>Tel</span><input type="tel"></label>
@@ -245,29 +245,27 @@
       :root { --shadow1: 0 1px 4px var(--gray1);--shadow2: 0 2px 8px var(--gray1);--shadow3: 0 4px 16px var(--gray1); }
     </style>
     <div class="row space">
-      <div class="row" style="width: 122px;padding: 22px 10px;background: var(--gray05);">
-        <div class="color" style="background: var(--gray02)" title="--gray02"></div>
-        <div class="color" style="background: var(--gray05)" title="--gray05"></div>
-        <div class="color" style="background: var(--gray1)" title="--gray1"></div>
-        <div class="color" style="background: var(--gray2)" title="--gray2"></div>
-        <div class="color" style="background: var(--gray3)" title="--gray3"></div>
-        <div class="color" style="background: var(--blue1)" title="--blue1"></div>
-        <div class="color" style="background: var(--blue2)" title="--blue2"></div>
-        <div class="color" style="background: var(--blue3)" title="--blue3"></div>
-        <div class="color" style="background: var(--text)" title="--text"></div>
-        <div class="color" style="background: var(--background)" title="--background"></div>
-      </div>
-      <div class="row dark" style="width: 122px;padding: 22px 10px;background: var(--gray05);">
-        <div class="color" style="background: var(--gray02)" title="--gray02"></div>
-        <div class="color" style="background: var(--gray05)" title="--gray05"></div>
-        <div class="color" style="background: var(--gray1)" title="--gray1"></div>
-        <div class="color" style="background: var(--gray2)" title="--gray2"></div>
-        <div class="color" style="background: var(--gray3)" title="--gray3"></div>
-        <div class="color" style="background: var(--blue1)" title="--blue1"></div>
-        <div class="color" style="background: var(--blue2)" title="--blue2"></div>
-        <div class="color" style="background: var(--blue3)" title="--blue3"></div>
-        <div class="color" style="background: var(--text)" title="--text"></div>
-        <div class="color" style="background: var(--background)" title="--background"></div>
+      <div class="column between">
+        <div class="row" style="width: 176px;padding: 8px;background: var(--gray05);">
+          <div class="color" style="background: var(--gray02)" title="--gray02"></div>
+          <div class="color" style="background: var(--gray05)" title="--gray05"></div>
+          <div class="color" style="background: var(--gray1)" title="--gray1"></div>
+          <div class="color" style="background: var(--gray2)" title="--gray2"></div>
+          <div class="color" style="background: var(--gray3)" title="--gray3"></div>
+          <div class="color" style="background: var(--primary)" title="--primary"></div>
+          <div class="color" style="background: var(--text)" title="--text"></div>
+          <div class="color" style="background: var(--background)" title="--background"></div>
+        </div>
+        <div class="row dark" style="width: 176px;padding: 8px;background: var(--gray05);">
+          <div class="color" style="background: var(--gray02)" title="--gray02"></div>
+          <div class="color" style="background: var(--gray05)" title="--gray05"></div>
+          <div class="color" style="background: var(--gray1)" title="--gray1"></div>
+          <div class="color" style="background: var(--gray2)" title="--gray2"></div>
+          <div class="color" style="background: var(--gray3)" title="--gray3"></div>
+          <div class="color" style="background: var(--primary)" title="--primary"></div>
+          <div class="color" style="background: var(--text)" title="--text"></div>
+          <div class="color" style="background: var(--background)" title="--background"></div>
+        </div>
       </div>
       <div class="row" style="width: 150px;padding: 10px;background: var(--gray05);">
         <div class="icon" style="background: var(--calendar)" title="--calendar"></div>
@@ -281,13 +279,13 @@
       </div>
     </div>
     <script>
-      console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
+      // console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
       window.link = document.querySelector('[href="raw.css"]')
       window.swap = () => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x')
       window.dark = () => document.documentElement.classList.toggle('dark')
-      window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
-      key('s', swap)
-      key('d', dark)
+      // window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
+      // key('s', swap)
+      // key('d', dark)
     </script>
   </body>
 </html>
