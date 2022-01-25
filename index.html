@@ -1,292 +1,899 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RAW CSS | 💎 Design Starter</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A design system starter for evergreen browsers">
-    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQMAAAD58POIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQBV/////4sv2ZcAAAAlSURBVEjHY2AYBUMX/IeCUQGYACo9KjCaPkbTx6gAsQKjgN4AAD6qvlDftANDAAAAAElFTkSuQmCC">
-    <link rel="stylesheet" href="raw.css">
-    <style>
-      body { max-width: 880px;padding: 8% 20px;margin: 0 auto; }
-      h1 a[id][href^="#"] { margin-right: 40px;font-variant: small-caps;letter-spacing: -0.04em;background: linear-gradient(to right, #03f, #0bf);-webkit-background-clip: text;-webkit-text-fill-color: transparent; }
-      h2 a[id][href^="#"] { color: var(--text);display: inline-flex;margin: 60px 0 8px; }
-      /* TODO: decide if this goes into raw.css */
-      label { display: inline-flex;flex-direction: column;margin: 8px; }
-      a { padding: 12px 4px; }
-      button[aria-label] { width: 40px;padding: 0;vertical-align: middle; }
-      [type="date"], [type="time"], [type="month"], [type="week"], [type="datetime-local"] { padding: 0 40px 0 16px;background-position: right 10px center; }
-    </style>
-  </head>
-  <body>
-    <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
-    <p style="margin-top: 40px;font-size: 20px;"><strong>rawcss</strong> is a pure CSS design starter that brings structure when starting a design system.</p>
-    <p style="font-size: 20px;">It includes a <button onclick="dark()">dark theme</button> and a <button onclick="swap()">without theme</button></p>
-    <p style="margin: 8px 0;font-size: 20px;">The structure is the following:</p>
-    <ul>
-      <li><a href="#layout">Layout</a></li>
-      <li><a href="#forms">Forms</a></li>
-      <li><a href="#elements">Elements</a></li>
-      <li><a href="#variables">Variables</a></li>
-    </ul>
-    <p style="margin: 8px 0;font-size: 20px;">And should be extended by adding:</p>
-    <ul>
-      <li><a href="#addons" disabled>Addons for Assets, Icons, Colors</a></li>
-      <li><a href="#components" disabled>Components</a></li>
-      <li><a href="#pages" disabled>Pages</a></li>
-    </ul>
-    <div class="row center space">
-      <span>Inspired by:</span>
-      <a title="Firefox Photon" href="https://design.firefox.com/photon" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center url(https://protocol.mozilla.org/assets/protocol/protocol/img/logos/mozilla/white.svg);"></a>
-      <a title="Github Primer" href="https://primer.style/css/" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center / 80px url(https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png);"></a>
-      <a title="Zeit Design" href="https://zeit.co/design" target="_blank" rel="noopener noreferrer" style="width: 120px;height: 60px;background: white no-repeat center / 280px url(https://assets.zeit.co/image/upload/q_auto/front/assets/design/black-full-logo.png);"></a>
-    </div>
-    <div class="row center space">
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
-      <a class="github-button" href="https://github.com/vbrajon" aria-label="Follow @vbrajon on GitHub">Follow @vbrajon</a>
-      <a class="github-button" href="https://github.com/vbrajon/rawcss" data-show-count="true" aria-label="Star vbrajon/rawcss on GitHub">Star</a>
-    </div>
-    <h2><a id="layout" href="#layout">Layout</a></h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Flexbox</th>
-          <th>Utility classes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Direction</td>
-          <td>
-            <code>row</code>
-            <code>column</code>
-          </td>
-        </tr>
-        <tr>
-          <td>Position</td>
-          <td>
-            <code>top</code>
-            <code>bottom</code>
-            <code>left</code>
-            <code>right</code>
-          </td>
-        </tr>
-        <tr>
-          <td>Spacing</td>
-          <td>
-            <code>center</code>
-            <code>around</code>
-            <code>between</code>
-            <code>evenly</code>
-          </td>
-        </tr>
-        <tr>
-          <td>Utilities</td>
-          <td>
-            <code>stretch</code>
-            <code>space</code>
-            <code>thin</code>
-            <code>thick</code>
-            <small><code>reverse</code></small>
-            <small><code>nowrap</code></small>
-            <small><code>noshrink</code></small>
-            <small><code>inline</code></small>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <style>
-      .block { margin: 20px;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);width: calc(50% - 40px); }
-      .block > div { min-width: 300px;min-height: 250px;background: black;border-radius: 4px 4px 0 0; }
-      .block > div :not(.row):not(.column) { display: flex;place-items: center;place-content: center;min-width: 60px;min-height: 60px;color: white;background: #06e;outline: 1px dotted black;border-radius: 0; }
-      .block pre { padding: 20px;max-height: 160px;overflow: auto; }
-      .block .row.space { margin: 0;padding: 8px; }
-    </style>
-    <script>
-      window.$ = (s, start = document) => start.querySelector(s)
-      window.$$ = (s, start = document) => Array.from(start.querySelectorAll(s))
-      window.ex = (el, n) => ($('.block > div').outerHTML = $('.block > pre').innerText = [`<div class="row center space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row evenly">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row stretch">\n  <div>1</div>\n  <div>2</div>\n  <div class="column">\n    <div class="left">1</div>\n    <div class="center">2</div>\n    <div class="right">3</div>\n  </div>\n</div>`, `<div class="row stretch space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n  <div>4</div>\n  <div>5</div>\n  <div>6</div>\n</div>`, `<div class="row">\n  <div style="margin-bottom: auto;">1</div>\n  <div style="margin: auto;">2</div>\n  <div style="margin-top: auto;">3</div>\n</div>`][n], $('[active]').removeAttribute('active'), el.setAttribute('active', ''))
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/index.css" />
+    <script type="module">
+      import 'uno.css'
     </script>
-    <div class="row center">
-      <div class="column space">
-        <label><span>Exemples</span></label>
-        <button onclick="ex(this, 0)" active>Center</button>
-        <button onclick="ex(this, 1)">Evenly</button>
-        <button onclick="ex(this, 2)">Nested</button>
-        <button onclick="ex(this, 3)">Grid</button>
-        <button onclick="ex(this, 4)">Margin</button>
-      </div>
-      <div class="block">
-        <div class="row center space">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div><pre><code>&lt;div class="row center space"&gt;
-  &lt;div&gt;1&lt;/div&gt;
-  &lt;div&gt;2&lt;/div&gt;
-  &lt;div&gt;3&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-      </div>
-    </div>
-    <h2><a id="forms" href="#forms">Forms</a></h2>
-    <label for="none">
-      <span>Checkbox / Radio</span>
-      <div class="row">
-        <input type="checkbox">
-        <input type="checkbox" indeterminate>
-        <input type="checkbox" checked>
-        <input type="checkbox" disabled>
-        <input type="radio">
-        <input type="radio" checked>
-        <input type="radio" disabled>
-        <script>$$('[indeterminate]').forEach(el => el.indeterminate = true)</script>
-      </div>
-    </label>
-    <label>
-      <span>Select</span>
-      <select>
-        <option></option>
-        <option selected>Select box</option>
-        <option>Using native &lt;select&gt;</option>
-        <optgroup label="Features">
-          <option>Option groups</option>
-          <option>Super long text does not overflowing on the icon even if we try harder!</option>
-        </optgroup>
-      </select>
-    </label>
-    <label><span>Date</span><input type="date"></label>
-    <label><span>Time <small>.noicon</small></span><input type="time" class="noicon"></label>
-    <label><span>Month</span><input type="month"></label>
-    <label><span>Week</span><input type="week"></label>
-    <!-- <label><span>Datetime</span><input type="datetime-local"></label> -->
-    <label><span>Search</span><input type="search"></label>
-    <label><span>Text <small>disabled</small></span><input disabled></label>
-    <label><span>Email</span><input type="email"></label>
-    <label><span>Password</span><input type="password"></label>
-    <label><span>Tel</span><input type="tel"></label>
-    <label><span>Url</span><input type="url"></label>
-    <label><span>File</span><input type="file" multiple></label>
-    <label><span>Range</span><input type="range"></label>
-    <label title="Audio tag is for color comparison purposes."><span>Color / Audio</span><div class="row center space"><input type="color" value="#ffdd55"><audio controls></audio></div></label>
-    <label><span>Textarea</span><textarea></textarea></label>
-    <div class="row space">
-      <button>Button</button>
-      <button class="primary">Primary</button>
-      <button class="ghost">Ghost</button>
-      <button class="ghost" aria-label="feather-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22"/><path d="M17.5 15H9"/></svg></button>
-      <button disabled>Disabled</button>
-      <details class="popup">
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css" /> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script> -->
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+  </head>
+  <body class="container mx-auto overscroll-none">
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="elements">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#elements">Elements</a>
+      <h1>h1</h1>
+      <h2>h2</h2>
+      <h3>h3</h3>
+      <h4>h4</h4>
+      <h5>h5</h5>
+      <h6>h6</h6>
+      <p>p</p>
+      <pre>pre</pre>
+      <blockquote>blockquote</blockquote>
+      <ul>
+        <li>ul</li>
+        <li>
+          <ol>
+            <li>ol</li>
+          </ol>
+        </li>
+      </ul>
+      <details>
+        <summary>details</summary>
+        <div>
+          <div>Line 1</div>
+          <div>Line 2</div>
+          <div>
+            <details>
+              <summary>Line 3</summary>
+              <div>
+                <div>Line 4</div>
+                <div>Line 5</div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </details>
+      <!-- <details class="popup">
         <summary class="button">Popup</summary>
         <div class="column">
-          <div class="thick">
-            This is a CSS Popup, click outside to close it.
-          </div>
+          <div class="thick">This is a CSS Popup, click outside to close it.</div>
           <div class="row space right">
             <button class="ghost">Fake</button>
             <button>Buttons</button>
           </div>
         </div>
-      </details>
-    </div>
-    <h2><a id="elements" href="#elements">Elements</a></h2>
-    <h1>h1</h1>
-    <h2>h2</h2>
-    <h3>h3</h3>
-    <h4>h4</h4>
-    <p>p</p>
-    <pre>pre</pre>
-    <blockquote>blockquote</blockquote>
-    <ul>
-      <li>ul + li</li>
-      <li>ul + li</li>
-      <li>
-        nested
-        <ol>
-          <li>ol + li</li>
-          <li>ol + li</li>
-        </ol>
-      </li>
-    </ul>
-    <details>
-      <summary>details</summary>
+      </details> -->
+      <hr />
+      <a href="">a</a>
+      <a id="a" href="#a">a id</a>
+      <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
+      <abbr title="Abbreviation">abbr</abbr>
+      <b>b</b>
+      <code>code</code>
+      <del>del</del>
+      <em>em</em>
+      <i>i</i>
+      <ins>ins</ins>
+      <kbd>kbd</kbd>
+      <mark>mark</mark>
+      <q>q</q>
+      <s>s</s>
+      <small>small</small>
+      <strong>strong</strong>
+      <sub>sub</sub>
+      <sup>sup</sup>
+      <u>u</u>
+      <span style="text-decoration: underline overline">Align</span>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="forms">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#forms">Forms</a>
+      <form class="form flex space-x-8">
+        <div class="flex-1 flex flex-col space-y-4">
+          <label>
+            <span>Text</span>
+            <input type="text" />
+          </label>
+          <label>
+            <span>Number</span>
+            <input type="number" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" />
+          </label>
+          <label>
+            <span>Tel</span>
+            <input type="tel" />
+          </label>
+          <label>
+            <span>Url</span>
+            <input type="url" />
+          </label>
+          <label>
+            <span>Search</span>
+            <input type="search" />
+          </label>
+          <label>
+            <span>Text (placeholder)</span>
+            <input type="text" placeholder="placeholder" />
+          </label>
+          <label>
+            <span>Text (disabled)</span>
+            <input type="text" disabled />
+          </label>
+          <label>
+            <span>Url (required)</span>
+            <input type="url" required value="https://" />
+          </label>
+          <label>
+            <span>Datetime-local</span>
+            <input type="datetime-local" />
+          </label>
+          <label>
+            <span>Date</span>
+            <input type="date" />
+          </label>
+          <label>
+            <span>Time</span>
+            <input type="time" />
+          </label>
+          <label>
+            <span>Month</span>
+            <input type="month" />
+          </label>
+          <label>
+            <span>Week</span>
+            <input type="week" />
+          </label>
+        </div>
+
+        <div class="flex-1 flex flex-col space-y-4">
+          <label>
+            <span>Select</span>
+            <select>
+              <option></option>
+              <option selected>Option 1</option>
+              <option>Option 2</option>
+              <optgroup label="Group 1">
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </optgroup>
+              <optgroup label="Group 2">
+                <option>Option 5</option>
+                <option>Option 6</option>
+              </optgroup>
+              <option>Option 7</option>
+            </select>
+          </label>
+          <label>
+            <span>Select (multiple)</span>
+            <select multiple>
+              <option selected>Option 1</option>
+              <option selected>Option 2</option>
+              <optgroup label="Group 1">
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </optgroup>
+              <optgroup label="Group 2">
+                <option>Option 5</option>
+                <option>Option 6</option>
+              </optgroup>
+              <option>Option 7</option>
+            </select>
+          </label>
+          <label>
+            <span>Textarea</span>
+            <textarea rows="4"></textarea>
+          </label>
+          <fieldset class="flex flex-col">
+            <span>Checkbox</span>
+            <label>
+              <input type="checkbox" name="checkbox" value="unchecked" />
+              <span>Unchecked</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="checked" checked />
+              <span>Checked</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="disabled" disabled />
+              <span>Disabled</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="indeterminate" indeterminate />
+              <span>Indeterminate</span>
+            </label>
+            <script>
+              window.$ = (s, root = document) => root.querySelector(s)
+              window.$$ = (s, root = document) => Array.from(root.querySelectorAll(s))
+              $$('[indeterminate]').forEach(el => (el.indeterminate = true))
+            </script>
+          </fieldset>
+          <fieldset class="flex flex-col">
+            <span>Radio</span>
+            <label>
+              <input type="radio" name="radio" value="unchecked" />
+              <span>Unchecked</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" value="checked" checked />
+              <span>Checked</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" value="disabled" disabled />
+              <span>Disabled</span>
+            </label>
+          </fieldset>
+          <label>
+            <span>File (multiple)</span>
+            <input class="" type="file" multiple />
+          </label>
+          <label>
+            <span>Color</span>
+            <input type="color" value="#ffdd55" />
+          </label>
+          <label>
+            <span>Range</span>
+            <input type="range" />
+          </label>
+          <label>
+            <span>Button</span>
+            <!-- <input type="button" value="button" /> -->
+            <button class="button">Button</button>
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="typography">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#typography">Typography</a>
       <div>
-        <div>div 1</div>
-        <div>div 2</div>
-        <div>div 3</div>
-      </div>
-    </details>
-    <hr>
-    <a id="a" href="#a">a id</a>
-    <a href="">a href</a>
-    <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer" external>a external</a>
-    <abbr title="Abbreviation">abbr</abbr>
-    <b>b</b>
-    <code>code</code>
-    <del>del</del>
-    <em>em</em>
-    <i>i</i>
-    <ins>ins</ins>
-    <kbd>kbd</kbd>
-    <mark>mark</mark>
-    <q>q</q>
-    <s>s</s>
-    <small>small</small>
-    <strong>strong</strong>
-    <sub>sub</sub>
-    <sup>sup</sup>
-    <u>u</u>
-    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M11 16l4-4-4-4" fill="none"/></svg>
-    <span style="text-decoration: underline overline">Align</span>
-    <span title="The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec.">Hover me!</span>
-    <h2><a id="variables" href="#variables">Variables</a></h2>
-    <style>
-      .color { width: 16px;height: 16px;margin: 2px;border-radius: 2px; }
-      .icon { width: 24px;height: 24px;margin: 4px; }
-      .shadow { width: 16px;height: 16px; }
-      :root { --shadow1: 0 1px 4px var(--gray1);--shadow2: 0 2px 8px var(--gray1);--shadow3: 0 4px 16px var(--gray1); }
-    </style>
-    <div class="row space">
-      <div class="column between">
-        <div class="row" style="width: 176px;padding: 8px;background: var(--gray05);">
-          <div class="color" style="background: var(--gray02)" title="--gray02"></div>
-          <div class="color" style="background: var(--gray05)" title="--gray05"></div>
-          <div class="color" style="background: var(--gray1)" title="--gray1"></div>
-          <div class="color" style="background: var(--gray2)" title="--gray2"></div>
-          <div class="color" style="background: var(--gray3)" title="--gray3"></div>
-          <div class="color" style="background: var(--primary)" title="--primary"></div>
-          <div class="color" style="background: var(--text)" title="--text"></div>
-          <div class="color" style="background: var(--background)" title="--background"></div>
+        <div>
+          <h1 class="title-1">h1</h1>
+          <h2 class="title-2">h2</h2>
+          <h3 class="title-3">h3</h3>
         </div>
-        <div class="row dark" style="width: 176px;padding: 8px;background: var(--gray05);">
-          <div class="color" style="background: var(--gray02)" title="--gray02"></div>
-          <div class="color" style="background: var(--gray05)" title="--gray05"></div>
-          <div class="color" style="background: var(--gray1)" title="--gray1"></div>
-          <div class="color" style="background: var(--gray2)" title="--gray2"></div>
-          <div class="color" style="background: var(--gray3)" title="--gray3"></div>
-          <div class="color" style="background: var(--primary)" title="--primary"></div>
-          <div class="color" style="background: var(--text)" title="--text"></div>
-          <div class="color" style="background: var(--background)" title="--background"></div>
+        <div>
+          <p class="text-1">p1</p>
+          <p class="text-2">p2</p>
+          <p class="text-3">p3</p>
+        </div>
+        <div>
+          <a class="link">link</a>
+          <a class="link text-sm">link</a>
+          <a class="link text-xs">link</a>
+        </div>
+        <div>
+          <button class="button">button</button>
+          <button class="button text-sm">button</button>
+          <button class="button text-xs">button</button>
+        </div>
+        <div>
+          <span class="badge">badge</span>
+          <span class="badge text-sm">badge</span>
+          <span class="badge text-xs">badge</span>
         </div>
       </div>
-      <div class="row" style="width: 150px;padding: 10px;background: var(--gray05);">
-        <div class="icon" style="background: var(--calendar)" title="--calendar"></div>
-        <div class="icon" style="background: var(--chevron-down)" title="--chevron-down"></div>
-        <div class="icon" style="background: var(--external-link)" title="--external-link"></div>
-        <div class="icon" style="background: var(--link)" title="--link"></div>
-        <div class="icon" style="background: var(--lock)" title="--lock"></div>
-        <div class="icon" style="background: var(--mail)" title="--mail"></div>
-        <div class="icon" style="background: var(--phone)" title="--phone"></div>
-        <div class="icon" style="background: var(--search)" title="--search"></div>
+
+      <article class="prose">
+        I am a
+        <a href="#">link</a>
+        and a
+        <button>button</button>
+        in a prose article.
+      </article>
+
+      <div class="line-clamp-3">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of
+        the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+        to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+        like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
+        has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+        with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+        versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem
+        Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+        an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </div>
-    </div>
-    <script>
-      // console.log('🚀 Hi there! Use the "s" key to toggle the style and "d" key to toggle the dark mode. Appart from this, no JS here.')
-      window.link = document.querySelector('[href="raw.css"]')
-      window.swap = () => link.href = link.href.replace(/^x?/, m => m[0] === 'x' ? '' : 'x')
-      window.dark = () => document.documentElement.classList.toggle('dark')
-      // window.key = (letter, fn) => addEventListener('keydown', e => e.key.toLowerCase() === letter && fn(e))
-      // key('s', swap)
-      // key('d', dark)
-    </script>
+
+      
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="colors">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#colors">Colors</a>
+      <div class="w-[210px] border">
+        <div class="flex justify-between m-2">
+          <div class="font-mono text-xs">bg-indigo</div>
+          <div class="font-mono text-xs">50-900</div>
+        </div>
+        <div class="flex flex-wrap m-2 gap-2">
+          <div class="w-8 h-8 rounded-sm bg-indigo-50"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-100"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-200"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-300"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-400"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-500"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-600"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-700"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-800"></div>
+          <div class="w-8 h-8 rounded-sm bg-indigo-900"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="icons">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#icons">Icons</a>
+
+      <!-- copy((await (await fetch('https://icones.netlify.app/collections/feather-meta.json')).json()).icons.map(i => `<div class="i-feather-${i}"></div>`).join('\n')) -->
+      <a class="link p-2" href="https://icones.netlify.app/collections/feather">Feather Collection</a>
+      <div class="feather text-xl flex flex-wrap m-2 gap-2">
+        <div class="i-feather-activity"></div>
+        <div class="i-feather-airplay"></div>
+        <div class="i-feather-alert-circle"></div>
+        <div class="i-feather-alert-octagon"></div>
+        <div class="i-feather-alert-triangle"></div>
+        <div class="i-feather-align-center"></div>
+        <div class="i-feather-align-justify"></div>
+        <div class="i-feather-align-left"></div>
+        <div class="i-feather-align-right"></div>
+        <div class="i-feather-anchor"></div>
+        <div class="i-feather-aperture"></div>
+        <div class="i-feather-archive"></div>
+        <div class="i-feather-arrow-down"></div>
+        <div class="i-feather-arrow-down-circle"></div>
+        <div class="i-feather-arrow-down-left"></div>
+        <div class="i-feather-arrow-down-right"></div>
+        <div class="i-feather-arrow-left"></div>
+        <div class="i-feather-arrow-left-circle"></div>
+        <div class="i-feather-arrow-right"></div>
+        <div class="i-feather-arrow-right-circle"></div>
+        <div class="i-feather-arrow-up"></div>
+        <div class="i-feather-arrow-up-circle"></div>
+        <div class="i-feather-arrow-up-left"></div>
+        <div class="i-feather-arrow-up-right"></div>
+        <div class="i-feather-at-sign"></div>
+        <div class="i-feather-award"></div>
+        <div class="i-feather-bar-chart"></div>
+        <div class="i-feather-bar-chart-2"></div>
+        <div class="i-feather-battery"></div>
+        <div class="i-feather-battery-charging"></div>
+        <div class="i-feather-bell"></div>
+        <div class="i-feather-bell-off"></div>
+        <div class="i-feather-bluetooth"></div>
+        <div class="i-feather-bold"></div>
+        <div class="i-feather-book"></div>
+        <div class="i-feather-book-open"></div>
+        <div class="i-feather-bookmark"></div>
+        <div class="i-feather-box"></div>
+        <div class="i-feather-briefcase"></div>
+        <div class="i-feather-calendar"></div>
+        <div class="i-feather-camera"></div>
+        <div class="i-feather-camera-off"></div>
+        <div class="i-feather-cast"></div>
+        <div class="i-feather-check"></div>
+        <div class="i-feather-check-circle"></div>
+        <div class="i-feather-check-square"></div>
+        <div class="i-feather-chevron-down"></div>
+        <div class="i-feather-chevron-left"></div>
+        <div class="i-feather-chevron-right"></div>
+        <div class="i-feather-chevron-up"></div>
+        <div class="i-feather-chevrons-down"></div>
+        <div class="i-feather-chevrons-left"></div>
+        <div class="i-feather-chevrons-right"></div>
+        <div class="i-feather-chevrons-up"></div>
+        <div class="i-feather-chrome"></div>
+        <div class="i-feather-circle"></div>
+        <div class="i-feather-clipboard"></div>
+        <div class="i-feather-clock"></div>
+        <div class="i-feather-cloud"></div>
+        <div class="i-feather-cloud-drizzle"></div>
+        <div class="i-feather-cloud-lightning"></div>
+        <div class="i-feather-cloud-off"></div>
+        <div class="i-feather-cloud-rain"></div>
+        <div class="i-feather-cloud-snow"></div>
+        <div class="i-feather-code"></div>
+        <div class="i-feather-codepen"></div>
+        <div class="i-feather-codesandbox"></div>
+        <div class="i-feather-coffee"></div>
+        <div class="i-feather-columns"></div>
+        <div class="i-feather-command"></div>
+        <div class="i-feather-compass"></div>
+        <div class="i-feather-copy"></div>
+        <div class="i-feather-corner-down-left"></div>
+        <div class="i-feather-corner-down-right"></div>
+        <div class="i-feather-corner-left-down"></div>
+        <div class="i-feather-corner-left-up"></div>
+        <div class="i-feather-corner-right-down"></div>
+        <div class="i-feather-corner-right-up"></div>
+        <div class="i-feather-corner-up-left"></div>
+        <div class="i-feather-corner-up-right"></div>
+        <div class="i-feather-cpu"></div>
+        <div class="i-feather-credit-card"></div>
+        <div class="i-feather-crop"></div>
+        <div class="i-feather-crosshair"></div>
+        <div class="i-feather-database"></div>
+        <div class="i-feather-delete"></div>
+        <div class="i-feather-disc"></div>
+        <div class="i-feather-divide"></div>
+        <div class="i-feather-divide-circle"></div>
+        <div class="i-feather-divide-square"></div>
+        <div class="i-feather-dollar-sign"></div>
+        <div class="i-feather-download"></div>
+        <div class="i-feather-download-cloud"></div>
+        <div class="i-feather-dribbble"></div>
+        <div class="i-feather-droplet"></div>
+        <div class="i-feather-edit"></div>
+        <div class="i-feather-edit-2"></div>
+        <div class="i-feather-edit-3"></div>
+        <div class="i-feather-external-link"></div>
+        <div class="i-feather-eye"></div>
+        <div class="i-feather-eye-off"></div>
+        <div class="i-feather-facebook"></div>
+        <div class="i-feather-fast-forward"></div>
+        <div class="i-feather-feather"></div>
+        <div class="i-feather-figma"></div>
+        <div class="i-feather-file"></div>
+        <div class="i-feather-file-minus"></div>
+        <div class="i-feather-file-plus"></div>
+        <div class="i-feather-file-text"></div>
+        <div class="i-feather-film"></div>
+        <div class="i-feather-filter"></div>
+        <div class="i-feather-flag"></div>
+        <div class="i-feather-folder"></div>
+        <div class="i-feather-folder-minus"></div>
+        <div class="i-feather-folder-plus"></div>
+        <div class="i-feather-framer"></div>
+        <div class="i-feather-frown"></div>
+        <div class="i-feather-gift"></div>
+        <div class="i-feather-git-branch"></div>
+        <div class="i-feather-git-commit"></div>
+        <div class="i-feather-git-merge"></div>
+        <div class="i-feather-git-pull-request"></div>
+        <div class="i-feather-github"></div>
+        <div class="i-feather-gitlab"></div>
+        <div class="i-feather-globe"></div>
+        <div class="i-feather-grid"></div>
+        <div class="i-feather-hard-drive"></div>
+        <div class="i-feather-hash"></div>
+        <div class="i-feather-headphones"></div>
+        <div class="i-feather-heart"></div>
+        <div class="i-feather-help-circle"></div>
+        <div class="i-feather-hexagon"></div>
+        <div class="i-feather-home"></div>
+        <div class="i-feather-image"></div>
+        <div class="i-feather-inbox"></div>
+        <div class="i-feather-info"></div>
+        <div class="i-feather-instagram"></div>
+        <div class="i-feather-italic"></div>
+        <div class="i-feather-key"></div>
+        <div class="i-feather-layers"></div>
+        <div class="i-feather-layout"></div>
+        <div class="i-feather-life-buoy"></div>
+        <div class="i-feather-link"></div>
+        <div class="i-feather-link-2"></div>
+        <div class="i-feather-linkedin"></div>
+        <div class="i-feather-list"></div>
+        <div class="i-feather-loader"></div>
+        <div class="i-feather-lock"></div>
+        <div class="i-feather-log-in"></div>
+        <div class="i-feather-log-out"></div>
+        <div class="i-feather-mail"></div>
+        <div class="i-feather-map"></div>
+        <div class="i-feather-map-pin"></div>
+        <div class="i-feather-maximize"></div>
+        <div class="i-feather-maximize-2"></div>
+        <div class="i-feather-meh"></div>
+        <div class="i-feather-menu"></div>
+        <div class="i-feather-message-circle"></div>
+        <div class="i-feather-message-square"></div>
+        <div class="i-feather-mic"></div>
+        <div class="i-feather-mic-off"></div>
+        <div class="i-feather-minimize"></div>
+        <div class="i-feather-minimize-2"></div>
+        <div class="i-feather-minus"></div>
+        <div class="i-feather-minus-circle"></div>
+        <div class="i-feather-minus-square"></div>
+        <div class="i-feather-monitor"></div>
+        <div class="i-feather-moon"></div>
+        <div class="i-feather-more-horizontal"></div>
+        <div class="i-feather-more-vertical"></div>
+        <div class="i-feather-mouse-pointer"></div>
+        <div class="i-feather-move"></div>
+        <div class="i-feather-music"></div>
+        <div class="i-feather-navigation"></div>
+        <div class="i-feather-navigation-2"></div>
+        <div class="i-feather-octagon"></div>
+        <div class="i-feather-package"></div>
+        <div class="i-feather-paperclip"></div>
+        <div class="i-feather-pause"></div>
+        <div class="i-feather-pause-circle"></div>
+        <div class="i-feather-pen-tool"></div>
+        <div class="i-feather-percent"></div>
+        <div class="i-feather-phone"></div>
+        <div class="i-feather-phone-call"></div>
+        <div class="i-feather-phone-forwarded"></div>
+        <div class="i-feather-phone-incoming"></div>
+        <div class="i-feather-phone-missed"></div>
+        <div class="i-feather-phone-off"></div>
+        <div class="i-feather-phone-outgoing"></div>
+        <div class="i-feather-pie-chart"></div>
+        <div class="i-feather-play"></div>
+        <div class="i-feather-play-circle"></div>
+        <div class="i-feather-plus"></div>
+        <div class="i-feather-plus-circle"></div>
+        <div class="i-feather-plus-square"></div>
+        <div class="i-feather-pocket"></div>
+        <div class="i-feather-power"></div>
+        <div class="i-feather-printer"></div>
+        <div class="i-feather-radio"></div>
+        <div class="i-feather-refresh-ccw"></div>
+        <div class="i-feather-refresh-cw"></div>
+        <div class="i-feather-repeat"></div>
+        <div class="i-feather-rewind"></div>
+        <div class="i-feather-rotate-ccw"></div>
+        <div class="i-feather-rotate-cw"></div>
+        <div class="i-feather-rss"></div>
+        <div class="i-feather-save"></div>
+        <div class="i-feather-scissors"></div>
+        <div class="i-feather-search"></div>
+        <div class="i-feather-send"></div>
+        <div class="i-feather-server"></div>
+        <div class="i-feather-settings"></div>
+        <div class="i-feather-share"></div>
+        <div class="i-feather-share-2"></div>
+        <div class="i-feather-shield"></div>
+        <div class="i-feather-shield-off"></div>
+        <div class="i-feather-shopping-bag"></div>
+        <div class="i-feather-shopping-cart"></div>
+        <div class="i-feather-shuffle"></div>
+        <div class="i-feather-sidebar"></div>
+        <div class="i-feather-skip-back"></div>
+        <div class="i-feather-skip-forward"></div>
+        <div class="i-feather-slack"></div>
+        <div class="i-feather-slash"></div>
+        <div class="i-feather-sliders"></div>
+        <div class="i-feather-smartphone"></div>
+        <div class="i-feather-smile"></div>
+        <div class="i-feather-speaker"></div>
+        <div class="i-feather-square"></div>
+        <div class="i-feather-star"></div>
+        <div class="i-feather-stop-circle"></div>
+        <div class="i-feather-sun"></div>
+        <div class="i-feather-sunrise"></div>
+        <div class="i-feather-sunset"></div>
+        <div class="i-feather-tablet"></div>
+        <div class="i-feather-tag"></div>
+        <div class="i-feather-target"></div>
+        <div class="i-feather-terminal"></div>
+        <div class="i-feather-thermometer"></div>
+        <div class="i-feather-thumbs-down"></div>
+        <div class="i-feather-thumbs-up"></div>
+        <div class="i-feather-toggle-left"></div>
+        <div class="i-feather-toggle-right"></div>
+        <div class="i-feather-tool"></div>
+        <div class="i-feather-trash"></div>
+        <div class="i-feather-trash-2"></div>
+        <div class="i-feather-trello"></div>
+        <div class="i-feather-trending-down"></div>
+        <div class="i-feather-trending-up"></div>
+        <div class="i-feather-triangle"></div>
+        <div class="i-feather-truck"></div>
+        <div class="i-feather-tv"></div>
+        <div class="i-feather-twitch"></div>
+        <div class="i-feather-twitter"></div>
+        <div class="i-feather-type"></div>
+        <div class="i-feather-umbrella"></div>
+        <div class="i-feather-underline"></div>
+        <div class="i-feather-unlock"></div>
+        <div class="i-feather-upload"></div>
+        <div class="i-feather-upload-cloud"></div>
+        <div class="i-feather-user"></div>
+        <div class="i-feather-user-check"></div>
+        <div class="i-feather-user-minus"></div>
+        <div class="i-feather-user-plus"></div>
+        <div class="i-feather-user-x"></div>
+        <div class="i-feather-users"></div>
+        <div class="i-feather-video"></div>
+        <div class="i-feather-video-off"></div>
+        <div class="i-feather-voicemail"></div>
+        <div class="i-feather-volume"></div>
+        <div class="i-feather-volume-1"></div>
+        <div class="i-feather-volume-2"></div>
+        <div class="i-feather-volume-x"></div>
+        <div class="i-feather-watch"></div>
+        <div class="i-feather-wifi"></div>
+        <div class="i-feather-wifi-off"></div>
+        <div class="i-feather-wind"></div>
+        <div class="i-feather-x"></div>
+        <div class="i-feather-x-circle"></div>
+        <div class="i-feather-x-octagon"></div>
+        <div class="i-feather-x-square"></div>
+        <div class="i-feather-youtube"></div>
+        <div class="i-feather-zap"></div>
+        <div class="i-feather-zap-off"></div>
+        <div class="i-feather-zoom-in"></div>
+        <div class="i-feather-zoom-out"></div>
+      </div>
+      <a class="link p-2" href="https://icones.netlify.app/collections/heroicons-outline">Heroicons Collection</a>
+      <!-- copy((await (await fetch('https://icones.netlify.app/collections/heroicons-outline-meta.json')).json()).icons.map(i => `<div class="i-heroicons-outline-${i} hover:i-heroicons-solid-${i}"></div>`).join('\n')) -->
+      <div class="feather text-xl flex flex-wrap m-2 gap-2">
+        <div class="i-heroicons-outline-academic-cap hover:i-heroicons-solid-academic-cap"></div>
+        <div class="i-heroicons-outline-adjustments hover:i-heroicons-solid-adjustments"></div>
+        <div class="i-heroicons-outline-annotation hover:i-heroicons-solid-annotation"></div>
+        <div class="i-heroicons-outline-archive hover:i-heroicons-solid-archive"></div>
+        <div class="i-heroicons-outline-arrow-circle-down hover:i-heroicons-solid-arrow-circle-down"></div>
+        <div class="i-heroicons-outline-arrow-circle-left hover:i-heroicons-solid-arrow-circle-left"></div>
+        <div class="i-heroicons-outline-arrow-circle-right hover:i-heroicons-solid-arrow-circle-right"></div>
+        <div class="i-heroicons-outline-arrow-circle-up hover:i-heroicons-solid-arrow-circle-up"></div>
+        <div class="i-heroicons-outline-arrow-down hover:i-heroicons-solid-arrow-down"></div>
+        <div class="i-heroicons-outline-arrow-left hover:i-heroicons-solid-arrow-left"></div>
+        <div class="i-heroicons-outline-arrow-narrow-down hover:i-heroicons-solid-arrow-narrow-down"></div>
+        <div class="i-heroicons-outline-arrow-narrow-left hover:i-heroicons-solid-arrow-narrow-left"></div>
+        <div class="i-heroicons-outline-arrow-narrow-right hover:i-heroicons-solid-arrow-narrow-right"></div>
+        <div class="i-heroicons-outline-arrow-narrow-up hover:i-heroicons-solid-arrow-narrow-up"></div>
+        <div class="i-heroicons-outline-arrow-right hover:i-heroicons-solid-arrow-right"></div>
+        <div class="i-heroicons-outline-arrow-sm-down hover:i-heroicons-solid-arrow-sm-down"></div>
+        <div class="i-heroicons-outline-arrow-sm-left hover:i-heroicons-solid-arrow-sm-left"></div>
+        <div class="i-heroicons-outline-arrow-sm-right hover:i-heroicons-solid-arrow-sm-right"></div>
+        <div class="i-heroicons-outline-arrow-sm-up hover:i-heroicons-solid-arrow-sm-up"></div>
+        <div class="i-heroicons-outline-arrow-up hover:i-heroicons-solid-arrow-up"></div>
+        <div class="i-heroicons-outline-arrows-expand hover:i-heroicons-solid-arrows-expand"></div>
+        <div class="i-heroicons-outline-at-symbol hover:i-heroicons-solid-at-symbol"></div>
+        <div class="i-heroicons-outline-backspace hover:i-heroicons-solid-backspace"></div>
+        <div class="i-heroicons-outline-badge-check hover:i-heroicons-solid-badge-check"></div>
+        <div class="i-heroicons-outline-ban hover:i-heroicons-solid-ban"></div>
+        <div class="i-heroicons-outline-beaker hover:i-heroicons-solid-beaker"></div>
+        <div class="i-heroicons-outline-bell hover:i-heroicons-solid-bell"></div>
+        <div class="i-heroicons-outline-book-open hover:i-heroicons-solid-book-open"></div>
+        <div class="i-heroicons-outline-bookmark hover:i-heroicons-solid-bookmark"></div>
+        <div class="i-heroicons-outline-bookmark-alt hover:i-heroicons-solid-bookmark-alt"></div>
+        <div class="i-heroicons-outline-briefcase hover:i-heroicons-solid-briefcase"></div>
+        <div class="i-heroicons-outline-cake hover:i-heroicons-solid-cake"></div>
+        <div class="i-heroicons-outline-calculator hover:i-heroicons-solid-calculator"></div>
+        <div class="i-heroicons-outline-calendar hover:i-heroicons-solid-calendar"></div>
+        <div class="i-heroicons-outline-camera hover:i-heroicons-solid-camera"></div>
+        <div class="i-heroicons-outline-cash hover:i-heroicons-solid-cash"></div>
+        <div class="i-heroicons-outline-chart-bar hover:i-heroicons-solid-chart-bar"></div>
+        <div class="i-heroicons-outline-chart-pie hover:i-heroicons-solid-chart-pie"></div>
+        <div class="i-heroicons-outline-chart-square-bar hover:i-heroicons-solid-chart-square-bar"></div>
+        <div class="i-heroicons-outline-chat hover:i-heroicons-solid-chat"></div>
+        <div class="i-heroicons-outline-chat-alt hover:i-heroicons-solid-chat-alt"></div>
+        <div class="i-heroicons-outline-chat-alt-2 hover:i-heroicons-solid-chat-alt-2"></div>
+        <div class="i-heroicons-outline-check hover:i-heroicons-solid-check"></div>
+        <div class="i-heroicons-outline-check-circle hover:i-heroicons-solid-check-circle"></div>
+        <div class="i-heroicons-outline-chevron-double-down hover:i-heroicons-solid-chevron-double-down"></div>
+        <div class="i-heroicons-outline-chevron-double-left hover:i-heroicons-solid-chevron-double-left"></div>
+        <div class="i-heroicons-outline-chevron-double-right hover:i-heroicons-solid-chevron-double-right"></div>
+        <div class="i-heroicons-outline-chevron-double-up hover:i-heroicons-solid-chevron-double-up"></div>
+        <div class="i-heroicons-outline-chevron-down hover:i-heroicons-solid-chevron-down"></div>
+        <div class="i-heroicons-outline-chevron-left hover:i-heroicons-solid-chevron-left"></div>
+        <div class="i-heroicons-outline-chevron-right hover:i-heroicons-solid-chevron-right"></div>
+        <div class="i-heroicons-outline-chevron-up hover:i-heroicons-solid-chevron-up"></div>
+        <div class="i-heroicons-outline-chip hover:i-heroicons-solid-chip"></div>
+        <div class="i-heroicons-outline-clipboard hover:i-heroicons-solid-clipboard"></div>
+        <div class="i-heroicons-outline-clipboard-check hover:i-heroicons-solid-clipboard-check"></div>
+        <div class="i-heroicons-outline-clipboard-copy hover:i-heroicons-solid-clipboard-copy"></div>
+        <div class="i-heroicons-outline-clipboard-list hover:i-heroicons-solid-clipboard-list"></div>
+        <div class="i-heroicons-outline-clock hover:i-heroicons-solid-clock"></div>
+        <div class="i-heroicons-outline-cloud hover:i-heroicons-solid-cloud"></div>
+        <div class="i-heroicons-outline-cloud-download hover:i-heroicons-solid-cloud-download"></div>
+        <div class="i-heroicons-outline-cloud-upload hover:i-heroicons-solid-cloud-upload"></div>
+        <div class="i-heroicons-outline-code hover:i-heroicons-solid-code"></div>
+        <div class="i-heroicons-outline-cog hover:i-heroicons-solid-cog"></div>
+        <div class="i-heroicons-outline-collection hover:i-heroicons-solid-collection"></div>
+        <div class="i-heroicons-outline-color-swatch hover:i-heroicons-solid-color-swatch"></div>
+        <div class="i-heroicons-outline-credit-card hover:i-heroicons-solid-credit-card"></div>
+        <div class="i-heroicons-outline-cube hover:i-heroicons-solid-cube"></div>
+        <div class="i-heroicons-outline-cube-transparent hover:i-heroicons-solid-cube-transparent"></div>
+        <div class="i-heroicons-outline-currency-bangladeshi hover:i-heroicons-solid-currency-bangladeshi"></div>
+        <div class="i-heroicons-outline-currency-dollar hover:i-heroicons-solid-currency-dollar"></div>
+        <div class="i-heroicons-outline-currency-euro hover:i-heroicons-solid-currency-euro"></div>
+        <div class="i-heroicons-outline-currency-pound hover:i-heroicons-solid-currency-pound"></div>
+        <div class="i-heroicons-outline-currency-rupee hover:i-heroicons-solid-currency-rupee"></div>
+        <div class="i-heroicons-outline-currency-yen hover:i-heroicons-solid-currency-yen"></div>
+        <div class="i-heroicons-outline-cursor-click hover:i-heroicons-solid-cursor-click"></div>
+        <div class="i-heroicons-outline-database hover:i-heroicons-solid-database"></div>
+        <div class="i-heroicons-outline-desktop-computer hover:i-heroicons-solid-desktop-computer"></div>
+        <div class="i-heroicons-outline-device-mobile hover:i-heroicons-solid-device-mobile"></div>
+        <div class="i-heroicons-outline-device-tablet hover:i-heroicons-solid-device-tablet"></div>
+        <div class="i-heroicons-outline-document hover:i-heroicons-solid-document"></div>
+        <div class="i-heroicons-outline-document-add hover:i-heroicons-solid-document-add"></div>
+        <div class="i-heroicons-outline-document-download hover:i-heroicons-solid-document-download"></div>
+        <div class="i-heroicons-outline-document-duplicate hover:i-heroicons-solid-document-duplicate"></div>
+        <div class="i-heroicons-outline-document-remove hover:i-heroicons-solid-document-remove"></div>
+        <div class="i-heroicons-outline-document-report hover:i-heroicons-solid-document-report"></div>
+        <div class="i-heroicons-outline-document-search hover:i-heroicons-solid-document-search"></div>
+        <div class="i-heroicons-outline-document-text hover:i-heroicons-solid-document-text"></div>
+        <div class="i-heroicons-outline-dots-circle-horizontal hover:i-heroicons-solid-dots-circle-horizontal"></div>
+        <div class="i-heroicons-outline-dots-horizontal hover:i-heroicons-solid-dots-horizontal"></div>
+        <div class="i-heroicons-outline-dots-vertical hover:i-heroicons-solid-dots-vertical"></div>
+        <div class="i-heroicons-outline-download hover:i-heroicons-solid-download"></div>
+        <div class="i-heroicons-outline-duplicate hover:i-heroicons-solid-duplicate"></div>
+        <div class="i-heroicons-outline-emoji-happy hover:i-heroicons-solid-emoji-happy"></div>
+        <div class="i-heroicons-outline-emoji-sad hover:i-heroicons-solid-emoji-sad"></div>
+        <div class="i-heroicons-outline-exclamation hover:i-heroicons-solid-exclamation"></div>
+        <div class="i-heroicons-outline-exclamation-circle hover:i-heroicons-solid-exclamation-circle"></div>
+        <div class="i-heroicons-outline-external-link hover:i-heroicons-solid-external-link"></div>
+        <div class="i-heroicons-outline-eye hover:i-heroicons-solid-eye"></div>
+        <div class="i-heroicons-outline-eye-off hover:i-heroicons-solid-eye-off"></div>
+        <div class="i-heroicons-outline-fast-forward hover:i-heroicons-solid-fast-forward"></div>
+        <div class="i-heroicons-outline-film hover:i-heroicons-solid-film"></div>
+        <div class="i-heroicons-outline-filter hover:i-heroicons-solid-filter"></div>
+        <div class="i-heroicons-outline-finger-print hover:i-heroicons-solid-finger-print"></div>
+        <div class="i-heroicons-outline-fire hover:i-heroicons-solid-fire"></div>
+        <div class="i-heroicons-outline-flag hover:i-heroicons-solid-flag"></div>
+        <div class="i-heroicons-outline-folder hover:i-heroicons-solid-folder"></div>
+        <div class="i-heroicons-outline-folder-add hover:i-heroicons-solid-folder-add"></div>
+        <div class="i-heroicons-outline-folder-download hover:i-heroicons-solid-folder-download"></div>
+        <div class="i-heroicons-outline-folder-open hover:i-heroicons-solid-folder-open"></div>
+        <div class="i-heroicons-outline-folder-remove hover:i-heroicons-solid-folder-remove"></div>
+        <div class="i-heroicons-outline-gift hover:i-heroicons-solid-gift"></div>
+        <div class="i-heroicons-outline-globe hover:i-heroicons-solid-globe"></div>
+        <div class="i-heroicons-outline-globe-alt hover:i-heroicons-solid-globe-alt"></div>
+        <div class="i-heroicons-outline-hand hover:i-heroicons-solid-hand"></div>
+        <div class="i-heroicons-outline-hashtag hover:i-heroicons-solid-hashtag"></div>
+        <div class="i-heroicons-outline-heart hover:i-heroicons-solid-heart"></div>
+        <div class="i-heroicons-outline-home hover:i-heroicons-solid-home"></div>
+        <div class="i-heroicons-outline-identification hover:i-heroicons-solid-identification"></div>
+        <div class="i-heroicons-outline-inbox hover:i-heroicons-solid-inbox"></div>
+        <div class="i-heroicons-outline-inbox-in hover:i-heroicons-solid-inbox-in"></div>
+        <div class="i-heroicons-outline-information-circle hover:i-heroicons-solid-information-circle"></div>
+        <div class="i-heroicons-outline-key hover:i-heroicons-solid-key"></div>
+        <div class="i-heroicons-outline-library hover:i-heroicons-solid-library"></div>
+        <div class="i-heroicons-outline-light-bulb hover:i-heroicons-solid-light-bulb"></div>
+        <div class="i-heroicons-outline-lightning-bolt hover:i-heroicons-solid-lightning-bolt"></div>
+        <div class="i-heroicons-outline-link hover:i-heroicons-solid-link"></div>
+        <div class="i-heroicons-outline-location-marker hover:i-heroicons-solid-location-marker"></div>
+        <div class="i-heroicons-outline-lock-closed hover:i-heroicons-solid-lock-closed"></div>
+        <div class="i-heroicons-outline-lock-open hover:i-heroicons-solid-lock-open"></div>
+        <div class="i-heroicons-outline-login hover:i-heroicons-solid-login"></div>
+        <div class="i-heroicons-outline-logout hover:i-heroicons-solid-logout"></div>
+        <div class="i-heroicons-outline-mail hover:i-heroicons-solid-mail"></div>
+        <div class="i-heroicons-outline-mail-open hover:i-heroicons-solid-mail-open"></div>
+        <div class="i-heroicons-outline-map hover:i-heroicons-solid-map"></div>
+        <div class="i-heroicons-outline-menu hover:i-heroicons-solid-menu"></div>
+        <div class="i-heroicons-outline-menu-alt-1 hover:i-heroicons-solid-menu-alt-1"></div>
+        <div class="i-heroicons-outline-menu-alt-2 hover:i-heroicons-solid-menu-alt-2"></div>
+        <div class="i-heroicons-outline-menu-alt-3 hover:i-heroicons-solid-menu-alt-3"></div>
+        <div class="i-heroicons-outline-menu-alt-4 hover:i-heroicons-solid-menu-alt-4"></div>
+        <div class="i-heroicons-outline-microphone hover:i-heroicons-solid-microphone"></div>
+        <div class="i-heroicons-outline-minus hover:i-heroicons-solid-minus"></div>
+        <div class="i-heroicons-outline-minus-circle hover:i-heroicons-solid-minus-circle"></div>
+        <div class="i-heroicons-outline-minus-sm hover:i-heroicons-solid-minus-sm"></div>
+        <div class="i-heroicons-outline-moon hover:i-heroicons-solid-moon"></div>
+        <div class="i-heroicons-outline-music-note hover:i-heroicons-solid-music-note"></div>
+        <div class="i-heroicons-outline-newspaper hover:i-heroicons-solid-newspaper"></div>
+        <div class="i-heroicons-outline-office-building hover:i-heroicons-solid-office-building"></div>
+        <div class="i-heroicons-outline-paper-airplane hover:i-heroicons-solid-paper-airplane"></div>
+        <div class="i-heroicons-outline-paper-clip hover:i-heroicons-solid-paper-clip"></div>
+        <div class="i-heroicons-outline-pause hover:i-heroicons-solid-pause"></div>
+        <div class="i-heroicons-outline-pencil hover:i-heroicons-solid-pencil"></div>
+        <div class="i-heroicons-outline-pencil-alt hover:i-heroicons-solid-pencil-alt"></div>
+        <div class="i-heroicons-outline-phone hover:i-heroicons-solid-phone"></div>
+        <div class="i-heroicons-outline-phone-incoming hover:i-heroicons-solid-phone-incoming"></div>
+        <div class="i-heroicons-outline-phone-missed-call hover:i-heroicons-solid-phone-missed-call"></div>
+        <div class="i-heroicons-outline-phone-outgoing hover:i-heroicons-solid-phone-outgoing"></div>
+        <div class="i-heroicons-outline-photograph hover:i-heroicons-solid-photograph"></div>
+        <div class="i-heroicons-outline-play hover:i-heroicons-solid-play"></div>
+        <div class="i-heroicons-outline-plus hover:i-heroicons-solid-plus"></div>
+        <div class="i-heroicons-outline-plus-circle hover:i-heroicons-solid-plus-circle"></div>
+        <div class="i-heroicons-outline-plus-sm hover:i-heroicons-solid-plus-sm"></div>
+        <div class="i-heroicons-outline-presentation-chart-bar hover:i-heroicons-solid-presentation-chart-bar"></div>
+        <div class="i-heroicons-outline-presentation-chart-line hover:i-heroicons-solid-presentation-chart-line"></div>
+        <div class="i-heroicons-outline-printer hover:i-heroicons-solid-printer"></div>
+        <div class="i-heroicons-outline-puzzle hover:i-heroicons-solid-puzzle"></div>
+        <div class="i-heroicons-outline-qrcode hover:i-heroicons-solid-qrcode"></div>
+        <div class="i-heroicons-outline-question-mark-circle hover:i-heroicons-solid-question-mark-circle"></div>
+        <div class="i-heroicons-outline-receipt-refund hover:i-heroicons-solid-receipt-refund"></div>
+        <div class="i-heroicons-outline-receipt-tax hover:i-heroicons-solid-receipt-tax"></div>
+        <div class="i-heroicons-outline-refresh hover:i-heroicons-solid-refresh"></div>
+        <div class="i-heroicons-outline-reply hover:i-heroicons-solid-reply"></div>
+        <div class="i-heroicons-outline-rewind hover:i-heroicons-solid-rewind"></div>
+        <div class="i-heroicons-outline-rss hover:i-heroicons-solid-rss"></div>
+        <div class="i-heroicons-outline-save hover:i-heroicons-solid-save"></div>
+        <div class="i-heroicons-outline-save-as hover:i-heroicons-solid-save-as"></div>
+        <div class="i-heroicons-outline-scale hover:i-heroicons-solid-scale"></div>
+        <div class="i-heroicons-outline-scissors hover:i-heroicons-solid-scissors"></div>
+        <div class="i-heroicons-outline-search hover:i-heroicons-solid-search"></div>
+        <div class="i-heroicons-outline-search-circle hover:i-heroicons-solid-search-circle"></div>
+        <div class="i-heroicons-outline-selector hover:i-heroicons-solid-selector"></div>
+        <div class="i-heroicons-outline-server hover:i-heroicons-solid-server"></div>
+        <div class="i-heroicons-outline-share hover:i-heroicons-solid-share"></div>
+        <div class="i-heroicons-outline-shield-check hover:i-heroicons-solid-shield-check"></div>
+        <div class="i-heroicons-outline-shield-exclamation hover:i-heroicons-solid-shield-exclamation"></div>
+        <div class="i-heroicons-outline-shopping-bag hover:i-heroicons-solid-shopping-bag"></div>
+        <div class="i-heroicons-outline-shopping-cart hover:i-heroicons-solid-shopping-cart"></div>
+        <div class="i-heroicons-outline-sort-ascending hover:i-heroicons-solid-sort-ascending"></div>
+        <div class="i-heroicons-outline-sort-descending hover:i-heroicons-solid-sort-descending"></div>
+        <div class="i-heroicons-outline-sparkles hover:i-heroicons-solid-sparkles"></div>
+        <div class="i-heroicons-outline-speakerphone hover:i-heroicons-solid-speakerphone"></div>
+        <div class="i-heroicons-outline-star hover:i-heroicons-solid-star"></div>
+        <div class="i-heroicons-outline-status-offline hover:i-heroicons-solid-status-offline"></div>
+        <div class="i-heroicons-outline-status-online hover:i-heroicons-solid-status-online"></div>
+        <div class="i-heroicons-outline-stop hover:i-heroicons-solid-stop"></div>
+        <div class="i-heroicons-outline-sun hover:i-heroicons-solid-sun"></div>
+        <div class="i-heroicons-outline-support hover:i-heroicons-solid-support"></div>
+        <div class="i-heroicons-outline-switch-horizontal hover:i-heroicons-solid-switch-horizontal"></div>
+        <div class="i-heroicons-outline-switch-vertical hover:i-heroicons-solid-switch-vertical"></div>
+        <div class="i-heroicons-outline-table hover:i-heroicons-solid-table"></div>
+        <div class="i-heroicons-outline-tag hover:i-heroicons-solid-tag"></div>
+        <div class="i-heroicons-outline-template hover:i-heroicons-solid-template"></div>
+        <div class="i-heroicons-outline-terminal hover:i-heroicons-solid-terminal"></div>
+        <div class="i-heroicons-outline-thumb-down hover:i-heroicons-solid-thumb-down"></div>
+        <div class="i-heroicons-outline-thumb-up hover:i-heroicons-solid-thumb-up"></div>
+        <div class="i-heroicons-outline-ticket hover:i-heroicons-solid-ticket"></div>
+        <div class="i-heroicons-outline-translate hover:i-heroicons-solid-translate"></div>
+        <div class="i-heroicons-outline-trash hover:i-heroicons-solid-trash"></div>
+        <div class="i-heroicons-outline-trending-down hover:i-heroicons-solid-trending-down"></div>
+        <div class="i-heroicons-outline-trending-up hover:i-heroicons-solid-trending-up"></div>
+        <div class="i-heroicons-outline-truck hover:i-heroicons-solid-truck"></div>
+        <div class="i-heroicons-outline-upload hover:i-heroicons-solid-upload"></div>
+        <div class="i-heroicons-outline-user hover:i-heroicons-solid-user"></div>
+        <div class="i-heroicons-outline-user-add hover:i-heroicons-solid-user-add"></div>
+        <div class="i-heroicons-outline-user-circle hover:i-heroicons-solid-user-circle"></div>
+        <div class="i-heroicons-outline-user-group hover:i-heroicons-solid-user-group"></div>
+        <div class="i-heroicons-outline-user-remove hover:i-heroicons-solid-user-remove"></div>
+        <div class="i-heroicons-outline-users hover:i-heroicons-solid-users"></div>
+        <div class="i-heroicons-outline-variable hover:i-heroicons-solid-variable"></div>
+        <div class="i-heroicons-outline-video-camera hover:i-heroicons-solid-video-camera"></div>
+        <div class="i-heroicons-outline-view-boards hover:i-heroicons-solid-view-boards"></div>
+        <div class="i-heroicons-outline-view-grid hover:i-heroicons-solid-view-grid"></div>
+        <div class="i-heroicons-outline-view-grid-add hover:i-heroicons-solid-view-grid-add"></div>
+        <div class="i-heroicons-outline-view-list hover:i-heroicons-solid-view-list"></div>
+        <div class="i-heroicons-outline-volume-off hover:i-heroicons-solid-volume-off"></div>
+        <div class="i-heroicons-outline-volume-up hover:i-heroicons-solid-volume-up"></div>
+        <div class="i-heroicons-outline-wifi hover:i-heroicons-solid-wifi"></div>
+        <div class="i-heroicons-outline-x hover:i-heroicons-solid-x"></div>
+        <div class="i-heroicons-outline-x-circle hover:i-heroicons-solid-x-circle"></div>
+        <div class="i-heroicons-outline-zoom-in hover:i-heroicons-solid-zoom-in"></div>
+        <div class="i-heroicons-outline-zoom-out hover:i-heroicons-solid-zoom-out"></div>
+      </div>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="media">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#media">Media</a>
+      <div class="flex flex-wrap">
+        <div class="flex-1 p-4">
+          <span>Image</span>
+          <img src="/design.jpg" />
+        </div>
+        <div class="flex-1 p-4">
+          <span>Iframe</span>
+          <iframe src="/"></iframe>
+        </div>
+        <div class="flex-1 p-4">
+          <span>Audio</span>
+          <audio controls></audio>
+        </div>
+        <div class="flex-1 p-4">
+          <span>Video</span>
+          <video autoplay loop playsinline preload="auto"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="inspiration">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#inspiration">Credits / Inspiration</a>
+      <div class="flex flex-col">
+        <a class="link" href="https://vercel.com/design">Vercel Design</a>
+        <a class="link" href="https://primer.style">Github Design</a>
+      </div>
+    </section>
   </body>
 </html>
+  
