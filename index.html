@@ -14,14 +14,14 @@
       /* TODO: decide if this goes into raw.css */
       label { display: inline-flex;flex-direction: column;margin: 8px; }
       a { padding: 12px 4px; }
-      button[aria-label] { width: 40px;padding: 0; }
+      button[aria-label] { width: 40px;padding: 0;vertical-align: middle; }
       [type="date"], [type="time"], [type="month"], [type="week"], [type="datetime-local"] { padding: 0 40px 0 16px;background-position: right 10px center; }
     </style>
   </head>
   <body>
     <h1><a id="rawcss" href="#rawcss">rawcss</a></h1>
     <p style="margin-top: 40px;font-size: 20px;"><strong>rawcss</strong> is a pure CSS design starter that brings structure when starting a design system.</p>
-    <p style="font-size: 20px;">It includes a <a href="#dark" onclick="dark()">dark theme</a> and a <a href="#nocss" onclick="swap()">without theme</a></p>
+    <p style="font-size: 20px;">It includes a <button onclick="dark()">dark theme</button> and a <button onclick="swap()">without theme</button></p>
     <p style="margin: 8px 0;font-size: 20px;">The structure is the following:</p>
     <ul>
       <li><a href="#layout">Layout</a></li>
@@ -105,7 +105,7 @@
     <script>
       window.$ = (s, start = document) => start.querySelector(s)
       window.$$ = (s, start = document) => Array.from(start.querySelectorAll(s))
-      window.ex = (el, n) => ($('.block > div').outerHTML = $('.block > pre').innerText = [`<div class="row center space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row evenly">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row stretch">\n  <div>1</div>\n  <div>2</div>\n  <div class="column">\n    <div class="left">1</div>\n    <div class="center">2</div>\n    <div class="right">3</div>\n  </div>\n</div>`, `<div class="row stretch space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n  <div>4</div>\n  <div>5</div>\n  <div>6</div>\n  <div>7</div>\n  <div>8</div>\n  <div>9</div>\n  <div>10</div>\n  <div>11</div>\n  <div>12</div>\n</div>`, `<div class="row">\n  <div style="margin-bottom: auto;">1</div>\n  <div style="margin: auto;">2</div>\n  <div style="margin-top: auto;">3</div>\n</div>`][n], $('[active]').removeAttribute('active'), el.setAttribute('active', ''))
+      window.ex = (el, n) => ($('.block > div').outerHTML = $('.block > pre').innerText = [`<div class="row center space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row evenly">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n</div>`, `<div class="row stretch">\n  <div>1</div>\n  <div>2</div>\n  <div class="column">\n    <div class="left">1</div>\n    <div class="center">2</div>\n    <div class="right">3</div>\n  </div>\n</div>`, `<div class="row stretch space">\n  <div>1</div>\n  <div>2</div>\n  <div>3</div>\n  <div>4</div>\n  <div>5</div>\n  <div>6</div>\n</div>`, `<div class="row">\n  <div style="margin-bottom: auto;">1</div>\n  <div style="margin: auto;">2</div>\n  <div style="margin-top: auto;">3</div>\n</div>`][n], $('[active]').removeAttribute('active'), el.setAttribute('active', ''))
     </script>
     <div class="row center">
       <div class="column space">
@@ -189,28 +189,6 @@
       </details>
     </div>
     <h2><a id="elements" href="#elements">Elements</a></h2>
-    <a id="a" href="#a">a id</a>
-    <a href="">a href</a>
-    <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer" external>a external</a>
-    <abbr title="Abbreviation">abbr</abbr>
-    <b>b</b>
-    <code>code</code>
-    <del>del</del>
-    <em>em</em>
-    <i>i</i>
-    <ins>ins</ins>
-    <kbd>kbd</kbd>
-    <mark>mark</mark>
-    <q>q</q>
-    <s>s</s>
-    <small>small</small>
-    <strong>strong</strong>
-    <sub>sub</sub>
-    <sup>sup</sup>
-    <u>u</u>
-    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M11 16l4-4-4-4" fill="none"/></svg>
-    <span style="text-decoration: underline overline">Align</span>
-    <span title="The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec.">Hover me!</span>
     <h1>h1</h1>
     <h2>h2</h2>
     <h3>h3</h3>
@@ -237,6 +215,29 @@
         <div>div 3</div>
       </div>
     </details>
+    <hr>
+    <a id="a" href="#a">a id</a>
+    <a href="">a href</a>
+    <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer" external>a external</a>
+    <abbr title="Abbreviation">abbr</abbr>
+    <b>b</b>
+    <code>code</code>
+    <del>del</del>
+    <em>em</em>
+    <i>i</i>
+    <ins>ins</ins>
+    <kbd>kbd</kbd>
+    <mark>mark</mark>
+    <q>q</q>
+    <s>s</s>
+    <small>small</small>
+    <strong>strong</strong>
+    <sub>sub</sub>
+    <sup>sup</sup>
+    <u>u</u>
+    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M11 16l4-4-4-4" fill="none"/></svg>
+    <span style="text-decoration: underline overline">Align</span>
+    <span title="The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec. The title attribute is displayed as a CSS tooltip. It can be super long, but will overflow eventually. The native title will appear after 3 sec.">Hover me!</span>
     <h2><a id="variables" href="#variables">Variables</a></h2>
     <style>
       .color { width: 16px;height: 16px;margin: 2px;border-radius: 2px; }
