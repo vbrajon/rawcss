@@ -6,312 +6,69 @@
     <link rel="stylesheet" href="/index.css" />
     <script type="module">
       import 'uno.css'
+      // import { presetUno } from 'unocss'
+      // window.theme = presetUno()
+      document.body.hidden = false
     </script>
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css" /> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script> -->
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-
   </head>
-  <body class="container mx-auto overscroll-none">
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="elements">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#elements">Elements</a>
-      <h1>h1</h1>
-      <h2>h2</h2>
-      <h3>h3</h3>
-      <h4>h4</h4>
-      <h5>h5</h5>
-      <h6>h6</h6>
-      <p>p</p>
-      <pre>pre</pre>
-      <blockquote>blockquote</blockquote>
-      <ul>
-        <li>ul</li>
-        <li>
-          <ol>
-            <li>ol</li>
-          </ol>
-        </li>
-      </ul>
-      <details>
-        <summary>details</summary>
-        <div>
-          <div>Line 1</div>
-          <div>Line 2</div>
-          <div>
-            <details>
-              <summary>Line 3</summary>
-              <div>
-                <div>Line 4</div>
-                <div>Line 5</div>
-              </div>
-            </details>
-          </div>
-        </div>
-      </details>
-      <!-- <details class="popup">
-        <summary class="button">Popup</summary>
-        <div class="column">
-          <div class="thick">This is a CSS Popup, click outside to close it.</div>
-          <div class="row space right">
-            <button class="ghost">Fake</button>
-            <button>Buttons</button>
-          </div>
-        </div>
-      </details> -->
-      <hr />
-      <a href="">a</a>
-      <a id="a" href="#a">a id</a>
-      <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
-      <abbr title="Abbreviation">abbr</abbr>
-      <b>b</b>
-      <code>code</code>
-      <del>del</del>
-      <em>em</em>
-      <i>i</i>
-      <ins>ins</ins>
-      <kbd>kbd</kbd>
-      <mark>mark</mark>
-      <q>q</q>
-      <s>s</s>
-      <small>small</small>
-      <strong>strong</strong>
-      <sub>sub</sub>
-      <sup>sup</sup>
-      <u>u</u>
-      <span style="text-decoration: underline overline">Align</span>
-    </section>
-
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="forms">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#forms">Forms</a>
-      <form class="form flex space-x-8">
-        <div class="flex-1 flex flex-col space-y-4">
-          <label>
-            <span>Text</span>
-            <input type="text" />
-          </label>
-          <label>
-            <span>Number</span>
-            <input type="number" />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" />
-          </label>
-          <label>
-            <span>Password</span>
-            <input type="password" />
-          </label>
-          <label>
-            <span>Tel</span>
-            <input type="tel" />
-          </label>
-          <label>
-            <span>Url</span>
-            <input type="url" />
-          </label>
-          <label>
-            <span>Search</span>
-            <input type="search" />
-          </label>
-          <label>
-            <span>Text (placeholder)</span>
-            <input type="text" placeholder="placeholder" />
-          </label>
-          <label>
-            <span>Text (disabled)</span>
-            <input type="text" disabled />
-          </label>
-          <label>
-            <span>Url (required)</span>
-            <input type="url" required value="https://" />
-          </label>
-          <label>
-            <span>Datetime-local</span>
-            <input type="datetime-local" />
-          </label>
-          <label>
-            <span>Date</span>
-            <input type="date" />
-          </label>
-          <label>
-            <span>Time</span>
-            <input type="time" />
-          </label>
-          <label>
-            <span>Month</span>
-            <input type="month" />
-          </label>
-          <label>
-            <span>Week</span>
-            <input type="week" />
-          </label>
-        </div>
-
-        <div class="flex-1 flex flex-col space-y-4">
-          <label>
-            <span>Select</span>
-            <select>
-              <option></option>
-              <option selected>Option 1</option>
-              <option>Option 2</option>
-              <optgroup label="Group 1">
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </optgroup>
-              <optgroup label="Group 2">
-                <option>Option 5</option>
-                <option>Option 6</option>
-              </optgroup>
-              <option>Option 7</option>
-            </select>
-          </label>
-          <label>
-            <span>Select (multiple)</span>
-            <select multiple>
-              <option selected>Option 1</option>
-              <option selected>Option 2</option>
-              <optgroup label="Group 1">
-                <option>Option 3</option>
-                <option>Option 4</option>
-              </optgroup>
-              <optgroup label="Group 2">
-                <option>Option 5</option>
-                <option>Option 6</option>
-              </optgroup>
-              <option>Option 7</option>
-            </select>
-          </label>
-          <label>
-            <span>Textarea</span>
-            <textarea rows="4"></textarea>
-          </label>
-          <fieldset class="flex flex-col">
-            <span>Checkbox</span>
-            <label>
-              <input type="checkbox" name="checkbox" value="unchecked" />
-              <span>Unchecked</span>
-            </label>
-            <label>
-              <input type="checkbox" name="checkbox" value="checked" checked />
-              <span>Checked</span>
-            </label>
-            <label>
-              <input type="checkbox" name="checkbox" value="disabled" disabled />
-              <span>Disabled</span>
-            </label>
-            <label>
-              <input type="checkbox" name="checkbox" value="indeterminate" indeterminate />
-              <span>Indeterminate</span>
-            </label>
-            <script>
-              window.$ = (s, root = document) => root.querySelector(s)
-              window.$$ = (s, root = document) => Array.from(root.querySelectorAll(s))
-              $$('[indeterminate]').forEach(el => (el.indeterminate = true))
-            </script>
-          </fieldset>
-          <fieldset class="flex flex-col">
-            <span>Radio</span>
-            <label>
-              <input type="radio" name="radio" value="unchecked" />
-              <span>Unchecked</span>
-            </label>
-            <label>
-              <input type="radio" name="radio" value="checked" checked />
-              <span>Checked</span>
-            </label>
-            <label>
-              <input type="radio" name="radio" value="disabled" disabled />
-              <span>Disabled</span>
-            </label>
-          </fieldset>
-          <label>
-            <span>File (multiple)</span>
-            <input class="" type="file" multiple />
-          </label>
-          <label>
-            <span>Color</span>
-            <input type="color" value="#ffdd55" />
-          </label>
-          <label>
-            <span>Range</span>
-            <input type="range" />
-          </label>
-          <label>
-            <span>Button</span>
-            <!-- <input type="button" value="button" /> -->
-            <button class="button">Button</button>
-          </label>
-        </div>
-      </form>
-    </section>
-
+  <body class="container text-slate-800 mx-auto overscroll-none" hidden>
     <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="typography">
       <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#typography">Typography</a>
-      <div>
+      <div class="flex flex-col space-y-2">
         <div>
-          <h1 class="title-1">h1</h1>
-          <h2 class="title-2">h2</h2>
-          <h3 class="title-3">h3</h3>
+          <h1 class="title-1">Title 1</h1>
+          <h2 class="title-2">Title 2</h2>
+          <h3 class="title-3">Title 3</h3>
+          <h3 class="title-4">Title 4</h3>
         </div>
         <div>
-          <p class="text-1">p1</p>
-          <p class="text-2">p2</p>
-          <p class="text-3">p3</p>
+          <p class="text-1">Text 1</p>
+          <p class="text-2">Text 2</p>
+          <p class="text-3">Text 3</p>
+          <p class="text-4">Text 4</p>
         </div>
-        <div>
+        <!-- <div>
           <a class="link">link</a>
           <a class="link text-sm">link</a>
           <a class="link text-xs">link</a>
-        </div>
-        <div>
-          <button class="button">button</button>
-          <button class="button text-sm">button</button>
-          <button class="button text-xs">button</button>
         </div>
         <div>
           <span class="badge">badge</span>
           <span class="badge text-sm">badge</span>
           <span class="badge text-xs">badge</span>
         </div>
+        <div>
+          <button class="button">button</button>
+          <button class="button text-sm">button</button>
+          <button class="button text-xs">button</button>
+        </div> -->
+        <div class="flex gap-4">
+          <p class="hidden lg:block focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+            Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
+            man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+          </p>
+          <p class="mb-auto text-sm focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+            Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
+            man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+          </p>
+          <p class="mb-auto text-xs focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+            Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
+            man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
+          </p>
+        </div>
+        <article class="prose">
+          I am a
+          <a href="#">link</a>
+          and a
+          <button>button</button>
+          in a prose article.
+        </article>
       </div>
-
-      <article class="prose">
-        I am a
-        <a href="#">link</a>
-        and a
-        <button>button</button>
-        in a prose article.
-      </article>
-
-      <div class="line-clamp-3">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of
-        the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-        to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-        like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-        has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-        with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
-        versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem
-        Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-        an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </div>
-
-      
     </section>
 
     <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="colors">
@@ -334,6 +91,16 @@
           <div class="w-8 h-8 rounded-sm bg-indigo-900"></div>
         </div>
       </div>
+      <script>
+        window.$ = (s, root = document) => root.querySelector(s)
+        window.$$ = (s, root = document) => Array.from(root.querySelectorAll(s))
+        $$('#colors [class*="bg-"]').forEach(el => {
+          const text = Array.from(el.classList).find(c => /^bg-/.test(c))
+          el.onclick = () => console.log(text) || navigator.clipboard.writeText(text)
+          el.classList.add('cursor-pointer')
+          el.title = text
+        })
+      </script>
     </section>
 
     <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="icons">
@@ -629,8 +396,9 @@
         <div class="i-feather-zoom-in"></div>
         <div class="i-feather-zoom-out"></div>
       </div>
-      <a class="link p-2" href="https://icones.netlify.app/collections/heroicons-outline">Heroicons Collection</a>
+
       <!-- copy((await (await fetch('https://icones.netlify.app/collections/heroicons-outline-meta.json')).json()).icons.map(i => `<div class="i-heroicons-outline-${i} hover:i-heroicons-solid-${i}"></div>`).join('\n')) -->
+      <a class="link p-2" href="https://icones.netlify.app/collections/heroicons-outline">Heroicons Collection</a>
       <div class="feather text-xl flex flex-wrap m-2 gap-2">
         <div class="i-heroicons-outline-academic-cap hover:i-heroicons-solid-academic-cap"></div>
         <div class="i-heroicons-outline-adjustments hover:i-heroicons-solid-adjustments"></div>
@@ -863,29 +631,295 @@
         <div class="i-heroicons-outline-zoom-in hover:i-heroicons-solid-zoom-in"></div>
         <div class="i-heroicons-outline-zoom-out hover:i-heroicons-solid-zoom-out"></div>
       </div>
+
+      <script>
+        window.$ = (s, root = document) => root.querySelector(s)
+        window.$$ = (s, root = document) => Array.from(root.querySelectorAll(s))
+        $$('#icons [class*="i-"]').forEach(el => {
+          const text = el.outerHTML
+          el.onclick = () => console.log(text) || navigator.clipboard.writeText(text)
+          el.classList.add('cursor-pointer')
+          el.title = text
+        })
+      </script>
     </section>
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="media">
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="forms">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#forms">Forms</a>
+      <style>
+        .form label {
+          display: flex;
+          flex-direction: column;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .form label > span {
+          margin-right: 0.5rem;
+          margin-left: 0.5rem;
+        }
+
+        .form fieldset > span {
+          font-weight: 500;
+        }
+
+        .form fieldset label {
+          flex-direction: row;
+          align-items: center;
+          font-weight: 400;
+        }
+      </style>
+      <form class="form flex flex-col flex-wrap sm:h-[1040px] lg:h-[680px] gap-8 text-sm">
+        <label>
+          <span>Text</span>
+          <input type="text" />
+        </label>
+        <label>
+          <span>Number</span>
+          <input type="number" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" />
+        </label>
+        <label>
+          <span>Tel</span>
+          <input type="tel" />
+        </label>
+        <label>
+          <span>Url</span>
+          <input type="url" />
+        </label>
+        <label>
+          <span>Search</span>
+          <input type="search" />
+        </label>
+        <label>
+          <span>Text (placeholder)</span>
+          <input type="text" placeholder="placeholder" />
+        </label>
+        <label>
+          <span>Text (disabled)</span>
+          <input type="text" disabled />
+        </label>
+        <label>
+          <span>Url (required)</span>
+          <input type="url" required value="https://" />
+        </label>
+        <label>
+          <span>Datetime-local</span>
+          <input type="datetime-local" />
+        </label>
+        <label>
+          <span>Date</span>
+          <input type="date" />
+        </label>
+        <label>
+          <span>Time</span>
+          <input type="time" />
+        </label>
+        <label>
+          <span>Month</span>
+          <input type="month" />
+        </label>
+        <label>
+          <span>Week</span>
+          <input type="week" />
+        </label>
+        <label>
+          <span>Select</span>
+          <select>
+            <option></option>
+            <option selected>Option 1</option>
+            <option>Option 2</option>
+            <optgroup label="Group 1">
+              <option>Option 3</option>
+              <option>Option 4</option>
+            </optgroup>
+            <optgroup label="Group 2">
+              <option>Option 5</option>
+              <option>Option 6</option>
+            </optgroup>
+            <option>Option 7</option>
+          </select>
+        </label>
+        <label>
+          <span>Select (multiple)</span>
+          <select multiple>
+            <option selected>Option 1</option>
+            <option selected>Option 2</option>
+            <optgroup label="Group 1">
+              <option>Option 3</option>
+              <option>Option 4</option>
+            </optgroup>
+            <optgroup label="Group 2">
+              <option>Option 5</option>
+              <option>Option 6</option>
+            </optgroup>
+            <option>Option 7</option>
+          </select>
+        </label>
+        <label>
+          <span>Textarea</span>
+          <textarea rows="4"></textarea>
+        </label>
+        <div class="flex">
+          <fieldset class="flex-1 flex flex-col">
+            <span>Checkbox</span>
+            <label>
+              <input type="checkbox" name="checkbox" value="unchecked" />
+              <span>Unchecked</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="checked" checked />
+              <span>Checked</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="disabled" disabled />
+              <span>Disabled</span>
+            </label>
+            <label>
+              <input type="checkbox" name="checkbox" value="indeterminate" indeterminate />
+              <span>Indeterminate</span>
+            </label>
+            <script>
+              window.$ = (s, root = document) => root.querySelector(s)
+              window.$$ = (s, root = document) => Array.from(root.querySelectorAll(s))
+              $$('[indeterminate]').forEach(el => (el.indeterminate = true))
+            </script>
+          </fieldset>
+          <fieldset class="flex-1 flex flex-col">
+            <span>Radio</span>
+            <label>
+              <input type="radio" name="radio" value="unchecked" />
+              <span>Unchecked</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" value="checked" checked />
+              <span>Checked</span>
+            </label>
+            <label>
+              <input type="radio" name="radio" value="disabled" disabled />
+              <span>Disabled</span>
+            </label>
+          </fieldset>
+        </div>
+        <label>
+          <span>File (multiple)</span>
+          <input class="" type="file" multiple />
+        </label>
+        <div class="flex gap-8 my-auto">
+          <label>
+            <span>Color</span>
+            <input type="color" value="#ffdd55" />
+          </label>
+          <label class="flex-1">
+            <span>Range</span>
+            <input type="range" />
+          </label>
+        </div>
+        <label>
+          <span>Button</span>
+          <!-- <input type="button" value="button" /> -->
+          <button class="button">Button</button>
+        </label>
+      </form>
+    </section>
+
+    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="elements">
+      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#elements">Elements</a>
+      <h1>h1</h1>
+      <h2>h2</h2>
+      <h3>h3</h3>
+      <h4>h4</h4>
+      <h5>h5</h5>
+      <h6>h6</h6>
+      <p>p</p>
+      <pre>pre</pre>
+      <blockquote>blockquote</blockquote>
+      <ul>
+        <li>ul</li>
+        <li>
+          <ol>
+            <li>ol</li>
+          </ol>
+        </li>
+      </ul>
+      <details>
+        <summary>details</summary>
+        <div>
+          <div>Line 1</div>
+          <div>Line 2</div>
+          <div>
+            <details open>
+              <summary>Line 3</summary>
+              <div>
+                <div>Line 4</div>
+                <div>Line 5</div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </details>
+      <hr />
+      <a href="">a</a>
+      <a id="a" href="#a">a id</a>
+      <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
+      <abbr title="Abbreviation">abbr</abbr>
+      <b>b</b>
+      <code>code</code>
+      <del>del</del>
+      <em>em</em>
+      <i>i</i>
+      <ins>ins</ins>
+      <kbd>kbd</kbd>
+      <mark>mark</mark>
+      <q>q</q>
+      <s>s</s>
+      <small>small</small>
+      <strong>strong</strong>
+      <sub>sub</sub>
+      <sup>sup</sup>
+      <u>u</u>
+      <span style="text-decoration: underline overline">Align</span>
+      <hr />
+      <details class="popup button hover:text-inherit">
+        <summary>popup</summary>
+        <div class="flex flex-col rounded-lg">
+          <div>This is a CSS Popup, click outside to close it.</div>
+          <div class="flex items-center mt-auto ml-auto gap-4">
+            <button class="link">Fake</button>
+            <button class="button">Click outside</button>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="media">
       <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#media">Media</a>
       <div class="flex flex-wrap">
-        <div class="flex-1 p-4">
-          <span>Image</span>
-          <img src="/design.jpg" />
-        </div>
         <div class="flex-1 p-4">
           <span>Iframe</span>
           <iframe src="/"></iframe>
         </div>
         <div class="flex-1 p-4">
-          <span>Audio</span>
-          <audio controls></audio>
+          <span>Image</span>
+          <img src="/design.jpg" />
         </div>
         <div class="flex-1 p-4">
           <span>Video</span>
           <video autoplay loop playsinline preload="auto"></video>
         </div>
+        <div class="flex-1 p-4">
+          <span>Audio</span>
+          <audio controls></audio>
+        </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="inspiration">
       <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#inspiration">Credits / Inspiration</a>
@@ -896,4 +930,3 @@
     </section>
   </body>
 </html>
-  
