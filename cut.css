@@ -1,0 +1,88 @@
+/*! Details */
+details > summary {
+  cursor: pointer;
+  display: inline-flex;
+}
+details:where(:not(.popup)) > summary::before {
+  display: inline-flex;
+  align-self: center;
+  content: '';
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath d='M9 5l7 7l-7 7' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
+  mask: var(--un-icon) no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: rgb(156 163 175);
+  height: 1rem;
+  width: 1rem;
+  margin-left: -0.25rem;
+  margin-right: 0.25rem;
+}
+details[open]:where(:not(.popup)) > summary::before {
+  transform: rotate(90deg);
+}
+details:where(:not(.popup)) > div {
+  border-left-width: 1px;
+  margin-left: 0.25rem;
+  padding-left: 0.75rem;
+}
+details.popup > summary::before {
+  content: none;
+}
+details.popup[open] > summary::before {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: default;
+  background-color: rgba(12, 12, 13, 0.6);
+  content: ' ';
+}
+.popup > :where(div) {
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  min-height: 25vh;
+  min-width: 50vw;
+  max-height: 80vh;
+  max-width: 90vw;
+  margin: 10vh auto;
+  padding: 20px;
+  background: white;
+  transform: translateX(-50%);
+}
+
+/*! Tooltip */
+[title] {
+  position: relative;
+  overflow: visible;
+}
+[title]:hover::after {
+  /* @apply z-1 absolute content-[attr(title)] top-0 left-[50%] [transform:translate(-50%,calc(-100%-0.5rem) pointer-events-none text-sm line-clamp-3 max-w-[max-content] w-[350px] text-sm text-white bg-slate-800 rounded; */
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  pointer-events: none;
+  overflow: hidden;
+  display: -webkit-box;
+  max-width: max-content;
+  width: 384px;
+  padding-top: 0.25em;
+  padding-right: 0.5em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  color: white;
+  background: rgb(30, 41, 59);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  content: attr(title);
+  transform: translate(-50%, calc(-100% - 0.5rem));
+}

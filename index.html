@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/index.css" />
     <script type="module">
       import 'uno.css'
       // import { presetUno } from 'unocss'
@@ -16,9 +15,18 @@
 
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
-  <body class="container text-slate-800 mx-auto overscroll-none" hidden>
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="typography">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#typography">Typography</a>
+  <body class="reset cut container mx-auto overscroll-none bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-400" hidden>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="typography">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#typography">Typography</a>
+      <div class="absolute -top-4 right-4 divide-x border bg-white py-0.5 px-2">
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('text-xs')">XS</button>
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('text-sm')">SM</button>
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('text-base')">M</button>
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('text-lg')">LG</button>
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('text-xl')">XL</button>
+        <button onclick="document.body.classList.add('light')"><div class="i-feather-sun"></div></button>
+        <button onclick="document.body.classList.add('dark')"><div class="i-feather-moon"></div></button>
+      </div>
       <div class="flex flex-col space-y-2">
         <div>
           <h1 class="title-1">Title 1</h1>
@@ -48,15 +56,15 @@
           <button class="button text-xs">button</button>
         </div> -->
         <div class="flex gap-4">
-          <p class="hidden lg:block focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+          <p class="focus:border-l-3 focus:border-l-blue hidden focus:rounded-sm focus:pl-2 focus:outline-none lg:block" contenteditable>
             Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
             man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
           </p>
-          <p class="mb-auto text-sm focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+          <p class="focus:border-l-3 focus:border-l-blue mb-auto text-sm focus:rounded-sm focus:pl-2 focus:outline-none" contenteditable>
             Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
             man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
           </p>
-          <p class="mb-auto text-xs focus:outline-none focus:border-l-3 focus:border-l-blue focus:rounded-sm focus:pl-2" contenteditable>
+          <p class="focus:border-l-3 focus:border-l-blue mb-auto text-xs focus:rounded-sm focus:pl-2 focus:outline-none" contenteditable>
             Such a riot of sea and wind strews the whole extent of beach with whatever has been lost or thrown overboard, or torn out of sunken ships. Many a
             man has made a good week’s work in a single day by what he has found while walking along the Beach when the surf was down.
           </p>
@@ -71,24 +79,24 @@
       </div>
     </section>
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="colors">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#colors">Colors</a>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="colors">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#colors">Colors</a>
       <div class="w-[210px] border">
-        <div class="flex justify-between m-2">
+        <div class="m-2 flex justify-between">
           <div class="font-mono text-xs">bg-indigo</div>
           <div class="font-mono text-xs">50-900</div>
         </div>
-        <div class="flex flex-wrap m-2 gap-2">
-          <div class="w-8 h-8 rounded-sm bg-indigo-50"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-100"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-200"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-300"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-400"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-500"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-600"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-700"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-800"></div>
-          <div class="w-8 h-8 rounded-sm bg-indigo-900"></div>
+        <div class="m-2 flex flex-wrap gap-2">
+          <div class="h-8 w-8 rounded-sm bg-indigo-50"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-100"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-200"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-300"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-400"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-500"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-600"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-700"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-800"></div>
+          <div class="h-8 w-8 rounded-sm bg-indigo-900"></div>
         </div>
       </div>
       <script>
@@ -103,12 +111,12 @@
       </script>
     </section>
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="icons">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#icons">Icons</a>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="icons">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#icons">Icons</a>
 
       <!-- copy((await (await fetch('https://icones.netlify.app/collections/feather-meta.json')).json()).icons.map(i => `<div class="i-feather-${i}"></div>`).join('\n')) -->
       <a class="link p-2" href="https://icones.netlify.app/collections/feather">Feather Collection</a>
-      <div class="feather text-xl flex flex-wrap m-2 gap-2">
+      <div class="feather m-2 flex flex-wrap gap-2 text-xl">
         <div class="i-feather-activity"></div>
         <div class="i-feather-airplay"></div>
         <div class="i-feather-alert-circle"></div>
@@ -399,7 +407,7 @@
 
       <!-- copy((await (await fetch('https://icones.netlify.app/collections/heroicons-outline-meta.json')).json()).icons.map(i => `<div class="i-heroicons-outline-${i} hover:i-heroicons-solid-${i}"></div>`).join('\n')) -->
       <a class="link p-2" href="https://icones.netlify.app/collections/heroicons-outline">Heroicons Collection</a>
-      <div class="feather text-xl flex flex-wrap m-2 gap-2">
+      <div class="feather m-2 flex flex-wrap gap-2 text-xl">
         <div class="i-heroicons-outline-academic-cap hover:i-heroicons-solid-academic-cap"></div>
         <div class="i-heroicons-outline-adjustments hover:i-heroicons-solid-adjustments"></div>
         <div class="i-heroicons-outline-annotation hover:i-heroicons-solid-annotation"></div>
@@ -644,8 +652,8 @@
       </script>
     </section>
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="forms">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#forms">Forms</a>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="forms">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#forms">Forms</a>
       <style>
         .form label {
           display: flex;
@@ -669,7 +677,7 @@
           font-weight: 400;
         }
       </style>
-      <form class="form flex flex-col flex-wrap sm:h-[1040px] lg:h-[680px] gap-8 text-sm">
+      <form class="form flex flex-col flex-wrap gap-8 text-sm sm:h-[1040px] lg:h-[680px]">
         <label>
           <span>Text</span>
           <input type="text" />
@@ -768,7 +776,7 @@
           <textarea rows="4"></textarea>
         </label>
         <div class="flex">
-          <fieldset class="flex-1 flex flex-col">
+          <fieldset class="flex flex-1 flex-col">
             <span>Checkbox</span>
             <label>
               <input type="checkbox" name="checkbox" value="unchecked" />
@@ -792,7 +800,7 @@
               $$('[indeterminate]').forEach(el => (el.indeterminate = true))
             </script>
           </fieldset>
-          <fieldset class="flex-1 flex flex-col">
+          <fieldset class="flex flex-1 flex-col">
             <span>Radio</span>
             <label>
               <input type="radio" name="radio" value="unchecked" />
@@ -812,7 +820,7 @@
           <span>File (multiple)</span>
           <input class="" type="file" multiple />
         </label>
-        <div class="flex gap-8 my-auto">
+        <div class="my-auto flex gap-8">
           <label>
             <span>Color</span>
             <input type="color" value="#ffdd55" />
@@ -830,25 +838,58 @@
       </form>
     </section>
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="elements">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#elements">Elements</a>
-      <h1>h1</h1>
-      <h2>h2</h2>
-      <h3>h3</h3>
-      <h4>h4</h4>
-      <h5>h5</h5>
-      <h6>h6</h6>
-      <p>p</p>
-      <pre>pre</pre>
-      <blockquote>blockquote</blockquote>
-      <ul>
-        <li>ul</li>
-        <li>
-          <ol>
-            <li>ol</li>
-          </ol>
-        </li>
-      </ul>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="elements">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#elements">Elements</a>
+      <div class="absolute -top-4 right-4 divide-x border bg-white py-0.5 px-2">
+        <button onclick="event.path.find(e => e.nodeName === 'SECTION').classList.add('prose')">PROSE</button>
+      </div>
+      <div>
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>p</p>
+        <pre>pre</pre>
+        <blockquote>blockquote</blockquote>
+        <ul>
+          <li>ul</li>
+          <li>
+            <ol>
+              <li>ol</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <a href="">a</a>
+        <a id="a" href="#a">a id</a>
+        <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
+        <b>b</b>
+        <code>code</code>
+        <i>i</i>
+        <u>u</u>
+        <q>q</q>
+        <s>s</s>
+        <small>small</small>
+      </div>
+      <div>
+        <abbr title="Abbreviation">abbr</abbr>
+        <kbd>kbd</kbd>
+        <em>em</em>
+        <strong>strong</strong>
+        <del>del</del>
+        <ins>ins</ins>
+        <mark>mark</mark>
+        <sub>sub</sub>
+        <sup>sup</sup>
+        <span style="text-decoration: underline overline">Align</span>
+      </div>
+    </section>
+
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="cut">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#cut">Cut</a>
       <details>
         <summary>details</summary>
         <div>
@@ -865,33 +906,11 @@
           </div>
         </div>
       </details>
-      <hr />
-      <a href="">a</a>
-      <a id="a" href="#a">a id</a>
-      <a href="https://github.com/vbrajon" target="_blank" rel="noopener noreferrer">a external</a>
-      <abbr title="Abbreviation">abbr</abbr>
-      <b>b</b>
-      <code>code</code>
-      <del>del</del>
-      <em>em</em>
-      <i>i</i>
-      <ins>ins</ins>
-      <kbd>kbd</kbd>
-      <mark>mark</mark>
-      <q>q</q>
-      <s>s</s>
-      <small>small</small>
-      <strong>strong</strong>
-      <sub>sub</sub>
-      <sup>sup</sup>
-      <u>u</u>
-      <span style="text-decoration: underline overline">Align</span>
-      <hr />
       <details class="popup button hover:text-inherit">
         <summary>popup</summary>
         <div class="flex flex-col rounded-lg">
           <div>This is a CSS Popup, click outside to close it.</div>
-          <div class="flex items-center mt-auto ml-auto gap-4">
+          <div class="mt-auto ml-auto flex items-center gap-4">
             <button class="link">Fake</button>
             <button class="button">Click outside</button>
           </div>
@@ -921,9 +940,10 @@
       </div>
     </section> -->
 
-    <section class="relative border shadow-md my-12 py-6 px-8 scroll-m-4" id="inspiration">
-      <a class="absolute -top-4 py-0.5 px-2 text-lg font-medium bg-white" href="#inspiration">Credits / Inspiration</a>
+    <section class="relative my-12 scroll-m-4 border py-6 px-8 shadow-md" id="inspiration">
+      <a class="absolute -top-4 bg-white py-0.5 px-2 text-lg font-medium" href="#inspiration">Credits / Inspiration</a>
       <div class="flex flex-col">
+        <a class="link" href="https://tailwindcss.com">Tailwind CSS</a>
         <a class="link" href="https://vercel.com/design">Vercel Design</a>
         <a class="link" href="https://primer.style">Github Design</a>
       </div>
